@@ -145,6 +145,7 @@ function handleNavigation(navItem) {
         mainSection.style.gridTemplateColumns = '1fr 3fr 1fr';
         contentArea.classList.add('active');
         rightSidebar.classList.add('active');
+        
     } else if (navText === 'experts') {
         // Experts layout: 1fr 3fr 2fr
         mainSection.style.gridTemplateColumns = '1fr 3fr 2fr';
@@ -152,6 +153,8 @@ function handleNavigation(navItem) {
         rightSidebar.classList.remove('active');
         expertArea.classList.add('active');
         chatsSidebar.classList.add('active');
+        resourcesArea.classList.remove('active');
+        resourcesAreaContents.classList.remove('active');
     }  else if (navText === 'resources') {
         // Experts layout: 1fr 3fr 1fr
         mainSection.style.gridTemplateColumns = '1fr 3fr 1fr';
