@@ -1,0 +1,182 @@
+"use strict";
+
+// For calendar
+let theCalender = document.querySelector("#calendar");
+let calendarDays = document.querySelector("#days");
+let theCurrentMonth = document.querySelector("#currentMonth");
+let thedaysWeek = document.querySelector("#daysWeek");
+let eachDayDiv = document.getElementById('eachDayDiv');
+
+let currentMonth = new Date().getMonth(); //The current month we are in
+let currentYear = new Date().getFullYear(); //The current year we are in
+
+let monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+];
+
+let dayHeaders = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+// Displaying the current Month and Year
+theCurrentMonth.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+theCurrentMonth.style.color = "#0B1A43";
+
+function showCalendar() {
+    // Clear previous calendar days
+    thedaysWeek.innerHTML = "";
+    eachDayDiv.innerHTML = "";
+
+    // Day headers
+    dayHeaders.forEach((day) => {
+        const dayHeader = document.createElement('div');
+        dayHeader.className = "calendar-day day-header";
+        dayHeader.textContent = day;
+        dayHeader.style.color = "#020304d1";
+        dayHeader.style.fontSize = "14px";
+        thedaysWeek.appendChild(dayHeader);
+    });
+
+    // Get first day of month and number of days
+    const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+    
+    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate(); //The 0 here means the last day of the previous month, which is the current month we are in.
+    
+    // Empty cells for days before month starts
+    for (let i = 0; i < firstDay; i++) {
+        const emptyDay = document.createElement('div');
+        emptyDay.className = 'calendar-day disabled';
+        emptyDay.style.color = '#0B1A434D';
+        eachDayDiv.appendChild(emptyDay);
+    }
+
+    // Today's date of the current month
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Resetting time to midnight for accurate comparison and also gives the current date and time (i.e., "now").
+    
+    for (let day = 1; day <= daysInMonth; day++) {
+        const dayElement = document.createElement('div');
+        dayElement.className = 'calendar-day';
+        dayElement.textContent = day;
+        
+        // Add click event to select a day
+        dayElement.addEventListener('click', function () {
+            // Remove 'selected' class from all days
+            document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
+            // Add 'selected' class to the clicked day if not disabled
+            if (!dayElement.classList.contains('disabled')) {
+                dayElement.classList.add('selected');
+            }
+        });
+        
+        const currentDate = new Date(currentYear, currentMonth, day);
+        currentDate.setHours(0, 0, 0, 0); //which constructs a date from the specified year, month, and day.
+        
+        // Disable past dates
+        if (currentDate < today) {
+            dayElement.classList.add('disabled');
+        }
+        
+        eachDayDiv.appendChild(dayElement);
+    }
+}
+
+showCalendar();
+
+function nextMonth() {
+    currentMonth++;
+    
+    if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+    }
+    
+    theCurrentMonth.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+    showCalendar();
+}
+
+function previousMonth() {
+    currentMonth--;
+    
+    if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+    }
+    theCurrentMonth.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+    showCalendar();
+}
+
+// Navigation functionality
+const navItems = document.querySelectorAll('.nav-bar-menu .menu');
+const contentArea = document.getElementById('contentArea');
+const expertArea = document.getElementById('expertArea');
+const rightSidebar = document.getElementById('rightSideBar');
+const chatsSidebar = document.getElementById('chatsSideBar');
+const userChatMessages = document.getElementById('userChatMessages');
+const chatAppContainer = document.getElementById('chatAppContainer');
+const userChatHeader = document.getElementById('userChatHeader');
+const resourcesArea = document.getElementById('resourcesArea');
+const resourcesAreaContents = document.getElementById('resourcesAreaContents');
+const mainSection = document.querySelector('.main-section');
+
+
+// debugger;
+// Navigation functionality
+function handleNavigation(navItem) {
+    // Remove active class from all menu items
+    navItems.forEach(item => {
+        item.classList.remove('active');
+    });
+    
+    // Add active class to clicked menu item
+    navItem.classList.add('active');
+    
+    // Get the nav item text
+    const navText = navItem.querySelector('span').textContent.toLowerCase();
+    
+    // Hide all content areas and sidebars
+    contentArea.classList.remove('active');
+    rightSidebar.classList.remove('active');
+    expertArea.classList.remove('active');
+    chatsSidebar.classList.remove('active');
+    
+    // Handle grid layout and content based on nav item
+    if (navText === 'home') {
+        // Home layout: 1fr 3fr 1fr
+        mainSection.style.gridTemplateColumns = '1fr 3fr 1fr';
+        contentArea.classList.add('active');
+        rightSidebar.classList.add('active');
+    } else if (navText === 'experts') {
+        // Experts layout: 1fr 3fr 2fr
+        mainSection.style.gridTemplateColumns = '1fr 3fr 2fr';
+        contentArea.classList.remove('active');
+        rightSidebar.classList.remove('active');
+        expertArea.classList.add('active');
+        chatsSidebar.classList.add('active');
+    }  else if (navText === 'resources') {
+        // Experts layout: 1fr 3fr 1fr
+        mainSection.style.gridTemplateColumns = '1fr 3fr 1fr';
+        contentArea.classList.remove('active');
+        rightSidebar.classList.remove('active');
+        expertArea.classList.remove('active');
+        chatsSidebar.classList.remove('active');
+        resourcesArea.classList.add('active');
+        resourcesAreaContents.classList.add('active');
+
+    } 
+}
+
+// Add click event listeners to nav items
+navItems.forEach(item => {
+    item.addEventListener('click', function() {
+        handleNavigation(item);
+    });
+});
+
+// functionality for chat messages
+
+ userChatHeader.addEventListener("click", function() {
+    userChatMessages.classList.remove('active');
+    chatAppContainer.classList.add('active');
+ })
+
+
