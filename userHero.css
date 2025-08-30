@@ -83,7 +83,7 @@ body{
 
 .main-section{
     display: grid;
-    grid-template-columns: 1fr 3fr 2fr;
+    grid-template-columns: 1fr 3fr 1fr;
     margin: auto;
 }
 
@@ -91,7 +91,7 @@ body{
 
 .left-sidebar{
     padding-top: 32px;
-    background: #f4f4f4;
+    background-color: #F3FAFF;
 }
 
 .right-sidebar, .chats-Side-Bar{
@@ -114,7 +114,7 @@ body{
 
 /* Hero-section-styling */
 
-.content-area,.expert-area, .resources-area{
+.content-area,.expert-area, .resources-area, .notification-area, .book-section-area{
     display: none;
     padding: 0rem 0.6rem 0rem 0.6rem;
 }
@@ -129,6 +129,18 @@ body{
 .resources-area.active{
     display: block;
     padding-right: unset;
+}
+.notification-area.active{
+    display: block;
+    background-color: #F3FAFF;
+}
+.book-section-area.active{
+    display: block;
+    background-color: #F3FAFF;
+}
+.book-section-area.active{
+    display: block;
+    background-color: #F3FAFF;
 }
 
 .hero-section{
@@ -580,7 +592,7 @@ font-weight: 600;
     display: flex;
     margin: 0 auto;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .message-number span{
@@ -720,12 +732,14 @@ text-align: right;
 
 .resources-section{
     background-color: #F3FAFF;
+    margin-bottom: 50px;
 }
 
 .resources-container{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
+    width: 300px;
     margin-left: 10px;
 }
 
@@ -734,7 +748,7 @@ text-align: right;
 }
 .resources-header1 h5{
     background-color: #fff;
-    font-size: 16px;
+    font-size: 18px;
     color: #0B1A43;
     padding: 0.7rem;
     font-weight: 600;
@@ -785,4 +799,143 @@ text-align: right;
     padding: 0.4rem;
     font-size: 14px;
     color: #3ACEFF;
+}
+
+.story-container{
+    margin-top: 50px;
+    padding: 0.5rem;
+}
+
+.story-container-header h5{
+    font-size: 18px;
+    color: #0B1A43;
+    font-weight: 600;
+    background: #fff;
+    padding: 0.4rem;
+}
+
+.story1, .story2{
+    padding: 2rem;
+    background: #fff;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.story-text1{
+    font-size: 16px;
+    color: #0B1A43;
+    font-weight: 600;
+}
+
+.story-text2{
+    font-weight: 400;
+    color: #000029;
+    margin-top: 10px;
+    line-height: 2;
+    font-size: 13px;
+}
+
+.story-text3{
+    font-size: 11px;
+    font-style: italic;
+    margin-top: 10px;
+    color: #0B1A43;
+}
+
+/* notification messages styling */
+
+.each-notif-content{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.notification-messages-header{
+    padding: 1rem;
+}
+
+.notification-messages-header h5{
+    color: #0B1A43;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.each-notification-messages{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+
+.each-notif-text p{
+    font-size: 16px;
+    font-weight: 600;
+    color: #0B1A43;
+}
+
+.each-notif-text span{
+    font-weight: 400;
+    font-size: 14px;
+    color: #000029;
+}
+
+.each-notif-time span{
+    color: #585656;
+    font-size: 14px;
+}
+
+/* Book-session styling */
+
+.book-section-container{
+    margin-top: 20px;
+}
+
+.book-session-header h5{
+    padding: 5px 5px 5px 10px;
+    font-size: 16px;
+    color: #0B1A43;
+    font-weight: 600;
+    background-color: #fff;
+}
+
+.book-header2{
+    font-weight: 500;
+    font-size: 13px;
+    color: #0B1A43;
+    margin: 20px auto;
+}
+
+.booking-section{
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 10px;
+    gap: 15px;
+}
+
+.booking-section img{
+    width: 20px;
+}
+
+.booking-section-texts p{
+    font-size: 15px;
+    font-weight: 500;
+    color: #0B1A43;
+}
+
+.booking-section-texts span{
+    font-size: 13px;
+    font-weight: 500;
+    color: #3ACEFF;
+}
+
+.bookSession-btn{
+    background: #3ACEFF;
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
 }
