@@ -649,17 +649,157 @@
                     </div>
 
                     <h6 class="book-header2">The session timings are follow your local time zone</h6>
-
                     <div class="booking-section">
-<img src="Landing page Assets/booksession image.png" alt="book-calender-icon">
-<div class="booking-section-texts">
-    <p>Get real-time updates on all your booking</p>
-    <span>Connect calender</span>
-</div>
+                        <img src="Landing page Assets/booksession image.png" alt="book-calender-icon">
+                        
+                        <div class="booking-section-texts">
+                            <p>Get real-time updates on all your booking</p>
+                            <span>Connect calender</span>
+                        </div>
                     </div>
-                    <button class="bookSession-btn">Book Session</button>
+                    <button class="bookSession-btn" id="bookSessionBtn">Book Session</button>
+
+                    <div class="appointment-information">
+                        <div class="modal2-profile-image">
+                                            <p>Chat Session with<span>Dr.Jane Doe</span></p>
+                                        </div>
+
+                                            <div class="appointment-DateTime-details">
+                                                <div class="appointment-DateTime-detail-1">
+                                                    <img src="Landing page Assets/booksession image.png" alt="booksession image">
+                                                    <span>Mon 05/12</span>
+                                                </div>
+                                                <div class="appointment-DateTime-detail-2">
+                                                    <img src="Landing page Assets/Time img.png" alt="time image">
+                                                    <span>10:00</span>
+                                                </div>
+                                            </div>
+    <div class="appointment-action-btn">
+        <button class="pending-btn">Pending Expert Approval</button>
+        <button class="sendMessage-btn">Send Massage</button>
+        <button class="reschedule-btn">Reschedule</button>
+        <button class="cancel-Btn">Cancel</button>
+
+    </div>
+
+                    </div>
                 </div>
-            </div>
+
+                <!-- Modal Structure -->
+                <div id="bookModal-1" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-content-header">
+                            <div>
+                                <h5>Expert Session </h5>
+                                <div>
+                                    <p>Dr. Jane Doe
+                                        <span class="expert-title">Therapist</span>
+                                    </p>
+
+                            </div>
+
+                            </div>
+                            <div>
+                                <img src="Landing page Assets/Cancel-icon.png" alt="Cancel-icon" class="close">
+                            </div>
+
+                        </div>
+
+                            <div class="booksession-details">
+                                <div class="booksession-info">
+                                    <h5>Free</h5>
+                                    <div class="each-booksession-info">
+                                        <span>Session duration</span>
+                                        <p>30mins</p>
+                                    </div>
+                                    <div class="each-booksession-info">
+                                        <span>Session type</span>
+                                        <p>chat</p>
+                                    </div>
+                                </div>
+
+                                <div class="booksession-info2">
+                                    <h5>Confirm your booking</h5>
+                                    
+                                        <span>Date & Time</span>
+                                        <div class="DateTime-details">
+                                            <div class="DateTime-detail-1">
+                                                <img src="Landing page Assets/booksession image.png" alt="booksession image">
+                                                <span>Mon 05/12</span>
+                                            </div>
+                                            <div class="DateTime-detail-2">
+                                                <img src="Landing page Assets/Time img.png" alt="time image">
+                                                <span>10:00</span>
+                                            </div>
+                                            <div class="change-details">
+                                                <span>Change Date</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="reason-details">
+                                            <p>Reason for your session</p>
+                                            <input type="text" name="text" id="reason-text">
+                                        </div>
+
+                                        <div class="question-details">
+                                            <p>Any questions?</p>
+                                            <input type="text" name="text" id="question-text">
+                                        </div>
+                                  
+
+                                    <button type="submit" class="modal-btn" id="modalBtn1">Confirm Booking</button>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+
+                    <div id="bookModal-2" class="modal">
+                        <div class="modal-content">
+                            <div class="modal2-img">
+                            <img src="Landing page Assets/Cancel-icon.png" alt="Cancel-icon" class="close">
+                            </div>
+                            <div class="modal2-content-header">
+                                <h5>Booking requested</h5>
+                                <p>We sent a booking request to your Expert. if they accept, you will receive confirmation and invite.
+                                </p>
+                            </div>
+    
+                                <div class="modal2-booksession-details">
+    
+                                    <div class="modal2-booksession-info2">
+                                        <div class="modal2-profile-image">
+                                            <img src="Landing page Assets/Avatar 1.jpg" alt="Avatar 1">
+                                            <p>Chat Session with<span>Dr.Jane Doe</span></p>
+                                        </div>
+
+                                            <div class="modal2-DateTime-details">
+                                                <div class="modal2-DateTime-detail-1">
+                                                    <img src="Landing page Assets/booksession image.png" alt="booksession image">
+                                                    <span>Mon 05/12</span>
+                                                </div>
+                                                <div class="modal2-DateTime-detail-2">
+                                                    <img src="Landing page Assets/Time img.png" alt="time image">
+                                                    <span>10:00</span>
+                                                </div>
+                                            </div>
+    
+                                        <button type="submit" class="modal2-btn" id="modal2Btn">Confirm Booking</button>
+                                    </div>
+                                </div>
+    
+    
+    
+                            </div>
+    
+                        </div>
+                </div>
+
+                
+            
             
 
 
@@ -979,6 +1119,8 @@
                     </div>
                 </div>
         </div>
+
+    </div>
     </main>
 </body>
 <script src="userHero.js"> </script>

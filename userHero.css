@@ -138,10 +138,6 @@ body{
     display: block;
     background-color: #F3FAFF;
 }
-.book-section-area.active{
-    display: block;
-    background-color: #F3FAFF;
-}
 
 .hero-section{
     margin-top: 10px;
@@ -939,3 +935,391 @@ text-align: right;
     outline: none;
     border-radius: 10px;
 }
+
+/* Modal-1 Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+/* .modal{
+    display: none;
+} */
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 3% auto 15%;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 580px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modal-content-header h5{
+    text-align: left;
+    color: #0B1A43;
+    font-size: 16px;
+}
+
+.modal-content-header p{
+    text-align: left;
+    color: #0B1A43;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.expert-title{
+    text-align: left;
+    color: #585656;
+    font-size: 16px;
+}
+
+.modal-content-header{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.booksession-details{
+    padding-top: 10px;
+    display: grid;
+        grid-template-columns: 1fr 3fr;
+        gap: 50px;
+}
+
+.booksession-info h5{
+    text-align: left;
+    font-size: 16px;
+    color: #000029;
+}
+
+.each-booksession-info{
+    margin: 10px auto;
+    text-align: left;
+}
+
+.each-booksession-info span{
+    font-size: 14px;
+    color: #585656;
+}
+
+.each-booksession-info p{
+    color: #0B1A43;
+    font-weight: 700;
+}
+
+.booksession-info2{
+    display: block;
+    margin-right: auto;
+}
+
+.booksession-info2 h5{
+    font-size: 16px;
+    color: #0B1A43;
+    text-align: left;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.booksession-info2 span{
+    color: #000029;
+    text-align: left;
+    display: block;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.DateTime-details{
+    display: flex;
+    align-items: center;
+    padding: 0.8rem;
+    border-radius: 10px;
+    background: #F5F5F5;
+    gap: 30px;
+}
+
+.DateTime-detail-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 5px auto;
+}
+
+.DateTime-detail-1 img{
+    width: 12px;
+}
+
+.DateTime-detail-2 img{
+    width: 22px;
+}
+
+.DateTime-detail-1 span{
+    font-size: 14px;
+    color: #000029;
+    font-weight: 400;
+}
+
+.DateTime-detail-2{
+    display: flex;
+    align-items: center;
+}
+
+.DateTime-detail-2 span{
+    font-size: 14px;
+    color: #000029;
+    font-weight: 400;
+}
+
+.change-details span{
+    font-size: 14px;
+    color: #3ACEFF;
+}
+
+.reason-details{
+    margin: 15px auto;
+}
+
+.reason-details p{
+    color: #000029;
+    text-align: left;
+    display: block;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.reason-details input{
+    border: none;
+    padding: 0.8rem;
+    display: block;
+    outline: none;
+    width: 100%;
+    background: #F5F5F5;
+}
+
+.question-details{
+    color: #000029;
+    text-align: left;
+    display: block;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.question-details input{
+    height: 100px;
+    padding: 0.8rem;
+    display: block;
+    outline: none;
+    width: 320px;
+    border: none;
+    background: #F5F5F5;
+}
+
+.modal-btn{
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    margin: 20px auto;
+    background-color: #3ACEFF;
+}
+
+/* Modal-2 Styles */
+
+.modal2-img{
+    display: flex;
+    justify-content: right;
+}
+
+.modal2-content-header{
+    display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin: 0 auto;
+}
+
+.modal2-content-header h5{
+    color: #0B1A43;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.modal2-content-header p{
+    text-align: center;
+    color: #585656;
+    width: 370px;
+    margin: 20px auto;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.modal2-booksession-details{
+    display: block;
+    padding-top: 10px;
+}
+
+.modal2-booksession-info2{
+display: block;
+    margin-right: auto;
+}
+
+.modal2-profile-image{
+    display: block;
+    margin: 0 auto 0 7px;
+}
+
+.modal2-profile-image img{
+    width: 70px;
+    border-radius: 50%;
+}
+
+.modal2-profile-image p{
+    color: #0B1A43;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.modal2-profile-image span{
+    color: #000029;
+    margin-left: 5px;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.modal2-DateTime-details, .appointment-DateTime-details{
+    width: 220px;
+    display: flex;
+    align-items: center;
+    padding: 0.8rem;
+    border-radius: 10px;
+    background: #F5F5F5;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.modal2-DateTime-detail-1, .appointment-DateTime-details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 5px 15px 5px 5px;
+}
+
+.modal2-DateTime-detail-1 span{
+    font-size: 14px;
+}
+
+.appointment-DateTime-details span{
+    font-size: 14px;
+}
+
+.modal2-DateTime-detail-2 span{
+    font-size: 14px;
+}
+
+.appointment-DateTime-details span{
+    font-size: 14px;
+}
+
+.modal2-DateTime-detail-2{
+    display: flex;
+    align-items: center;
+}
+
+.modal2-btn{
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    color: #0B1A43;
+    width: 300px;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    margin: 20px auto;
+    background-color: #3ACEFF;
+}
+
+.modal2-DateTime-detail-1 img{
+width: 14px;
+}
+.appointment-DateTime-detail img{
+width: 14px;
+}
+
+.appointment-DateTime-details img{
+width: 14px;
+}
+
+.appointment-DateTime-detail-2 img{
+width: 20px;
+}
+
+.modal2-DateTime-detail-2 img{
+width: 20px;
+}
+
+
+.appointment-information{
+    margin: 10px auto 10px 0;
+    background: #fff;
+    display: none;
+    width: fit-content;
+    padding: 1rem;
+}
+
+.appointment-DateTime-details{
+    justify-content: left;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    padding: 0.8rem;
+    border-radius: 10px;
+    background: #F5F5F5;
+    margin: 10px auto 10px 7px;
+}
+
+.appointment-DateTime-detail-2{
+    display: flex;
+    align-items: center;
+}
+
+.pending-btn, .sendMessage-btn, .reschedule-btn, .cancel-Btn{
+    color: #3ACEFF;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid #3ACEFF;
+    padding: 7px;
+    font-size: 13px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.appointment-action-btn{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.{}
+
+.{}
