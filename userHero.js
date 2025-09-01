@@ -116,6 +116,12 @@ const chatAppContainer = document.getElementById('chatAppContainer');
 const userChatHeader = document.getElementById('userChatHeader');
 const resourcesArea = document.getElementById('resourcesArea');
 const resourcesAreaContents = document.getElementById('resourcesAreaContents');
+const helpArea = document.getElementById('helpArea');
+const notificationArea = document.getElementById('notificationArea');
+const bookSectionArea = document.getElementById('bookSectionArea');
+const articleArea = document.getElementById('articleArea');
+const settingsArea = document.getElementById('settingsArea');
+const mainSection = document.querySelector('.main-section');
 
 
 
@@ -126,13 +132,13 @@ function handleNavigation(navItem) {
     navItems.forEach(item => {
         item.classList.remove('active');
     });
-    
+
     // Add active class to clicked menu item
     navItem.classList.add('active');
-    
+
     // Get the nav item text
     const navText = navItem.querySelector('span').textContent.toLowerCase();
-    
+
     // Hide all content areas and sidebars
     contentArea.classList.remove('active');
     rightSidebar.classList.remove('active');
@@ -142,7 +148,10 @@ function handleNavigation(navItem) {
     resourcesArea.classList.remove('active');
     resourcesAreaContents.classList.remove('active');
     bookSectionArea.classList.remove('active');
-    
+    articleArea.classList.remove('active');
+    settingsArea.classList.remove('active');
+    helpArea.classList.remove('active');
+
     // Handle grid layout and content based on nav item
     if (navText === 'home') {
         // Home layout: 1fr 3fr 1fr
@@ -161,6 +170,8 @@ function handleNavigation(navItem) {
         resourcesAreaContents.classList.remove('active');
         notificationArea.classList.remove('active');
         bookSectionArea.classList.remove('active');
+        articleArea.classList.remove('active');
+        settingsArea.classList.remove('active');
 
     }  else if (navText === 'resources') {
         // Resources layout: 1fr 3fr 2fr
@@ -173,22 +184,67 @@ function handleNavigation(navItem) {
         resourcesArea.classList.add('active');
         resourcesAreaContents.classList.add('active');
         bookSectionArea.classList.remove('active');
+        articleArea.classList.remove('active');
+        settingsArea.classList.remove('active');
 
-    } 
+    } else if (navText === 'notifications') {
+        mainSection.style.gridTemplateColumns = '0.6fr 3fr 0fr';
+        contentArea.classList.remove('active');
+        rightSidebar.classList.remove('active');
+        expertArea.classList.remove('active');
+        chatsSidebar.classList.remove('active');
+        notificationArea.classList.add('active');
+        resourcesArea.classList.remove('active');
+        resourcesAreaContents.classList.remove('active');
+        bookSectionArea.classList.remove('active');
+        articleArea.classList.remove('active');
+        settingsArea.classList.remove('active');
+        helpArea.classList.remove('active');
+
+    } else if (navText === 'articles') {
+        mainSection.style.gridTemplateColumns = '0.6fr 3fr 0fr';
+        contentArea.classList.remove('active');
+        rightSidebar.classList.remove('active');
+        expertArea.classList.remove('active');
+        chatsSidebar.classList.remove('active');
+        notificationArea.classList.remove('active');
+        resourcesArea.classList.remove('active');
+        resourcesAreaContents.classList.remove('active');
+        bookSectionArea.classList.remove('active');
+        articleArea.classList.add('active');
+        settingsArea.classList.remove('active');
+        helpArea.classList.remove('active');
+
+    } else if (navText === 'settings') {
+        mainSection.style.gridTemplateColumns = '1fr 3fr 1fr';
+        contentArea.classList.remove('active');
+        rightSidebar.classList.remove('active');
+        expertArea.classList.remove('active');
+        chatsSidebar.classList.remove('active');
+        notificationArea.classList.remove('active');
+        resourcesArea.classList.remove('active');
+        resourcesAreaContents.classList.remove('active');
+        bookSectionArea.classList.remove('active');
+        articleArea.classList.remove('active');
+        settingsArea.classList.add('active');
+        helpArea.classList.remove('active');
+
+    } else if (navText === 'help'|| navText == 'support') {
+        // Help layout: 1fr 3fr 1fr
+        mainSection.style.gridTemplateColumns = '1fr 3fr 1fr';
+        contentArea.classList.remove('active');
+        rightSidebar.classList.remove('active');
+        expertArea.classList.remove('active');
+        chatsSidebar.classList.remove('active');
+        notificationArea.classList.remove('active');
+        resourcesArea.classList.remove('active');
+        resourcesAreaContents.classList.remove('active');
+        bookSectionArea.classList.remove('active');
+        articleArea.classList.remove('active');
+        settingsArea.classList.remove('active');
+        helpArea.classList.add('active');
+    }
 }
-
-// else if (navText === 'book session') {
-//         mainSection.style.gridTemplateColumns = '1fr 3fr 2fr';
-//         contentArea.classList.remove('active');
-//         rightSidebar.classList.remove('active');
-//         expertArea.classList.remove('active');
-//         chatsSidebar.classList.remove('active');
-//         notificationArea.classList.remove('active');
-//         resourcesArea.classList.remove('active');
-//         resourcesAreaContents.classList.remove('active');
-//         bookSectionArea.classList.add('active');
-
-//     }
 
 // Add click event listeners to nav items
 navItems.forEach(item => {
@@ -206,12 +262,19 @@ navItems.forEach(item => {
 
 //  functionality for notification icon
 
-const notificationArea = document.getElementById('notificationArea');
-const bookSectionArea = document.getElementById('bookSectionArea');
 const NotifyIcon = document.querySelector('.notify-icon');
 const BookSessionIcon = document.querySelector('.books-session');
-const mainSection = document.querySelector('.main-section');
 
+// Modal functionality
+const modal1 = document.getElementById('bookModal-1');
+const modal2 = document.getElementById('bookModal-2');
+const modalBtn1 = document.getElementById('modalBtn1');
+const modalBtn2 = document.getElementById('modal2Btn');
+const btn = document.getElementById('bookSessionBtn');
+const articleReadMoreBtn = document.querySelectorAll('.resources-btn');
+const span = document.querySelectorAll('.close');
+const modalContent = document.querySelector('.modal-content');
+const appointmentInformation = document.querySelector('.appointment-information');
 
 
  NotifyIcon.addEventListener('click', function() {
@@ -224,6 +287,9 @@ const mainSection = document.querySelector('.main-section');
     resourcesAreaContents.classList.remove('active');
     bookSectionArea.classList.remove('active');
     notificationArea.classList.add('active');
+    articleArea.classList.remove('active');
+    settingsArea.classList.remove('active');
+    helpArea.classList.remove('active');
  })
 
  //  functionality for booksession icon
@@ -238,53 +304,65 @@ const mainSection = document.querySelector('.main-section');
     resourcesAreaContents.classList.remove('active');
     notificationArea.classList.remove('active');
     bookSectionArea.classList.add('active');
+    settingsArea.classList.remove('active');
+    helpArea.classList.remove('active');
+
  })
 
-// Modal functionality
-const modal1 = document.getElementById('bookModal-1');
-const modal2 = document.getElementById('bookModal-2');
-const modalBtn1 = document.getElementById('modalBtn1');
-const modalBtn2 = document.getElementById('modal2Btn');
-const btn = document.getElementById('bookSessionBtn');
-const span = document.querySelectorAll('.close');
-const modalContent = document.querySelector('.modal-content');
-const appointmentInformation = document.querySelector('.appointment-information');
+ btn.addEventListener('click', function(e) {
+     e.preventDefault();
+     modal1.style.display = 'block';
+ });
+ 
+ modalBtn1.addEventListener('click', function(e) {
+     // mainSection.style.gridTemplateColumns = '1fr 3fr 1fr';
+     e.preventDefault();
+     modal1.style.display = 'none';
+     modal2.style.display = 'block';
+ });
+ 
+ modalBtn2.addEventListener('click', function(e) {
+     // mainSection.style.gridTemplateColumns = '1fr 3fr 1fr';
+     e.preventDefault();
+     modal1.style.display = 'none';
+     modal2.style.display = 'none';
+     btn.style.display = 'none';
+     appointmentInformation.style.display = 'block';
+ });
+ 
+ span.forEach(closeBtn => {
+     closeBtn.addEventListener('click', function() {
+         modal1.style.display = 'none';
+         modal2.style.display = 'none';
+     })
+ })
+ 
+ // Read more button functionality
+ articleReadMoreBtn.forEach(button => {
+    button.addEventListener('click', function() {
+        mainSection.style.gridTemplateColumns = '0.6fr 3fr 0fr';
+        contentArea.classList.remove('active');
+        rightSidebar.classList.remove('active');
+        expertArea.classList.remove('active');
+        chatsSidebar.classList.remove('active');
+        notificationArea.classList.remove('active');
+        resourcesArea.classList.remove('active');
+        resourcesAreaContents.classList.remove('active');
+        bookSectionArea.classList.remove('active');
+        articleArea.classList.add('active');
+        settingsArea.classList.remove('active');
 
-
-
-
-btn.addEventListener('click', function(e) {
-    e.preventDefault();
-    modal1.style.display = 'block';
-});
-
-modalBtn1.addEventListener('click', function(e) {
-    // mainSection.style.gridTemplateColumns = '1fr 3fr 1fr';
-    e.preventDefault();
-    modal1.style.display = 'none';
-    modal2.style.display = 'block';
-});
-
-modalBtn2.addEventListener('click', function(e) {
-    // mainSection.style.gridTemplateColumns = '1fr 3fr 1fr';
-    e.preventDefault();
-    modal1.style.display = 'none';
-    modal2.style.display = 'none';
-    btn.style.display = 'none';
-    appointmentInformation.style.display = 'block';
-});
-
-span.forEach(closeBtn => {
-    closeBtn.addEventListener('click', function() {
-        modal1.style.display = 'none';
-        modal2.style.display = 'none';
     })
-})
+ })
+ 
+ window.onclick = function(event) {
+     if (event.target == modal1 || event.target == modal2) {
+         modal1.style.display = 'none';
+         modal2.style.display = 'none';
+     }
+ }
 
-window.onclick = function(event) {
-    if (event.target == modal1 || event.target == modal2) {
-        modal1.style.display = 'none';
-        modal2.style.display = 'none';
-    }
-}
+
+
+
 
