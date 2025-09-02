@@ -156,6 +156,7 @@ body{
     /* margin: 0 20px; */
 }
 
+/* Home Page Styles Start */
 .hero-section{
     margin-top: 10px;
     width: 100%;
@@ -190,6 +191,7 @@ body{
     width: 240px;
 }
 
+/* Experts Page Styles Start */
 .each-expert{
     width: 210px;
     border-radius: 10px;
@@ -304,6 +306,7 @@ font-weight: 400;
     background: #F3FAFF;
     width: 100%;
 }
+/* Experts Page Styles End */
 
 .experts-section::-webkit-scrollbar {
   display: none;
@@ -370,6 +373,7 @@ font-weight: 400;
 
 
 
+/* Home Page Styles End */
 /* Left section-styling */
 .nav-bar-menu{
     display: grid;
@@ -413,6 +417,7 @@ font-weight: 400;
 
 /* right-section styling */
 
+/* Right Sidebar Styles Start */
 .notification-container h5{
 font-weight: 600;
     font-size: 18px;
@@ -745,7 +750,9 @@ text-align: right;
     display: flex;
     align-items: center;
 }
+/* Right Sidebar Styles End */
 
+/* Resources Page Styles Start */
 /* Resources section styling */
 
 .resources-section{
@@ -869,9 +876,11 @@ text-align: right;
     margin-top: 10px;
     color: #0B1A43;
 }
+/* Resources Page Styles End */
 
 /* notification messages styling */
 
+/* Notifications Page Styles Start */
 .each-notif-content{
     display: flex;
     align-items: center;
@@ -919,9 +928,11 @@ text-align: right;
     color: #585656;
     font-size: 14px;
 }
+/* Notifications Page Styles End */
 
 /* Book-session styling */
 
+/* Book Session Page Styles Start */
 .book-section-container{
     margin-top: 20px;
 }
@@ -1360,7 +1371,9 @@ width: 20px;
     align-items: center;
     gap: 10px;
 }
+/* Book Session Page Styles End */
 
+/* Articles Page Styles Start */
 .article-container{
     margin: 0 20px;
 }
@@ -1425,6 +1438,7 @@ width: 20px;
     color: #000029;
     font-size: 15px;
 }
+/* Articles Page Styles End */
 /* Add styles for the help area and hotline table */
 
 .help-area {
@@ -1455,6 +1469,7 @@ width: 20px;
 
 
 
+/* Help Page Styles Start */
 /* .container {
     flex-grow: 1;
     display: inline-block;
@@ -1499,9 +1514,11 @@ tbody td:first-child {
 tbody td:last-child {
     padding-left: 45px;
 }
+/* Help Page Styles End */
 
 /* settings styling */
 
+/* Settings Page Styles Start */
 .settings-header{
     padding: 1rem;
     
@@ -1880,3 +1897,5 @@ margin-bottom: 30px;
     display: flex;
     align-items: center;
 }
+/* Settings Page Styles End */
+/* This is where the page ends */

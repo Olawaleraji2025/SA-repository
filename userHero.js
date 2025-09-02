@@ -105,6 +105,9 @@ function previousMonth() {
     showCalendar();
 }
 
+// Navigation functionality starts here
+// This section handles the navigation between different sections of the dashboard, updating the layout and showing/hiding content areas
+
 // Navigation functionality
 const navItems = document.querySelectorAll('.nav-bar-menu .menu');
 const contentArea = document.getElementById('contentArea');
@@ -252,6 +255,10 @@ navItems.forEach(item => {
         handleNavigation(item);
     });
 });
+// Navigation functionality ends here
+
+// Chat functionality starts here
+// This section handles switching between chat messages and chat app
 
 // functionality for chat messages
 
@@ -260,22 +267,15 @@ navItems.forEach(item => {
     chatAppContainer.classList.add('active');
  })
 
+// Chat functionality ends here
+
+// Icon click functionalities start here
+// This section handles clicks on notification and book session icons to show respective areas
+
 //  functionality for notification icon
 
 const NotifyIcon = document.querySelector('.notify-icon');
 const BookSessionIcon = document.querySelector('.books-session');
-
-// Modal functionality
-const modal1 = document.getElementById('bookModal-1');
-const modal2 = document.getElementById('bookModal-2');
-const modalBtn1 = document.getElementById('modalBtn1');
-const modalBtn2 = document.getElementById('modal2Btn');
-const btn = document.getElementById('bookSessionBtn');
-const articleReadMoreBtn = document.querySelectorAll('.resources-btn');
-const span = document.querySelectorAll('.close');
-const modalContent = document.querySelector('.modal-content');
-const appointmentInformation = document.querySelector('.appointment-information');
-
 
  NotifyIcon.addEventListener('click', function() {
     mainSection.style.gridTemplateColumns = '0.6fr 3fr 0fr';
@@ -309,6 +309,22 @@ const appointmentInformation = document.querySelector('.appointment-information'
 
  })
 
+// Icon click functionalities end here
+
+// Modal functionality starts here
+// This section handles the booking session modals, opening, closing, and progressing through steps
+
+// Modal functionality
+const modal1 = document.getElementById('bookModal-1');
+const modal2 = document.getElementById('bookModal-2');
+const modalBtn1 = document.getElementById('modalBtn1');
+const modalBtn2 = document.getElementById('modal2Btn');
+const btn = document.getElementById('bookSessionBtn');
+const articleReadMoreBtn = document.querySelectorAll('.resources-btn');
+const span = document.querySelectorAll('.close');
+const modalContent = document.querySelector('.modal-content');
+const appointmentInformation = document.querySelector('.appointment-information');
+
  btn.addEventListener('click', function(e) {
      e.preventDefault();
      modal1.style.display = 'block';
@@ -337,6 +353,18 @@ const appointmentInformation = document.querySelector('.appointment-information'
      })
  })
  
+ window.onclick = function(event) {
+     if (event.target == modal1 || event.target == modal2) {
+         modal1.style.display = 'none';
+         modal2.style.display = 'none';
+     }
+ }
+
+// Modal functionality ends here
+
+// Read more button functionality starts here
+// This section handles the read more buttons in resources to show articles
+
  // Read more button functionality
  articleReadMoreBtn.forEach(button => {
     button.addEventListener('click', function() {
@@ -354,15 +382,12 @@ const appointmentInformation = document.querySelector('.appointment-information'
 
     })
  })
- 
- window.onclick = function(event) {
-     if (event.target == modal1 || event.target == modal2) {
-         modal1.style.display = 'none';
-         modal2.style.display = 'none';
-     }
- }
 
-// Settings page switching
+// Read more button functionality ends here
+
+// Settings page switching starts here
+// This section handles switching between different settings pages (profile, security, notifications, other settings)
+
 const profileSpan = document.getElementById('profile');
 const securitySpan = document.getElementById('security');
 const notificationsSpan = document.getElementById('notifications');
@@ -372,7 +397,6 @@ const profilePage = document.querySelector('.profile-page');
 const securityPage = document.querySelector('.security-page');
 const notificationPage = document.querySelector('.notification-page');
 const otherSettingsPage = document.querySelector('.other-settings-page');
-
 
 function switchSettingsPage(page, span) {
     // Remove active from all pages
@@ -397,7 +421,11 @@ securitySpan.addEventListener('click', () => switchSettingsPage(securityPage, se
 notificationsSpan.addEventListener('click', () => switchSettingsPage(notificationPage, notificationsSpan));
 otherSettingsSpan.addEventListener('click', () => switchSettingsPage(otherSettingsPage, otherSettingsSpan));
 
-// Toggle switch functionality
+// Settings page switching ends here
+
+// Toggle switch functionality starts here
+// This section handles the toggle switch for anonymous mode, changing the name input placeholder
+
 const toggleSwitch = document.getElementById('toggleSwitch');
 toggleSwitch.addEventListener('change', function() {
     const nameInput = document.querySelector('input[name="name"]');
@@ -413,6 +441,8 @@ toggleSwitch.addEventListener('change', function() {
         }
     }
 });
+
+// Toggle switch functionality ends here
 
 
 
