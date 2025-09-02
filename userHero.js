@@ -362,6 +362,58 @@ const appointmentInformation = document.querySelector('.appointment-information'
      }
  }
 
+// Settings page switching
+const profileSpan = document.getElementById('profile');
+const securitySpan = document.getElementById('security');
+const notificationsSpan = document.getElementById('notifications');
+const otherSettingsSpan = document.getElementById('other-settings');
+
+const profilePage = document.querySelector('.profile-page');
+const securityPage = document.querySelector('.security-page');
+const notificationPage = document.querySelector('.notification-page');
+const otherSettingsPage = document.querySelector('.other-settings-page');
+
+
+function switchSettingsPage(page, span) {
+    // Remove active from all pages
+    profilePage.classList.remove('active');
+    securityPage.classList.remove('active');
+    notificationPage.classList.remove('active');
+    otherSettingsPage.classList.remove('active');
+
+    // Remove active from all spans
+    profileSpan.classList.remove('active');
+    securitySpan.classList.remove('active');
+    notificationsSpan.classList.remove('active');
+    otherSettingsSpan.classList.remove('active');
+
+    // Add active to selected
+    page.classList.add('active');
+    span.classList.add('active');
+}
+
+profileSpan.addEventListener('click', () => switchSettingsPage(profilePage, profileSpan));
+securitySpan.addEventListener('click', () => switchSettingsPage(securityPage, securitySpan));
+notificationsSpan.addEventListener('click', () => switchSettingsPage(notificationPage, notificationsSpan));
+otherSettingsSpan.addEventListener('click', () => switchSettingsPage(otherSettingsPage, otherSettingsSpan));
+
+// Toggle switch functionality
+const toggleSwitch = document.getElementById('toggleSwitch');
+toggleSwitch.addEventListener('change', function() {
+    const nameInput = document.querySelector('input[name="name"]');
+    if (this.checked) {
+        // Enable anonymous mode
+        if (nameInput) {
+            nameInput.placeholder = 'Enter pseudonym';
+        }
+    } else {
+        // Disable anonymous mode
+        if (nameInput) {
+            nameInput.placeholder = 'Enter full name';
+        }
+    }
+});
+
 
 
 

@@ -406,6 +406,11 @@ font-weight: 400;
     margin-top: 230px;
 }
 
+.exit-container a{
+    text-decoration: none;
+    
+}
+
 /* right-section styling */
 
 .notification-container h5{
@@ -756,6 +761,16 @@ text-align: right;
     margin-left: 10px;
 }
 
+.resources-cards{
+    position: relative;
+}
+
+.resources-tip{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+
 .resources-header1{
     padding: 1rem;
 }
@@ -872,6 +887,12 @@ text-align: right;
     color: #0B1A43;
     font-weight: 600;
     font-size: 18px;
+}
+
+.each-notification-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .each-notification-messages{
@@ -1508,6 +1529,10 @@ tbody td:last-child {
 .each-settings{
 }
 
+.each-settings{
+    cursor: pointer;
+}
+
 .each-settings.active{
     text-decoration: underline;
     color: #3ACEFF;
@@ -1588,6 +1613,14 @@ tbody td:last-child {
         margin-bottom: 30px;
 }
 
+.delete-account2{
+    display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        margin-top: 30px;
+}
+
 .delete-account-text{
     width: 250px;
 }
@@ -1664,4 +1697,186 @@ input:checked + .slider {
 
 input:checked + .slider:before {
     transform: translateX(26px);
+}
+
+.profile-page, .security-page, .notification-page, .other-settings-page{
+    display: none;
+}
+.profile-page.active,
+.security-page.active,
+.notification-page.active,
+.other-settings-page.active {
+    display: block;
+}
+
+/* Styling for active settings span */
+.each-settings.active {
+    color: #3ACEFF;
+}
+
+/* Toggle switch styling */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.security-page{
+   padding-left: 1rem;
+}
+
+.security-page-header{
+        margin-bottom: 20px;
+}
+
+.security-page-header h5{
+color: #0B1A43;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.security-page-header span{
+    color: #000029;
+    font-size: 12px;
+}
+
+.password-form label{
+    color: #1E372E;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.password-form input{
+    border: 1px solid #D7D9D8;
+    width: 300px;
+    padding: 8px;
+    border-radius: 10px;
+    outline: none;
+}
+
+
+.password-form::placeholder{
+    color: #587270;
+    font-size: 12px;
+}
+
+.password-form p{
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #E91919;
+    padding-left: 0.3rem;
+}
+
+.notification-page{
+    padding-left: 1rem;
+}
+
+.notification-page h5{
+    color: #0B1A43;
+    font-weight: 500;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.each-notif-settings{
+    margin-top: 15px;
+}
+
+.each-notif-settings p{    
+    font-weight: 500;
+    font-size: 15px;
+    color: #0B1A43;
+
+}
+
+.each-notif-settings span{
+    font-size: 12px;
+    font-weight: 400;
+    color: #000029;
+}
+
+.notification-div{
+margin-bottom: 30px;
+}
+
+.other-settings-page{
+    padding: 1rem;
+}
+
+.each-settings-div p{
+    font-weight: 500;
+    color: #0B1A43;
+}
+
+.each-settings-div span{
+    color: #0B1A43;
+    font-size: 13px;
+}
+
+.each-settings-container{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.setting2 p{
+    font-weight: 500;
+    color: #0B1A43;
+}
+
+.p2{
+    color: #0B1A43;
+    font-size: 13px;
+    margin: 5px auto;
+}
+
+.setting2 span{
+    color: #3ACEFF;
+    font-size: 13px;
+}
+
+.setting2{
+    margin: 30px auto;
+}
+
+.setting2 div{
+    display: flex;
+    align-items: center;
 }
