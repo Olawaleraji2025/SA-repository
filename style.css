@@ -106,6 +106,60 @@ body{
 }
 
 /* Hero section styling */
+.menu-icon{
+    display: none;
+    position: absolute;
+    font-size: 25px;
+    background: #fff;
+    right: 10px;
+    top: 45px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Sidebar style for options when toggled */
+.sidebar-options {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-options.active {
+    transform: translateX(0);
+}
+
+.sidebar-options .sign-in-btn,
+.sidebar-options .Talk-btn {
+    margin: 10px 0;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #3ACEFF;
+    color: #3ACEFF;
+    cursor: pointer;
+    text-align: center;
+}
+
+.sidebar-options .sign-in-btn:hover {
+    background-color: #3ACEFF;
+    color: white;
+}
+
+.sidebar-options .Talk-btn:hover {
+    background-color: #0B1A43;
+    color: white;
+}
+
 .hero-container{
     background-color: #F3FAFF;
     width: 560px;
@@ -1272,6 +1326,11 @@ font-weight: 600;
      /* .nav-header, .hero-container, .features-container, .about-us-container, .experts-section-container, .choose-us-container, .guidelines-container, .footer-container{
         display: none;
     } */
+
+    .menu-icon{
+        display: block;
+    }
+
 
     .top-header p{
         display: block;
