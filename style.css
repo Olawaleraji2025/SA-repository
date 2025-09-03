@@ -859,6 +859,411 @@ height: auto;
     margin: 20px 0;
 }
 
+.exit-btn{
+    background-color: #E91919;
+    color: #FFFFFF;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+
+@media (min-width: 1001px) and (max-width:1299px){
+.hero-container{
+        background-color: #F3FAFF;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+        width: 100%;
+        gap: 40px;
+        grid-template-rows: 420px;
+}
+
+
+
+.hero-message {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    margin-left: 50px;
+}
+
+.hero-text p{
+    font-size: 40px;
+}
+
+.hero-img{
+    width: auto;
+    display: block;
+    margin-left: auto;
+    padding: 0.6rem;
+    margin-right: 20px;
+}
+
+.hero-img img{
+    width: auto;
+    height: 400px;
+}
+
+.feature-content
+{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 300px);
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.feature-content .each-feature
+{
+    padding: 0.3rem;
+    width: 300px;
+    margin: 0 auto;
+    height: auto;
+    padding: unset;
+}
+
+.guideline-card2{
+    margin: 30px auto;
+}
+
+.feature-img 
+{
+    height: auto;
+}
+.feature-img img{
+    width: 100px;
+}
+
+.feature-text h6
+{
+    font-size: 18px;
+    font-weight: 600;
+    color: #0B1A43;
+}
+
+.feature-text p{
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #000029;
+    padding: 0.5rem;
+}
+
+.about-us-img{
+    width: 500px;
+    display: block;
+    margin: 0 auto;
+}
+
+.about-us-img img{
+    width: 500px;
+}
+
+.expert-card-container{
+    flex-wrap: wrap;
+}
+
+.choose-us-features{
+    gap: 30px;
+    align-items: stretch;
+}
+
+.guideline-card, .guideline-card2, .guideline-card3{
+    width: 750px;
+}
+
+.Healing-journey-container{
+    gap: 10px;
+    padding: 1rem;
+}
+
+
+
+
+
+
+
+}
+
+@media (min-width: 769px) and (max-width:1100px){
+
+
+    .top-header p{
+        margin-left: 0;
+        margin-top: 0;
+        transform: unset;
+    }
+
+    .nav-header-img {
+        margin-left: 30px;
+    }
+
+    .options {
+        margin-right: 25px;
+    }
+
+ 
+
+.feature-content
+{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 300px);
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.feature-content .each-feature
+{
+    padding: 0.3rem;
+    width: 280px;
+    margin: 0 auto;
+    height: auto;
+    padding: unset;
+}
+
+.guideline-card2{
+    margin: 40px auto;
+}
+
+.feature-img 
+{
+    height: auto;
+}
+
+.feature-img img{
+    width: 70px;
+}
+
+.feature-text h6
+{
+    font-size: 16px;
+    font-weight: 600;
+    color: #0B1A43;
+}
+
+.feature-text p{
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #000029;
+    padding: 0.5rem;
+    line-height: 20px;
+}
+
+.about-us-img {
+    width: 370px;
+}
+
+.about-us-img img{
+    width: 370px;
+}
+
+.about-us-text{
+    padding: 0.5rem;
+    width: auto;
+}
+
+.about-us-text h5{
+    font-size: 25px;
+font-weight: 600;
+}
+
+.about-us-text p{
+    font-size: 13px;
+}
+
+.about-btn{
+        margin: 20px auto;
+}
+
+.about-us-container{
+    grid-template-columns: repeat(2, 380px);
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.Healing-journey-container{
+    margin-top: 0;
+    gap: 20px;
+    justify-content: center;
+}
+
+
+
+.journey-text{
+    max-width: 500px;
+    padding-left: 10px;
+}
+
+.journey-text1{
+    font-size: 22px;
+}
+
+.journey-text2{
+    font-size: 14px;
+}
+
+.journey-btn{
+    font-size: 13px;
+}
+
+.journey-image{
+    width: auto;
+}
+
+.journey-image img
+{
+    padding-right: 10px;
+    width: 340px;
+}
+
+.faq-list{
+    width: 500px;
+}
+
+.faq-question{
+    padding: 1rem;
+}
+
+.faq-question h3 {
+    font-size: 16px;
+}
+
+.faq-header {
+    font-size: 26px;
+}
+
+.faq-subheader {
+    font-size: 16px;
+}
+
+
+
+.expert-card-container{
+    flex-wrap: wrap;
+    gap: unset;
+}
+
+.experts-header p{
+    font-size: 24px;
+}
+
+.choose-us-header p {
+    font-size: 27px;
+}
+
+.choose-us-features{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, 300px);
+}
+
+.guideline-images img{
+    width: 200px;
+}
+
+.guideline-card{
+    width: 600px;
+}
+
+.guideline-card2{
+    width: 700px;
+    margin: 0 auto;
+}
+
+.guideline-card3{
+    width: 700px;
+    margin: 0 auto;
+}
+
+
+
+.number1 {
+    position: absolute;
+    left: 15px;
+    top: 190px;
+}
+
+.Ellipse {
+    position: absolute;
+    top: 220px;
+    left: 60px;
+    width: 100px;
+}
+
+.figures{
+    margin-top: 30px;
+}
+
+.footer-header p{
+    margin: 30px auto 10px;
+
+}
+
+.footer-links{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 200px);
+}
+
+.footer-container{
+    height: auto;
+}
+
+
+
+}
+
+@media (min-width: 769px) and (max-width:1000px){
+    .hero-container{
+        grid-template-columns: 1fr;
+        background-image: url("Landing page Assets/side-view-patient-talking-doctor 1.png");
+        height: 312px;
+        background-size: cover;
+        max-width: 1200px;
+        background-repeat: no-repeat;
+        width: 100%;
+        background-position: center;
+    }
+
+    .hero-message{
+        text-align: center;
+        background-color: #00000066;
+        width: 100%;
+        margin-left: 0;
+        height: 312px;
+    }
+
+
+    .hero-text p{
+            text-align: center;
+            font-size: 40px;
+            color: #fff;
+    }
+
+    .hero-text2 p{
+        color: #fff;
+    }
+
+.user-signup{
+    background: #fff;
+    color: #000029;
+}
+
+.hero-img{
+    display: none;
+}
+}
+
 @media (max-width: 768px){
     *{
         /* border: 1px solid red; */
@@ -941,7 +1346,6 @@ height: auto;
     background-color: #00000066;
 }
 
-.hero-text p
 
 .features-container{
     display: block;
@@ -970,8 +1374,9 @@ font-size: 25px;
 
 .feature-content
 {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 300px);
     width: 100%;
     padding-left: 10px;
     padding-right: 10px;
@@ -1176,7 +1581,7 @@ text-align: center;
 
 .figures{
     display: grid;
-    grid-template-columns: repeat(2, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     text-align: center;
     align-items: flex-start;
 }
@@ -1214,6 +1619,9 @@ font-size: 15px;
 
 .journey-text{
     text-align: center;
+    background-color: #00000066;
+    width: auto;
+    padding: 0.5rem;
 }
 
 .journey-text1{
@@ -1249,15 +1657,28 @@ font-size: 15px;
 .footer-container{
     width: auto;
     height: auto;
+    margin-top: 30px;
 }
 
 .footer-links{
     margin-top: 50px;
     flex-direction: column;
     flex-wrap: wrap;
+    gap: 30px;
 }
 
 
+
+
+
+}
+
+@media (min-width: 600px) and (max-width:680px){
+    .about-us-container{
+        width: 600px;
+    margin: 0 auto;
+    display: block;
+    }
 }
 
 @media (min-width: 540px) and (max-width:768px){
@@ -1280,6 +1701,9 @@ font-size: 15px;
     max-width: 500px;
 }
 
+.Healing-journey-container{
+    margin: 0 auto;
+}
 
 
 
@@ -1288,5 +1712,12 @@ font-size: 15px;
 
 
 
+}
+
+@media (min-width: 320px) and (max-width:1000px){
+    .faq-section {
+        padding: 2rem 2rem;
+        min-height: auto;
+    }
 
 }
