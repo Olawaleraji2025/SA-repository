@@ -454,58 +454,7 @@ padding: 4px;
 }
 
 /* Extra small screens (phones, below 480px) */
-@media (max-width: 479px) {
-    h1 {
-        font-size: 24px;
-    }
-    
-    p {
-        font-size: 13px;
-    }
-    
-    .form-image {
-        width: 200px;
-    }
-    
-    .form-container2,
-    .notification-container,
-    .questionnaire-container {
-        padding: 0.8rem;
-    }
-    
-    .form-container2 input,
-    .sign-in-btn,
-    .register-btn,
-    .next-btn,
-    .ok-btn,
-    .start-btn {
-        font-size: 13px;
-        padding: 8px;
-    }
-    
-    .sign-up {
-        flex-direction: column;
-        gap: 5px;
-    }
-    
-    .questionnaire-content h5 {
-        font-size: 15px;
-    }
-    
-    .questionnaire-content label {
-        font-size: 13px;
-    }
-    
-    .notification-content,
-    .email-content {
-        padding: 1rem 1rem 0 1rem;
-    }
-    
-    .fa-times {
-        font-size: 16px;
-        padding: 3px;
-    }
-}
+
 
 
 @media (min-width: 1200px) {
@@ -514,6 +463,17 @@ padding: 4px;
     }
 }
 
+@media (min-width: 768px){
+    .anchorlogo{
+        position: absolute;
+        left: 100px;
+    }
+
+    .form-section.active{
+        flex-direction: row;
+        width: 100%;
+    }
+}
 
 @media (max-width: 767px) {
     body {
@@ -532,6 +492,11 @@ padding: 4px;
 .register-btn{
     font-size: 12px;
     padding: 6px;
+    width: 100%;
+}
+
+.sign-up{
+    flex-direction: column;
 }
 
 .alternative{
@@ -601,7 +566,8 @@ padding: 4px;
     .next-btn,
     .ok-btn,
     .start-btn {
-        width: 90%;
+        width: 100%;
     }
 
 }
+
