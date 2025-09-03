@@ -12,7 +12,8 @@ const sections = {
     support: document.getElementById('supportTypeQuestionnaire'),
     abuse: document.getElementById('abuseTypeQuestionnaire'),
     help: document.getElementById('helpTypeQuestionnaire'),
-    gender: document.getElementById('genderQuestionnaire')
+    gender: document.getElementById('genderQuestionnaire'),
+    body: document.getElementById('ContentBody')
 };
 
 // Function to show a specific section and hide others
@@ -53,6 +54,7 @@ document.querySelectorAll('#signUpBtn').forEach(btn => {
     btn.addEventListener("click", function (e) {
         e.preventDefault(); // Prevent default link behavior
         showSection(sections.notification);
+        sections.body.style.height = '100vh';
     })
 });
 
