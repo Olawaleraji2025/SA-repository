@@ -10,6 +10,10 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
+.menu-icon-left{
+    display: none;
+}
+
 .header-section{
     display: flex;
     align-items: center;
@@ -1899,3 +1903,123 @@ margin-bottom: 30px;
 }
 /* Settings Page Styles End */
 /* This is where the page ends */
+
+
+@media (max-width: 750px){
+  .input-container, .notifications{
+    display: none;
+ }   
+
+ .menu-icon-left{
+    display: block;
+ }
+
+.header-image{
+    display: none;
+}
+
+.header-section{
+    border-bottom: none;
+    margin-left: 10px;
+}
+
+.avatarIcon{
+    width: 30px;
+    border-radius: 50%;
+}
+
+.header-section{
+    display: flex;
+    padding: 1rem;
+    align-items: end;
+    margin: 0 auto;
+    background: #F3FAFF;
+}
+
+.menu-icon-right{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /* border: solid; */
+    width: 120px;
+}
+
+.notify-menu{
+    width: 22px;
+}
+
+.menu-icons-right{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.left-sidebar{
+    display: none;
+}
+
+.right-sidebar.active{
+    display: none;
+}
+
+.hero-section{
+    width: 300px;
+    height: 150px;
+    padding: 10px;
+}
+
+.hero-text-content h5{
+    font-size: 18px;
+}
+
+.hero-text-content p{
+    font-size: 8px;
+}
+
+.hero-expert-service img{
+    width: 120px;
+}
+
+.expert-card-container{
+    max-width: 300px;
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.experts-header h5{
+    font-size: 15px;
+}
+
+.saftey-container{
+    padding: 1rem;
+}
+
+.saftey-content{
+    max-width: 300px;
+    width: 100%;
+    padding: unset;
+}
+
+.saftey-tips{
+    gap: 10px;
+}
+
+.saftey-tips h5{
+    font-size: 15px;
+
+}
+
+.saftey-tips li{
+    font-size: 12px;
+}
+
+.expert-btn{
+    width: 160px;
+}
+
+.each-expert{
+    width: 190px;
+}
+
+
+}
