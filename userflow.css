@@ -361,7 +361,9 @@ padding: 4px;
     
     .form-image {
         width: 300px;
-        margin-bottom: 30px;
+        margin-bottom: 0;
+        margin-right: 0;
+        margin-left: 0;
     }
     
     .anchorlogo {
