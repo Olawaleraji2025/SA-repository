@@ -10,7 +10,7 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
-.menu-icon-left, .avatar-header{
+.menu-icon-left, .avatar-header, .menu-icon-right{
     display: none;
 }
 
@@ -1908,7 +1908,7 @@ margin-bottom: 30px;
 
 
 
-@media (max-width: 800px){
+@media (max-width: 900px){
   
 
  .menu-icon-left{
@@ -2116,9 +2116,33 @@ margin-bottom: 30px;
     gap: 10px;
 }
 
+.col1{
+    padding-right: unset;
+    font-size: 12px;
+}
 
+.col2{
+    padding-right: unset;
+    font-size: 12px;
+}
 
+th, td{
+    padding: 12px 6px;
+    font-size: 13px;
+}
 
+tbody td:last-child{
+    padding-left: 0;
+    
+}
+
+.help {
+    font-size: 20px;
+}
+
+.hotline {
+    font-size: 14px;
+}
 
 }
 
@@ -2148,7 +2172,7 @@ margin-bottom: 30px;
 
 }
 
-@media (min-width: 390px) and (max-width: 800px){
+@media (min-width: 390px) and (max-width: 900px){
     .hero-text-content p {
     font-size: 10px;
 }
@@ -2173,11 +2197,11 @@ margin-bottom: 30px;
 }
 
 @media (min-width: 650px) and (max-width: 1299px){
-    .menu-icon-left, .avatar-header{
+     .avatar-header{
         display: none;
     }
 
-    .header-logo, .input-container, .notification{
+     .input-container, .notification{
         display: flex;
     }
 
@@ -2185,11 +2209,61 @@ margin-bottom: 30px;
         font-size: 13px;
     }
 
+    .header-logo {
+        display: none;
+    }
+
+    .menu-icon-left{
+        display: flex;
+    }
+
+    .left-sidebar {
+        position: fixed;
+        display: block;
+        width: 170px;
+    }
+
+    .user-experts-section{
+        max-width: 100%;
+    }
+
+    .user-experts-cards{
+        margin: 0 auto;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .user-chat-container.active {
+        margin: 0 auto;
+        max-width: 500px;
+    }
+
+    .story-container{
+        max-width: 800px;
+    }
+
+    .resources-container {
+        margin: 0 auto;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        width: auto;
+    }
+
+    .settings-area.active{
+        margin-right: 1rem;
+    }
+
 }
 
 @media (min-width: 600px) and (max-width: 768px){
     .hero-text-content p{
             font-size: 13px;
+            width: 300px;
     }
 
     .hero-text-content h5{
@@ -2222,12 +2296,158 @@ tbody td:first-child{
     padding: 12px 2px;
 }
 
+.experts-header h5 {
+    font-size: 18px;
+}
+
+.saftey-tips h5 {
+    font-size: 18px;
+}
+
+.saftey-tips li {
+    font-size: 15px;
+}
+
+.saftey-content{
+    padding: 1.5rem;
+    margin-left: 0;
+    max-width: 700px;
+}
+
+
 
 
 }
 
-@media (min-width: 769px) and (max-width: 1000px){
+@media (min-width: 769px) and (max-width: 1200px){
     .main-section{
-            grid-template-columns: 1fr 1fr 1fr;
+            display: block;
     }
+
+    .left-sidebar{
+        position: fixed;
+        display: block;
+        width: 170px;
+    }
+
+    .header-logo {
+        display: flex;
+    }
+
+    .menu-icon-left{
+        display: flex;
+    }
+
+    .notification-container {
+        max-width: 500px;
+        display: flex;
+        margin: 0 auto;
+        align-items: center;
+    }
+
+    .notification-section {
+        max-width: 500px;
+        display: block;
+        margin: 20px auto;
+    }
+
+    .calender-container {
+        max-width: 500px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .experts-header h5 {
+        font-size: 18px;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .hero-section{
+        max-width: 100%;
+        height: 200px;
+        justify-content: space-between;
+    }
+
+    .hero-text-content{
+        width: 500px;
+    }
+
+    .hero-text-content h5{
+        font-size: 30px;
+        margin-top: 10px;
+}
+
+.hero-text-content p{
+    font-size: 15px;
+}
+
+.hero-expert-service img{
+    width: 240px;
+}
+
+.experts-section{
+    max-width: 100%;
+}
+
+
+
+
+
+
+
+
+
+}
+
+@media (min-width: 769px) and (max-width: 900px){
+    .saftey-tips h5 {
+        font-size: 18px;
+    }
+    
+    .saftey-tips li {
+        font-size: 15px;
+    }
+    
+    .saftey-content{
+        padding: 1.5rem;
+        margin-left: 0;
+        max-width: 700px;
+    }
+    
+}
+
+
+@media (min-width: 1000px) and (max-width: 1299px){
+
+    .experts-header h5{
+        max-width: 900px;
+    }
+
+    .left-sidebar{
+        width: 215px;
+    }
+
+    .main-section{
+        grid-template-columns: 1fr 3fr 0fr;
+    }
+
+    .experts-header h5 {
+        font-size: 20px
+        margin-left: 0;
+    }
+
+.header-logo{
+    display: flex;
+}
+
+
+
+}
+
+@media (min-width: 1200px) and (max-width: 1299px){
+    .main-section{
+        grid-template-columns: 1fr 3fr 0fr;
+    }
+
 }
