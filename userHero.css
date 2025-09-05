@@ -1910,6 +1910,9 @@ margin-bottom: 30px;
 
 @media (max-width: 900px){
   
+    .nav-bar-menu{
+        z-index: 1001;
+    }
 
  .menu-icon-left{
     display: block;
@@ -2153,7 +2156,7 @@ tbody td:last-child{
         z-index: 1001;
         top: 60px;
         height: auto;
-        display: block;
+        display: none;
     }
 
     .nav-bar-menu{
@@ -2219,7 +2222,7 @@ tbody td:last-child{
 
     .left-sidebar {
         position: fixed;
-        display: block;
+        display: none;
         width: 170px;
     }
 
@@ -2298,6 +2301,7 @@ tbody td:first-child{
 
 .experts-header h5 {
     font-size: 18px;
+    margin: 0;
 }
 
 .saftey-tips h5 {
@@ -2319,14 +2323,14 @@ tbody td:first-child{
 
 }
 
-@media (min-width: 769px) and (max-width: 1200px){
+@media (min-width: 769px) and (max-width: 1299px){
     .main-section{
             display: block;
     }
 
     .left-sidebar{
         position: fixed;
-        display: block;
+        display: none;
         width: 170px;
     }
 
@@ -2359,14 +2363,14 @@ tbody td:first-child{
 
     .experts-header h5 {
         font-size: 18px;
-        max-width: 100%;
-        margin: 0 auto;
+        max-width: 800px;
+        margin-left: 0;
     }
 
     .hero-section{
         max-width: 100%;
         height: 200px;
-        justify-content: space-between;
+        justify-content: space-around;
     }
 
     .hero-text-content{
@@ -2418,14 +2422,16 @@ tbody td:first-child{
 }
 
 
-@media (min-width: 1000px) and (max-width: 1299px){
+@media (min-width: 1000px) and (max-width: 1299px) {
 
     .experts-header h5{
         max-width: 900px;
     }
 
     .left-sidebar{
+        display: none;
         width: 215px;
+        z-index: 100;
     }
 
     .main-section{
@@ -2440,14 +2446,22 @@ tbody td:first-child{
 .header-logo{
     display: flex;
 }
+.user-experts-header{
+    margin-left: auto;
+    text-align: center;
+    margin-right: auto;
+    width: 400px;
+}
 
-
+.nav-bar-menu{
+    z-index: 1001;
+}
 
 }
 
 @media (min-width: 1200px) and (max-width: 1299px){
-    .main-section{
+    /* .main-section{
         grid-template-columns: 1fr 3fr 0fr;
-    }
+    } */
 
 }
