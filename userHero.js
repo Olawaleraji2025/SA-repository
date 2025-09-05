@@ -444,6 +444,21 @@ toggleSwitch.addEventListener('change', function() {
 
 // Toggle switch functionality ends here
 
+// Menu icon toggle functionality starts here
+// This section handles the toggle of the left-sidebar on menu icon click
+
+const menuIcon = document.querySelector('.menu-icon-left i');
+menuIcon.addEventListener('click', function() {
+    const leftSidebar = document.querySelector('.left-sidebar');
+    if (leftSidebar.style.display === 'none' || leftSidebar.style.display === '') {
+        leftSidebar.style.display = 'block';
+    } else {
+        leftSidebar.style.display = 'none';
+    }
+});
+
+// Menu icon toggle functionality ends here
+
 
 
 

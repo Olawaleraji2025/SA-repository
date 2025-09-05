@@ -97,6 +97,7 @@ body{
 .left-sidebar{
     padding-top: 32px;
     background-color: #F3FAFF;
+    transition: all 0.3s ease;
 }
 
 .right-sidebar, .chats-Side-Bar{
@@ -1908,9 +1909,7 @@ margin-bottom: 30px;
 
 
 @media (max-width: 800px){
-  .input-container, .notifications{
-    display: none;
- }
+  
 
  .menu-icon-left{
     display: block;
@@ -1991,6 +1990,8 @@ margin-bottom: 30px;
 
 .experts-header h5{
     font-size: 15px;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .expert-name{
@@ -2004,6 +2005,8 @@ margin-bottom: 30px;
 .saftey-content{
     width: 100%;
     padding: unset;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .saftey-tips{
@@ -2050,34 +2053,136 @@ margin-bottom: 30px;
     margin: 0 auto;
 }
 
+.user-experts-cards{
+    margin: 0 auto;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-@media (min-width: 769px) and (max-width: 1000px){
-    .main-section{
-            grid-template-columns: 1fr 1fr 1fr;
-    }
+.user-experts{
+    display: block;
+    margin: 0 auto;
 }
 
-@media (min-width: 390px) and (max-width: 768px){
-        .hero-text-content p {
-        font-size: 10px;
+.user-chat-container.active{
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+.user-experts-section{
+    max-width: 100%;
+}
+
+.resources-container{
+    margin: 0 auto;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: auto;
+}
+
+.uesr-details-form{
+    display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        justify-content: left;
+}
+
+.uesr-details-form input{
+    width: 280px;
+}
+
+.delete-account-text p{
+    font-size: 14px;
+}
+
+.delete-account-text span{
+    font-size: 10px;
+}
+
+.deleteAcct-btn{
+    padding: 7px;
+}
+
+.password-form input{
+    width: 270px;
+}
+
+.each-notification-container{
+    gap: 10px;
+}
+
+
+
+
+
+}
+
+@media (min-width: 320px) and (max-width: 649px){
+    .left-sidebar {
+        width: 200px;
+        position: fixed;
+        z-index: 1001;
+        top: 60px;
+        height: auto;
+        display: block;
     }
 
-        .hero-text-content h5 {
-        font-size: 20px;
+    .nav-bar-menu{
+        width: 200px;
+        height: auto;
     }
+
+    .exit-container {
+        margin-top: 100px;
+        margin-bottom: 50px;
+    }
+
+    .header-logo, .input-container, .notifications{
+        display: none;
+    }
+
+}
+
+@media (min-width: 390px) and (max-width: 800px){
+    .hero-text-content p {
+    font-size: 10px;
+}
+
+    .hero-text-content h5 {
+    font-size: 20px;
+}
 
 .hero-expert-service img {
-        width: 150px;
+    width: 150px;
+}
+
+.hero-section{
+    justify-content: space-around;
+            height: 170px;
+}
+
+.hero-expert-service img{
+        width: 200px;
+}
+
+}
+
+@media (min-width: 650px) and (max-width: 1299px){
+    .menu-icon-left, .avatar-header{
+        display: none;
     }
 
-    .hero-section{
-        justify-content: space-around;
-                height: 170px;
+    .header-logo, .input-container, .notification{
+        display: flex;
     }
 
-    .hero-expert-service img{
-            width: 200px;
+    .hero-text-content p {
+        font-size: 13px;
     }
 
 }
@@ -2091,6 +2196,38 @@ margin-bottom: 30px;
             font-size: 24px;
     }
 
+    .uesr-details-form{
+            justify-content: space-around;
+    }
+
+    .col1{
+        font-size: 11px;
+        padding-right: unset;
+    }
+
+th{
+    font-size: 12px;
+    padding: 0 8px;
+}
+
+tbody td:last-child{
+    padding-left: unset;
+}
+
+.col2{
+    padding-right: 0;
+}
+
+tbody td:first-child{
+    padding: 12px 2px;
+}
 
 
+
+}
+
+@media (min-width: 769px) and (max-width: 1000px){
+    .main-section{
+            grid-template-columns: 1fr 1fr 1fr;
+    }
 }
