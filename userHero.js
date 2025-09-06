@@ -275,9 +275,25 @@ navItems.forEach(item => {
 //  functionality for notification icon
 
 const NotifyIcon = document.querySelector('.notify-icon');
+const NotifyIcon2 = document.querySelector('.notify-icon2');
 const BookSessionIcon = document.querySelector('.books-session');
 
  NotifyIcon.addEventListener('click', function() {
+    mainSection.style.gridTemplateColumns = '0.6fr 3fr 0fr';
+    contentArea.classList.remove('active');
+    rightSidebar.classList.remove('active');
+    expertArea.classList.remove('active');
+    chatsSidebar.classList.remove('active');
+    resourcesArea.classList.remove('active');
+    resourcesAreaContents.classList.remove('active');
+    bookSectionArea.classList.remove('active');
+    notificationArea.classList.add('active');
+    articleArea.classList.remove('active');
+    settingsArea.classList.remove('active');
+    helpArea.classList.remove('active');
+ })
+ 
+ NotifyIcon2.addEventListener('click', function() {
     mainSection.style.gridTemplateColumns = '0.6fr 3fr 0fr';
     contentArea.classList.remove('active');
     rightSidebar.classList.remove('active');
