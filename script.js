@@ -59,3 +59,15 @@ menuIcon.addEventListener('click', function(event) {
     }
     
 })
+
+const signInOptions = document.querySelectorAll('.sign-in-btn');
+const ModalContents = document.querySelector('.modal-content');
+const signInOptionsModal = document.querySelector('.modal');
+
+signInOptions.forEach(btn => {
+    btn.addEventListener('click', function () {
+        signInOptionsModal.style.display = 'block';
+        ModalContents.style.display = 'block';
+    })
+})
+

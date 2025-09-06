@@ -350,6 +350,22 @@ padding: 4px;
     text-decoration: none;
 }
 
+.back-btn{
+    color: #3ACEFF;
+    background: #0B1A43;
+    width: 325px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+    display: block;
+    margin: 15px auto;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
 /* Responsive Media Queries */
 
 /* Medium screens (tablets, 768px - 1199px) */
@@ -427,7 +443,7 @@ padding: 4px;
     .register-btn,
     .next-btn,
     .ok-btn,
-    .start-btn {
+    .start-btn, .back-btn {
         width: 100%;
         max-width: 300px;
     }
@@ -567,7 +583,7 @@ padding: 4px;
     .register-btn,
     .next-btn,
     .ok-btn,
-    .start-btn {
+    .start-btn, .back-btn {
         width: 100%;
     }
 

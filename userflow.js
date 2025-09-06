@@ -87,6 +87,26 @@ document.getElementById('helpNextBtn').addEventListener("click", function () {
     showSection(sections.gender);
 });
 
+// Back button event listeners for questionnaires
+document.querySelectorAll('.back-btn').forEach(btn => {
+    btn.addEventListener("click", function () {
+        const currentSection = this.closest('.notification-section');
+        const currentId = currentSection.id;
+        
+        if (currentId === 'timeQuestionnaire') {
+            showSection(sections.purpose);
+        } else if (currentId === 'supportTypeQuestionnaire') {
+            showSection(sections.time);
+        } else if (currentId === 'abuseTypeQuestionnaire') {
+            showSection(sections.support);
+        } else if (currentId === 'helpTypeQuestionnaire') {
+            showSection(sections.abuse);
+        } else if (currentId === 'genderQuestionnaire') {
+            showSection(sections.help);
+        }
+    });
+});
+
 // Optional: Add keyboard navigation support
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
