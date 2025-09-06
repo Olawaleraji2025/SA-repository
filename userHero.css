@@ -2262,6 +2262,28 @@ tbody td:last-child{
         margin-bottom: -3px;
     }
 
+    .profile-info{
+        gap: 15px;
+    }
+
+    .profile-name p{
+        font-size: 11px;
+    }
+
+    .profile-name span{
+        font-size: 12px;
+    }
+
+    .chat-input-div {
+        width: auto;
+    }
+
+    .chat-section.active{
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+
 }
 
 
@@ -2300,6 +2322,10 @@ tbody td:last-child{
         display: flex;
     }
 
+    .notification-container span {
+        margin: 0px 0 0 auto;
+    }
+
     .input-container{
         display: flex;
         margin-bottom: -10px;
@@ -2319,6 +2345,7 @@ tbody td:last-child{
 
     .menu-icon-left{
         display: flex;
+        margin-left: 10px;
     }
 
     .left-sidebar {
@@ -2424,6 +2451,9 @@ tbody td:first-child{
     max-width: 700px;
 }
 
+.menu-icon-left{
+    margin-left: 10px;
+}
 
 
 

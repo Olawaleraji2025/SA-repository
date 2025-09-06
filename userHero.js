@@ -460,15 +460,35 @@ toggleSwitch.addEventListener('change', function() {
 
 // Toggle switch functionality ends here
 
-const menuIcon = document.querySelector('.menu-icon-left i');
+const menuIcon = document.querySelector('.fa-bars');
+const cancelIcon = document.querySelector('.fa-x');
 menuIcon.addEventListener('click', function() {
+    menuIcon.style.display = 'none';
+    cancelIcon.style.display = 'block';
+
     const leftSidebar = document.querySelector('.left-sidebar');
     if (leftSidebar.style.display === 'none' || leftSidebar.style.display === '') {
         leftSidebar.style.display = 'block';
+       
     } else {
-        leftSidebar.style.display = 'none';
+    leftSidebar.style.display = 'block';
     }
 });
+
+cancelIcon.addEventListener('click', function() {
+    menuIcon.style.display = 'block';
+    cancelIcon.style.display = 'none';
+
+    const leftSidebar = document.querySelector('.left-sidebar');
+    if (leftSidebar.style.display === 'block' || leftSidebar.style.display === '') {
+        leftSidebar.style.display = 'none';
+       
+    } else {
+    leftSidebar.style.display = 'block';
+    }
+});
+
+
 
 
 // const searchIcon = document.querySelector(".searchIcon");
