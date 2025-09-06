@@ -2127,7 +2127,7 @@ margin-bottom: 30px;
 
 th, td{
     padding: 12px 6px;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 tbody td:last-child{
@@ -2213,6 +2213,10 @@ tbody td:last-child{
     .input-container input{
         width: 130px;
         padding: 5px;
+    }
+
+    .modal-btn2{
+        margin-top: 20px;
     }
 
 }

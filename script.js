@@ -71,3 +71,6 @@ signInOptions.forEach(btn => {
     })
 })
 
+// window.onclick = function() {
+//     ModalContents.style.display = 'none';
+// }

@@ -1379,7 +1379,7 @@ height: auto;
     
         .menu-icon{
             display: block;
-            height: 33px;
+            height: 30px;
 
         }
     
@@ -1778,7 +1778,9 @@ height: auto;
         gap: 30px;
     }
     
-    
+    .modal-btn2{
+        margin-top: 20px;
+    }
     
     
     
