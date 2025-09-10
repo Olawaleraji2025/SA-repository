@@ -551,10 +551,14 @@ height: auto;
 }
 .guideline-card2{
     width: 900px;
-    margin: 0 auto 0 175px;
+    margin: 50px auto 50px 175px;
     display: flex;
     justify-content: space-between;
 }
+
+.guideline-images img{
+        width: 250px;
+    }
 
 .guideline-card3{
     width: 1008px;
@@ -1036,6 +1040,10 @@ height: auto;
     .guideline-card2{
         margin: 30px auto;
     }
+
+    .guideline-images img{
+        width: 250px;
+    }
     
     .feature-img 
     {
@@ -1273,7 +1281,7 @@ height: auto;
     }
     
     .guideline-images img{
-        width: 200px;
+        width: 250px;
     }
     
     .guideline-card{
@@ -1282,7 +1290,7 @@ height: auto;
     
     .guideline-card2{
         width: 700px;
-        margin: 0 auto;
+        margin: 50px auto;
     }
     
     .guideline-card3{
@@ -1369,9 +1377,7 @@ height: auto;
     }
     
     @media (max-width: 768px){
-        *{
-            /* border: 1px solid red; */
-        }
+       
     
          /* .nav-header, .hero-container, .features-container, .about-us-container, .experts-section-container, .choose-us-container, .guidelines-container, .footer-container{
             display: none;
@@ -1613,7 +1619,7 @@ height: auto;
     }
     
     .guideline-images img{
-        width: 130px;
+        width: 200px;
     }
     
     .guideline-account{

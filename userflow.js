@@ -50,13 +50,15 @@ document.getElementById('signInBtn3').addEventListener("click", function (e) {
     showSection(sections.first);
 });
 
-document.querySelectorAll('#signUpBtn').forEach(btn => {
-    btn.addEventListener("click", function (e) {
-        e.preventDefault(); // Prevent default link behavior
-        showSection(sections.notification);
-        sections.body.style.height = '100vh';
-    })
-});
+// document.querySelectorAll('#signUpBtn').forEach(btn => {
+//     btn.addEventListener("click", function (e) {
+//         e.preventDefault(); // Prevent default link behavior
+//         showSection(sections.notification);
+//         sections.body.style.height = '100vh';
+//     })
+// });
+
+
 
 // Event listeners for questionnaire sections
 document.getElementById('okBtn').addEventListener("click", function () {
@@ -114,3 +116,59 @@ document.addEventListener('keydown', function(e) {
         showSection(sections.first);
     }
 });
+
+
+// Getting hold of the inputted values in the sign in section
+const emailForSignIn = document.getElementById('emailForSignIn');
+const passwordForSignIn = document.getElementById('passwordForSignIn');
+const signInForm = document.getElementsByClassName('signInForm');
+const theLoaderContainer = document.querySelector('.loader-container');
+const theLoader = document.querySelector('.loader');
+
+document.getElementById('signUpBtn').addEventListener('click', async function (e) {
+    e.preventDefault();
+    const email = emailForSignIn.value;
+    const password = passwordForSignIn.value;
+    console.log(email, password);
+    // Show loader
+    let isLoading = true;
+    setTimeout(() => {
+        if (isLoading) {
+            theLoaderContainer.style.display = 'flex';
+        }
+    }, 100);
+
+    // const notificationMessage = document.getElementById('notificationMessage');
+    // notificationMessage.style.display = 'none';
+    // notificationMessage.textContent = '';
+
+    try {
+        // Send data to backend using POST
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password
+            })
+        });
+
+        const data = await response.json();
+        // isLoading = false;
+        theLoaderContainer.style.display = 'none';
+        // notificationMessage.style.display = 'flex';
+        // notificationMessage.textContent = 'Success: Data sent successfully.';
+        console.log('Success:', data);
+        // Handle success, e.g., show success message or redirect
+        showSection(sections.notification); // Move to next section after authentication
+    } catch (error) {
+        isLoading = false;
+        theLoaderContainer.style.display = 'none';
+        // notificationMessage.style.display = 'flex';
+        // notificationMessage.textContent = 'Error: ' + error.message;
+        console.error('Error:', error);
+        // Handle error, e.g., show error message
+    }
+})

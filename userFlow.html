@@ -8,13 +8,22 @@
     <title>User form</title>
 </head>
 <body id="ContentBody">
+    <div class="loader-container" >
+        <span class="loader"></span>
+    </div>
+
+    <!-- <div id="notificationMessage" class="notification-message" style="display: none;">
+
+    </div> -->
+    
+
     <section class="form-section active" id="firstSection">
         
         <div class="form-image">
-            <img src="Landing page Assets/signin image.png" alt="Sign In Image">
+            <img src="Landing page Assets/image fix.png" alt="Sign In Image">
         </div>
         
-            <img src="Landing page Assets/SafeAnchor Logo.svg" alt="Sign In Image" class="anchorlogo">
+            <!-- <img src="Landing page Assets/SafeAnchor Logo.svg" alt="Sign In Image" class="anchorlogo"> -->
         
         
         <div class="form-container1">
@@ -22,12 +31,12 @@
         <div class="form-container2">
         <h1>Sign In</h1>
         <p>Sign in to your account</p>
-        <form>
+        <form class="signInForm">
             <label for="email">Email Address</label><br>
-            <input type="text" id="email" name="email" required><br>
+            <input type="text" id="emailForSignIn" name="email" required><br>
             
             <label for="password">Password</label><br>
-            <input type="password" id="password" name="password" required><br>
+            <input type="password" id="passwordForSignIn" name="password" required><br>
             <span class="forget-password">Forgot password?</span>
             <br><br>
             <button class="sign-in-btn" id="signUpBtn">Sign in</button><br>
