@@ -164,7 +164,7 @@ document.getElementById('signUpBtn').addEventListener('click', async function (e
         // Handle success, e.g., show success message or redirect
         showSection(sections.notification); // Move to next section after authentication
     } catch (error) {
-        isLoading = false;
+        // isLoading = false;
         theLoaderContainer.style.display = 'none';
         // notificationMessage.style.display = 'flex';
         // notificationMessage.textContent = 'Error: ' + error.message;
