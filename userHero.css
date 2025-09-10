@@ -71,7 +71,7 @@ body{
 .notification-count{
     top: 0;
     background: red;
-    right: 0;
+    right: 40px;
     font-size: 8px;
     padding: 3px;
     color: white;
@@ -87,7 +87,7 @@ body{
 
 .main-section{
     display: grid;
-    /* grid-template-columns: 1fr 3fr 1fr; */
+    /* grid-template-columns: 0.6fr 1.2fr 2fr; */
     grid-template-columns: 0.6fr 3fr 1fr;
     margin: auto;
 }
@@ -99,7 +99,7 @@ body{
     background-color: #F3FAFF;
 }
 
-.right-sidebar, .chats-Side-Bar{
+.right-sidebar{
     display: none;
 }
 
@@ -110,20 +110,24 @@ body{
     display: block;
 }
 
-.chats-Side-Bar.active{
+/* .chats-Side-Bar.active{
     background: #F3FAFF;
     padding: 2.5rem 1rem 1rem 1rem;
     border-radius: 10px;
     display: block;
-}
+} */
+
+/* #messageSideBar{
+    background: #F3FAFF;
+} */
 
 /* Hero-section-styling */
 
-.content-area,.expert-area, .resources-area, .notification-area, .book-section-area, .article-area, .settings-area, .help-area{
+.content-area,.expert-area, .resources-area, .notification-area, .book-section-area, .article-area, .settings-area, .help-area, .messages-area{
     display: none;
     padding: 0rem 0.6rem 0rem 0.6rem;
 }
-
+/* I added the message styling above this comment */
 .content-area.active{
     display: block;
 }
@@ -135,6 +139,13 @@ body{
     display: block;
     padding-right: unset;
 }
+/* I added the message styling */
+.messages-area.active{
+    display: block;
+    background-color: #F3FAFF;
+    margin-left: 20px;
+}
+/* stops here */
 .notification-area.active{
     display: block;
     background-color: #F3FAFF;
@@ -246,7 +257,7 @@ body{
 
  .user-experts-cards{
     display: grid;
-    grid-template-columns: repeat(3, 210px);
+    grid-template-columns: repeat(auto-fit, 210px);
     height: fit-content;
     background: #F3FAFF;
     padding-left: 0.3rem;
@@ -306,7 +317,7 @@ font-weight: 400;
 }
 
 .user-experts-section{
-    max-width: 680px;
+    max-width: 100%;
     background: #F3FAFF;
     width: 100%;
 }
@@ -375,6 +386,37 @@ font-weight: 400;
     margin: 10px auto;
 }
 
+.tip1{
+    display: none;
+}
+
+.tip1.active{
+    display: block;
+}
+
+/* messages styling */
+.message-div{
+    border-radius: 20px;
+    height: 80vh;
+    display: flex;
+    width: 100%;
+    background: #fff;
+    justify-content: center;
+    align-items: center;
+}
+
+.message-container{
+    display: block;
+    padding: 1rem;
+    margin: 0 auto;
+    width: 300px;
+    text-align: center;
+}
+
+.chats-area{
+    color: #CAC7C7;
+    font-size: 12px;
+}
 
 
 /* Home Page Styles End */
@@ -411,7 +453,8 @@ font-weight: 400;
 }
 
 .exit-container{
-    margin-top: 230px;
+    /* margin-top: 230px; */
+        margin-top: 160px;
 }
 
 .exit-container a{
@@ -581,7 +624,7 @@ font-weight: 600;
 
 .user-chat-container.active{
     display: block;
-    background-color: #fff;
+    background-color: #F3FAFF;
     padding-left: 12px;
 }
 
@@ -590,14 +633,24 @@ font-weight: 600;
 }
 
 .user-chats-header{
-    margin-top: 48px;
+    margin-top: 15px;
     margin-bottom: 11px;
-    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-chats-header img{
+    background: #EFEEEE;
+    width: 20px;
+    border-radius: 5px;
+    padding: 2px;
 }
 
 .user-chats-header h5{
-    color: #0B1A43;
-    font-size: 19px;
+   color: #2FC2EF;
+    text-decoration: underline;
+    font-size: 17px;
 }
 
 .user-chat-text p{
@@ -635,6 +688,13 @@ font-weight: 600;
     font-size: 13px;
 }
 
+.msg{
+    color: #0B1A43;
+    padding: 0.5rem;
+    margin-top: 20px;
+    background: #fff;
+    font-size: 19px;
+}
 
 .chat-section{
     margin-top: 45px;
@@ -2190,6 +2250,11 @@ tbody td:last-child{
         margin-bottom: 50px;
     }
 
+    #messageSideBar{
+        display: none;
+    }
+
+
     .header-logo, .searchIcon, .notifications{
         display: none;
     }
@@ -2231,6 +2296,19 @@ tbody td:last-child{
         height: 50px;
         z-index: 1001;
         background: #F3FAFF;
+    }
+
+    .exit-container {
+        margin-top: 60px;
+        margin-bottom: 50px;
+    }
+    
+    .messages-area.active{
+        margin-left: unset;
+    }
+
+    .message-info{
+        gap: 10px;
     }
 
     .menu-icon-left{
@@ -2394,9 +2472,7 @@ tbody td:last-child{
         margin-right: 1rem;
     }
 
-    .exit-container {
-        margin-top: 120px;
-    }
+    
 
 }
 
@@ -2563,7 +2639,7 @@ tbody td:first-child{
 }
 
 
-@media (min-width: 1000px) and (max-width: 1299px) {
+@media (min-width: 1000px) and (max-width: 1299px){
 
     .experts-header h5{
         max-width: 900px;

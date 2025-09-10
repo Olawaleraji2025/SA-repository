@@ -66,6 +66,12 @@
                         <img src="Landing page Assets/Resources icon.png" alt="Resources-icon">
                         <span>Resources</span>
                     </div>
+                    <!-- I added the message icon -->
+                    <div class="menu">
+                        <img src="Landing page Assets/message-notify-icon.png" alt="message-icon" class="message-icon">
+                        <span>Messages</span>
+                    </div>
+                    <!-- stop -->
                     <div class="menu">
                         <img src="Landing page Assets/setting icon.png" alt="support-icon">
                         <span>Settings</span>
@@ -224,9 +230,9 @@
                                     <div class="saftey-content">
                                         <div  class="saftey-tips">
                                             <div>
-                                                <img src="Landing page Assets/Arrow left image.png" alt="arrow left">
+                                                <img src="Landing page Assets/Arrow left image.png" alt="arrow left" id="safteyLeftIcon">
                                             </div>
-                                            <div>
+                                            <div class="tip1 active" id="tipContent1">
 
                                                 <h5>Safety & Privacy</h5>
                                                 <li>You’re always in control of what you share.</li>
@@ -234,9 +240,25 @@
                                                 <li>Your information is private and protected here.</li>
                                             </div>
 
+                                            <div class="tip1" id="tipContent2">
+
+                                                <h5>Encouragement</h5>
+                                                <li>It’s okay to pause and come back whenever you’re ready.</li>
+                                                <li>You are not alone. Many others are walking this path too.</li>
+                                                <li>Reaching out is a sign of strength, not weakness</li>
+                                            </div>
+
+                                            <div class="tip1" id="tipContent3">
+
+                                                <h5>Emotional Wellbeing</h5>
+                                                <li>Healing is not a race — take it one step at a time.</li>
+                                                <li>Small steps, like reading an article or joining a support group, count as progress.</li>
+                                                <li>Your feelings are valid, even if you can’t put them into words yet</li>
+                                            </div>
+
                                         </div>
                                     <div class="icon-container">
-                                        <img src="Landing page Assets/Arrow right image.png" alt="arrow right">
+                                        <img src="Landing page Assets/Arrow right image.png" alt="arrow right" id="safteyRightIcon">
                                     </div>
                                     </div>
                                 </div>
@@ -554,6 +576,99 @@
                    </div>
             </div>
             <!-- Resources Page End -->
+            <!-- Messages page starts -->
+             <div class="messages-area " id="messagesArea">
+<!-- User Chat Container Start -->
+ <h5 class="msg">Messages</h5>
+                <div class="user-chat-container active" id="userChatMessages">
+                <div class="user-chats-header" id="userChatHeader">
+                    <h5>Chats</h5>
+                    <img src="Landing page Assets/search-icon.png" alt="">
+                </div>
+                    <div class="user-chat-contents">
+                        <div class="each-message-info">
+                            <div class="message-info">
+                                <img src="Landing page Assets/Avatar 1.jpg" alt="avatar image">
+                                <div class="user-chat-text">
+                                    <p>John Janet</p>
+                                    <span>How are you doing?</span>
+                                </div>
+                            </div>
+                            <div class="message-number">
+                                <p>01:20</p>
+                                <span>2</span>
+                            </div>
+                        </div>
+                        <div class="each-message-info">
+                            <div class="message-info">
+                                <img src="Landing page Assets/Avatar 1.jpg" alt="avatar image">
+                                <div class="user-chat-text">
+                                    <p>Bukola Jimoh</p>
+                                    <span>Good morning</span>
+                                </div>
+                            </div>
+                            <div class="message-number">
+                                <p>Yesterday</p>
+                                 <span>2</span> 
+                            </div> 
+                        </div>
+                        <div class="each-message-info">
+                            <div class="message-info">
+                                <img src="Landing page Assets/Avatar 1.jpg" alt="avatar image">
+                                <div class="user-chat-text">
+                                    <p>User Name</p>
+                                    <span>I want a session.</span>
+                                </div>
+                            </div>
+                            <div class="message-number">
+                                <p>Thursday</p>
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="each-message-info">
+                            <div class="message-info">
+                                <img src="Landing page Assets/Avatar 1.jpg" alt="avatar image">
+                                <div class="user-chat-text">
+                                    <p>Michael</p>
+                                    <span>How is your day going?</span>
+                                </div>
+                            </div>
+                            <div class="message-number">
+                                <p>Friday</p>
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="each-message-info">
+                            <div class="message-info">
+                                <img src="Landing page Assets/Avatar 1.jpg" alt="avatar image">
+                                <div class="user-chat-text">
+                                    <p>Mr Goodness</p>
+                                    <span>How are you doing?</span>
+                                </div>
+                            </div>
+                            <div class="message-number">
+                                <p>13:06</p>
+                                <span>4</span>
+                            </div>
+                        </div>
+                        <div class="each-message-info">
+                            <div class="message-info">
+                                <img src="Landing page Assets/Avatar 1.jpg" alt="avatar image">
+                                <div class="user-chat-text">
+                                    <p>Mr Goodness</p>
+                                    <span>How are you doing?</span>
+                                </div>
+                            </div>
+                            <div class="message-number">
+                                <p>13:06</p>
+                                <span>4</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- User Chat Container End -->
+             </div>
+            <!-- Messages page end -->
             <!-- Notifications Page Start -->
             <div class="notification-area " id="notificationArea">
 <div class="notification-messages-container">
@@ -1267,114 +1382,27 @@
         </div>
 
             <!-- Chats Sidebar Start -->
-            <div class="right-sidebar " id="chatsSideBar">
-
-                <!-- User Chat Container Start -->
-                <div class="user-chat-container active" id="userChatMessages">
-                <div class="user-chats-header" id="userChatHeader">
-                    <h5>Chats</h5>
-                </div>
-                    <div class="user-chat-contents">
-                        <div class="each-message-info">
-                            <div class="message-info">
-                                <img src="Landing page Assets/Avatar 1.jpg" alt="avatar image">
-                                <div class="user-chat-text">
-                                    <p>John Janet</p>
-                                    <span>How are you doing?</span>
-                                </div>
-                            </div>
-                            <div class="message-number">
-                                <p>01:20</p>
-                                <span>2</span>
-                            </div>
-                        </div>
-                        <div class="each-message-info">
-                            <div class="message-info">
-                                <img src="Landing page Assets/Avatar 1.jpg" alt="avatar image">
-                                <div class="user-chat-text">
-                                    <p>Bukola Jimoh</p>
-                                    <span>Good morning</span>
-                                </div>
-                            </div>
-                            <div class="message-number">
-                                <p>Yesterday</p>
-                                 <span>2</span> 
-                            </div> 
-                        </div>
-                        <div class="each-message-info">
-                            <div class="message-info">
-                                <img src="Landing page Assets/Avatar 1.jpg" alt="avatar image">
-                                <div class="user-chat-text">
-                                    <p>User Name</p>
-                                    <span>I want a session.</span>
-                                </div>
-                            </div>
-                            <div class="message-number">
-                                <p>Thursday</p>
-                                <p></p>
-                            </div>
-                        </div>
-                        <div class="each-message-info">
-                            <div class="message-info">
-                                <img src="Landing page Assets/Avatar 1.jpg" alt="avatar image">
-                                <div class="user-chat-text">
-                                    <p>Michael</p>
-                                    <span>How is your day going?</span>
-                                </div>
-                            </div>
-                            <div class="message-number">
-                                <p>Friday</p>
-                                <p></p>
-                            </div>
-                        </div>
-                        <div class="each-message-info">
-                            <div class="message-info">
-                                <img src="Landing page Assets/Avatar 1.jpg" alt="avatar image">
-                                <div class="user-chat-text">
-                                    <p>Mr Goodness</p>
-                                    <span>How are you doing?</span>
-                                </div>
-                            </div>
-                            <div class="message-number">
-                                <p>13:06</p>
-                                <span>4</span>
-                            </div>
-                        </div>
-                        <div class="each-message-info">
-                            <div class="message-info">
-                                <img src="Landing page Assets/Avatar 1.jpg" alt="avatar image">
-                                <div class="user-chat-text">
-                                    <p>Mr Goodness</p>
-                                    <span>How are you doing?</span>
-                                </div>
-                            </div>
-                            <div class="message-number">
-                                <p>13:06</p>
-                                <span>4</span>
-                            </div>
-                        </div>
+            <div class="right-sidebar " id="messageSideBar">
+                <!-- i removed the chats section here -->
+                 <div class="message-div">
+                     <div class="message-container">
+                         <div class="chats-area">
+                            <img src="Landing page Assets/chat-icon.png" alt="chat-icon">
+                            <p>Click on a contact to view their  messages</p>
+                         </div>
                     </div>
+                    
+                 </div>
+
                 </div>
-                <!-- User Chat Container End -->
 
-                <!-- Chat Section Start -->
-                <section class="chat-section" id="chatAppContainer">
-                    <div class="chat-app-section">
-                        <div class="chat-app-header">
-                            <div class="profile-info">
-                                <img src="Landing page Assets/Avatar 7.png" alt="profile-picture">
-                                <div class="profile-name">
-                                    <p>Suporte ADMIN</p>
-                                    <span>#CU6798H</span>
-                                </div>
-                            </div>
-
-                            <div class="profile-icons">
+ <!-- from here. Do not delete this code -->
+<!-- <div>                                           
+     <div class="profile-icons">
                                 <img src="Landing page Assets/phone.png" alt="phone-call">
                                 <img src="Landing page Assets/videocam.png" alt="videocall">
                                 <img src="Landing page Assets/info.png" alt="information-image">
                             </div>
-                        </div>
 
                         <section>
                             <div class="messages-container" >
@@ -1454,11 +1482,12 @@
                             <img src="Landing page Assets/attach-file.png" alt="attach-file">
                             <img src="Landing page Assets/check.png" alt="check icon">
                         </div >
-                    </div>
-                </section>
+                    </div> -->
                 <!-- Chat Section End -->
 
-        </div>
+
+        <!-- </div> -->
+<!-- To here. Do not delete this code -->
 
             <!-- Resources Area Contents Start -->
             <div class="right-sidebar " id="resourcesAreaContents">

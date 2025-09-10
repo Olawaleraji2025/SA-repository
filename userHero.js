@@ -113,10 +113,12 @@ const navItems = document.querySelectorAll('.nav-bar-menu .menu');
 const contentArea = document.getElementById('contentArea');
 const expertArea = document.getElementById('expertArea');
 const rightSidebar = document.getElementById('rightSideBar');
-const chatsSidebar = document.getElementById('chatsSideBar');
+// const chatsSidebar = document.getElementById('chatsSideBar');
 const userChatMessages = document.getElementById('userChatMessages');
 const chatAppContainer = document.getElementById('chatAppContainer');
 const userChatHeader = document.getElementById('userChatHeader');
+const messagesArea = document.getElementById('messagesArea');
+const messageSideBar = document.getElementById('messageSideBar');
 const resourcesArea = document.getElementById('resourcesArea');
 const resourcesAreaContents = document.getElementById('resourcesAreaContents');
 const helpArea = document.getElementById('helpArea');
@@ -146,8 +148,10 @@ function handleNavigation(navItem) {
     contentArea.classList.remove('active');
     rightSidebar.classList.remove('active');
     expertArea.classList.remove('active');
-    chatsSidebar.classList.remove('active');
+    // chatsSidebar.classList.remove('active');
     notificationArea.classList.remove('active');
+    messagesArea.classList.remove('active');
+    messageSideBar.classList.remove('active');
     resourcesArea.classList.remove('active');
     resourcesAreaContents.classList.remove('active');
     bookSectionArea.classList.remove('active');
@@ -163,12 +167,14 @@ function handleNavigation(navItem) {
         rightSidebar.classList.add('active');
 
     } else if (navText === 'experts') {
-        // Experts layout: 1fr 3fr 2fr
-        mainSection.style.gridTemplateColumns = '1fr 3fr 2fr';
+        // Experts layout: 0.2fr 1fr
+        mainSection.style.gridTemplateColumns = '0.2fr 1fr';
         contentArea.classList.remove('active');
         rightSidebar.classList.remove('active');
         expertArea.classList.add('active');
-        chatsSidebar.classList.add('active');
+        // chatsSidebar.classList.add('active');
+        messagesArea.classList.remove('active');
+        messageSideBar.classList.remove('active');
         resourcesArea.classList.remove('active');
         resourcesAreaContents.classList.remove('active');
         notificationArea.classList.remove('active');
@@ -182,8 +188,10 @@ function handleNavigation(navItem) {
         contentArea.classList.remove('active');
         rightSidebar.classList.remove('active');
         expertArea.classList.remove('active');
-        chatsSidebar.classList.remove('active');
+        // chatsSidebar.classList.remove('active');
         notificationArea.classList.remove('active');
+        messagesArea.classList.remove('active');
+        messageSideBar.classList.remove('active');
         resourcesArea.classList.add('active');
         resourcesAreaContents.classList.add('active');
         bookSectionArea.classList.remove('active');
@@ -195,8 +203,10 @@ function handleNavigation(navItem) {
         contentArea.classList.remove('active');
         rightSidebar.classList.remove('active');
         expertArea.classList.remove('active');
-        chatsSidebar.classList.remove('active');
+        // chatsSidebar.classList.remove('active');
         notificationArea.classList.add('active');
+        messagesArea.classList.remove('active');
+        messageSideBar.classList.remove('active');
         resourcesArea.classList.remove('active');
         resourcesAreaContents.classList.remove('active');
         bookSectionArea.classList.remove('active');
@@ -209,8 +219,10 @@ function handleNavigation(navItem) {
         contentArea.classList.remove('active');
         rightSidebar.classList.remove('active');
         expertArea.classList.remove('active');
-        chatsSidebar.classList.remove('active');
+        // chatsSidebar.classList.remove('active');
         notificationArea.classList.remove('active');
+        messagesArea.classList.remove('active');
+        messageSideBar.classList.remove('active');
         resourcesArea.classList.remove('active');
         resourcesAreaContents.classList.remove('active');
         bookSectionArea.classList.remove('active');
@@ -223,8 +235,10 @@ function handleNavigation(navItem) {
         contentArea.classList.remove('active');
         rightSidebar.classList.remove('active');
         expertArea.classList.remove('active');
-        chatsSidebar.classList.remove('active');
+        // chatsSidebar.classList.remove('active');
         notificationArea.classList.remove('active');
+        messagesArea.classList.remove('active');
+        messageSideBar.classList.remove('active');
         resourcesArea.classList.remove('active');
         resourcesAreaContents.classList.remove('active');
         bookSectionArea.classList.remove('active');
@@ -232,20 +246,38 @@ function handleNavigation(navItem) {
         settingsArea.classList.add('active');
         helpArea.classList.remove('active');
 
-    } else if (navText === 'help'|| navText == 'support') {
+    } else if (navText === 'help' || navText == 'support') {
         // Help layout: 1fr 3fr 1fr
         mainSection.style.gridTemplateColumns = '1fr 3fr 1fr';
         contentArea.classList.remove('active');
         rightSidebar.classList.remove('active');
         expertArea.classList.remove('active');
-        chatsSidebar.classList.remove('active');
+        // chatsSidebar.classList.remove('active');
         notificationArea.classList.remove('active');
+        messagesArea.classList.remove('active');
+        messageSideBar.classList.remove('active');
         resourcesArea.classList.remove('active');
         resourcesAreaContents.classList.remove('active');
         bookSectionArea.classList.remove('active');
         articleArea.classList.remove('active');
         settingsArea.classList.remove('active');
         helpArea.classList.add('active');
+    } else if (navText === 'messages') {
+        // message layout: 0.6fr 1.6fr 2fr
+        mainSection.style.gridTemplateColumns = '0.6fr 1.2fr 2fr';
+        contentArea.classList.remove('active');
+        rightSidebar.classList.remove('active');
+        expertArea.classList.remove('active');
+        // chatsSidebar.classList.remove('active');
+        notificationArea.classList.remove('active');
+        messagesArea.classList.add('active');
+        messageSideBar.classList.add('active');
+        resourcesArea.classList.remove('active');
+        resourcesAreaContents.classList.remove('active');
+        bookSectionArea.classList.remove('active');
+        articleArea.classList.remove('active');
+        settingsArea.classList.remove('active');
+        helpArea.classList.remove('active');
     }
 }
 
@@ -283,7 +315,9 @@ const BookSessionIcon = document.querySelector('.books-session');
     contentArea.classList.remove('active');
     rightSidebar.classList.remove('active');
     expertArea.classList.remove('active');
-    chatsSidebar.classList.remove('active');
+    // chatsSidebar.classList.remove('active');
+    messagesArea.classList.remove('active');
+    messageSideBar.classList.remove('active');
     resourcesArea.classList.remove('active');
     resourcesAreaContents.classList.remove('active');
     bookSectionArea.classList.remove('active');
@@ -298,7 +332,9 @@ const BookSessionIcon = document.querySelector('.books-session');
     contentArea.classList.remove('active');
     rightSidebar.classList.remove('active');
     expertArea.classList.remove('active');
-    chatsSidebar.classList.remove('active');
+    // chatsSidebar.classList.remove('active');
+    messagesArea.classList.remove('active');
+    messageSideBar.classList.remove('active');
     resourcesArea.classList.remove('active');
     resourcesAreaContents.classList.remove('active');
     bookSectionArea.classList.remove('active');
@@ -315,7 +351,9 @@ const BookSessionIcon = document.querySelector('.books-session');
     contentArea.classList.remove('active');
     rightSidebar.classList.remove('active');
     expertArea.classList.remove('active');
-    chatsSidebar.classList.remove('active');
+    // chatsSidebar.classList.remove('active');
+    messagesArea.classList.remove('active');
+    messageSideBar.classList.remove('active');
     resourcesArea.classList.remove('active');
     resourcesAreaContents.classList.remove('active');
     notificationArea.classList.remove('active');
@@ -388,8 +426,10 @@ const appointmentInformation = document.querySelector('.appointment-information'
         contentArea.classList.remove('active');
         rightSidebar.classList.remove('active');
         expertArea.classList.remove('active');
-        chatsSidebar.classList.remove('active');
+        // chatsSidebar.classList.remove('active');
         notificationArea.classList.remove('active');
+        messagesArea.classList.remove('active');
+        messageSideBar.classList.remove('active');
         resourcesArea.classList.remove('active');
         resourcesAreaContents.classList.remove('active');
         bookSectionArea.classList.remove('active');
@@ -489,13 +529,50 @@ cancelIcon.addEventListener('click', function() {
 });
 
 
+// Saftey tips navigations
+const safteyLeftIcon = document.getElementById('safteyLeftIcon');
+const safteyRightIcon = document.getElementById('safteyRightIcon');
+const tipContent1 = document.getElementById('tipContent1');
+const tipContent2 = document.getElementById('tipContent2');
+const tipContent3 = document.getElementById('tipContent3');
+
+let currentTip = 1;
+
+// Function to show the current tip
+function showTip(tipNumber) {
+    // Hide all tips
+    tipContent1.style.display = 'none';
+    tipContent2.style.display = 'none';
+    tipContent3.style.display = 'none';
+
+    // Show the current tip
+    if (tipNumber === 1) {
+        tipContent1.style.display = 'block';
+    } else if (tipNumber === 2) {
+        tipContent2.style.display = 'block';
+    } else if (tipNumber === 3) {
+        tipContent3.style.display = 'block';
+    }
+}
+
+// Initialize by showing the first tip
+showTip(currentTip);
+
+// Event listener for left icon (previous tip)
+safteyLeftIcon.addEventListener('click', function() {
+    if (currentTip > 1) {
+        currentTip--;
+        showTip(currentTip);
+    }
+});
+
+// Event listener for right icon (next tip)
+safteyRightIcon.addEventListener('click', function() {
+    if (currentTip < 3) {
+        currentTip++;
+        showTip(currentTip);
+    }
+});
 
 
-// const searchIcon = document.querySelector(".searchIcon");
-// const InputContainer = document.querySelector(".input-container");
-
-// searchIcon.addEventListener("click", function() {
-//     InputContainer.style.display  = 'flex';
-//     searchIcon.style.display = 'none';
-// })
 
