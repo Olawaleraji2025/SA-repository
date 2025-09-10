@@ -1607,8 +1607,7 @@ tbody td:last-child {
     padding: 1rem;
 }
 
-.each-settings{
-}
+
 
 .each-settings{
     cursor: pointer;
@@ -1755,7 +1754,6 @@ tbody td:last-child {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #cc;
     transition: .4s;
     border-radius: 34px;
 }
@@ -2021,8 +2019,7 @@ margin-bottom: 30px;
     height: 100%;
 }
 
-.right-sidebar.active{
-}
+
 
 .hero-section{
     max-width: 768px;
@@ -2657,7 +2654,7 @@ tbody td:first-child{
     }
 
     .experts-header h5 {
-        font-size: 20px
+        font-size: 20px;
         margin-left: 0;
     }
 
