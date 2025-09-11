@@ -223,7 +223,21 @@ p{
     font-weight: 500;
 }
 
+/* color: #21B24D;
+    color: #E91919; */
+
 /* notification-styling */
+.notification-message{
+    position: absolute;
+    display: flex;
+    right: 10px;
+    top: 20px;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 6px;
+    padding: 0.2rem;
+}
+
 .notification-container, .questionnaire-container{
     width: 500px;
     display: block;

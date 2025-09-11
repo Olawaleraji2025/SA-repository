@@ -28,24 +28,24 @@ function showSection(sectionToShow) {
 }
 
 // Event listener for signup link - shows second section (Create Account)
-document.getElementById('signUpLink').addEventListener("click", function (e) {
+document.getElementById('signin-signup-link').addEventListener("click", function (e) {
     e.preventDefault(); // Prevent default link behavior
     showSection(sections.second);
 });
 
 // Event listener for register button - shows third section (Register with Username)
-document.getElementById('registerBtn').addEventListener("click", function (e) {
+document.getElementById('signup-email-register-btn').addEventListener("click", function (e) {
     e.preventDefault(); // Prevent default button behavior if it's in a form
     showSection(sections.third);
 });
 
 // Event listener for sign in buttons - shows first section (Sign In)
-document.getElementById('signInBtn2').addEventListener("click", function (e) {
+document.getElementById('signup-email-signin-link').addEventListener("click", function (e) {
     e.preventDefault(); // Prevent default link behavior
     showSection(sections.first);
 });
 
-document.getElementById('signInBtn3').addEventListener("click", function (e) {
+document.getElementById('signup-username-signin-link').addEventListener("click", function (e) {
     e.preventDefault(); // Prevent default link behavior
     showSection(sections.first);
 });
@@ -61,33 +61,95 @@ document.getElementById('signInBtn3').addEventListener("click", function (e) {
 
 
 // Event listeners for questionnaire sections
-document.getElementById('okBtn').addEventListener("click", function () {
+document.getElementById('notification-ok-btn').addEventListener("click", function () {
     showSection(sections.email);
 });
 
-document.getElementById('startBtn').addEventListener("click", function () {
+document.getElementById('notification-start-btn').addEventListener("click", function () {
     showSection(sections.purpose);
 });
 
-document.getElementById('purposeNextBtn').addEventListener("click", function () {
+document.getElementById('questionnaire-purpose-next-btn').addEventListener("click", function () {
     showSection(sections.time);
 });
 
-document.getElementById('timeNextBtn').addEventListener("click", function () {
+document.getElementById('questionnaire-time-next-btn').addEventListener("click", function () {
     showSection(sections.support);
 });
 
-document.getElementById('supportNextBtn').addEventListener("click", function () {
+document.getElementById('questionnaire-support-next-btn').addEventListener("click", function () {
     showSection(sections.abuse);
 });
 
-document.getElementById('abuseNextBtn').addEventListener("click", function () {
+document.getElementById('questionnaire-abuse-next-btn').addEventListener("click", function () {
     showSection(sections.help);
 });
 
-document.getElementById('helpNextBtn').addEventListener("click", function () {
+document.getElementById('questionnaire-help-next-btn').addEventListener("click", function () {
     showSection(sections.gender);
 });
+
+document.getElementById('questionnaire-gender-next-btn').addEventListener("click", function (e) {
+    e.preventDefault(); // Prevent default link behavior
+    // Collect all selected checkboxes
+    collectAndSendQuestionnaireData();
+});
+
+function collectAndSendQuestionnaireData() {
+    const checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    const questionnaireData = {};
+
+    checkedBoxes.forEach(box => {
+        const name = box.name;
+        const value = box.value;
+        
+        if (!questionnaireData[name]) {
+            questionnaireData[name] = [];
+        }
+        questionnaireData[name].push(value);
+    });
+
+    console.log('Collected questionnaire data:', questionnaireData);
+
+    // Send to backend
+    sendQuestionnaireToBackend(questionnaireData);
+}
+
+async function sendQuestionnaireToBackend(data) {
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts', { // Replace with your backend URL
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+        console.log('Questionnaire data sent successfully:', result);
+
+        // Show success message
+        notificationMessage.style.display = 'flex';
+        notificationMessage.style.backgroundColor = '#21B24D';
+        notificationMessage.textContent = 'Preferences saved successfully!';
+
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+            // Redirect to userHero.html
+            window.location.href = 'userHero.html';
+        }, 2000);
+
+    } catch (error) {
+        console.error('Error sending questionnaire data:', error);
+        notificationMessage.style.display = 'flex';
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Failed to save preferences. Please try again.';
+
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+    }
+}
 
 // Back button event listeners for questionnaires
 document.querySelectorAll('.back-btn').forEach(btn => {
@@ -119,29 +181,52 @@ document.addEventListener('keydown', function(e) {
 
 
 // Getting hold of the inputted values in the sign in section
-const emailForSignIn = document.getElementById('emailForSignIn');
-const passwordForSignIn = document.getElementById('passwordForSignIn');
+const emailForSignIn = document.getElementById('signin-email');
+const passwordForSignIn = document.getElementById('signin-password');
 const signInForm = document.getElementsByClassName('signInForm');
 const theLoaderContainer = document.querySelector('.loader-container');
 const theLoader = document.querySelector('.loader');
+const notificationMessage = document.getElementById('notificationMessage');
 
-document.getElementById('signUpBtn').addEventListener('click', async function (e) {
+// For users with existing login details
+document.getElementById('signin-submit-btn').addEventListener('click', async function (e) {
     e.preventDefault();
     const email = emailForSignIn.value;
     const password = passwordForSignIn.value;
     console.log(email, password);
+
+    if (email === '' || password === '') {
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Please fill in the details';
+        notificationMessage.style.display = 'flex';
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+        return;
+    }
+    if (!email.includes('@') || !email.includes('.')) {
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Please enter a valid email address';
+        notificationMessage.style.display = 'flex';
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+        return;
+    }
+    // Password validation (basic: not empty, at least 6 characters)
+    if (password.length < 6) {
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Password must be at least 6 characters long';
+        notificationMessage.style.display = 'flex';
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+        return;
+    }
+
     // Show loader
-    let isLoading = true;
-    setTimeout(() => {
-        if (isLoading) {
-            theLoaderContainer.style.display = 'flex';
-        }
-    }, 100);
-
-    // const notificationMessage = document.getElementById('notificationMessage');
-    // notificationMessage.style.display = 'none';
-    // notificationMessage.textContent = '';
-
+    theLoaderContainer.style.display = 'flex';
+    
     try {
         // Send data to backend using POST
         const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
@@ -154,21 +239,339 @@ document.getElementById('signUpBtn').addEventListener('click', async function (e
                 password: password
             })
         });
+        
 
         const data = await response.json();
-        // isLoading = false;
-        theLoaderContainer.style.display = 'none';
-        // notificationMessage.style.display = 'flex';
-        // notificationMessage.textContent = 'Success: Data sent successfully.';
+        setTimeout(() => {
+            theLoaderContainer.style.display = 'none';
+            notificationMessage.style.display = 'flex';
+            notificationMessage.style.backgroundColor = '#21B24D';
+            notificationMessage.textContent = 'Success: Data sent successfully.';
+        }, 1000);
+
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+            // Redirect to new HTML file after successful sign in
+            window.location.href = 'userHero.html'; // Replace with your target HTML file
+        }, 2000);
+
         console.log('Success:', data);
-        // Handle success, e.g., show success message or redirect
-        showSection(sections.notification); // Move to next section after authentication
     } catch (error) {
-        // isLoading = false;
-        theLoaderContainer.style.display = 'none';
-        // notificationMessage.style.display = 'flex';
-        // notificationMessage.textContent = 'Error: ' + error.message;
-        console.error('Error:', error);
+        setTimeout(() => {
+            theLoaderContainer.style.display = 'none';
+            theLoaderContainer.style.display = 'none';
+            notificationMessage.style.display = 'flex';
+            notificationMessage.style.backgroundColor = '#E91919';
+            notificationMessage.textContent = 'Error: ' + error.message;
+        }, 1000);
+
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+       
+        console.log('Error:', error);
         // Handle error, e.g., show error message
     }
+    
 })
+
+// For new users with email address
+const signUpEmail = document.getElementById('signup-email-email');
+const signUpFullname = document.getElementById('signup-email-fullname');
+const signUpPhone = document.getElementById('signup-email-phone');
+const signUpPassword = document.getElementById('signup-email-password');
+const signUpConfirmPassword = document.getElementById('signup-email-confirm-password');
+
+document.getElementById('signup-email-submit-btn').addEventListener("click", async function (e) {
+    e.preventDefault();
+    const email = signUpEmail.value.trim();
+    const fullName = signUpFullname.value.trim();
+    const phoneNumber = signUpPhone.value.trim();
+    const password = signUpPassword.value;
+    const confirmPassword = signUpConfirmPassword.value;
+    console.log(email, password, fullName, phoneNumber, confirmPassword);
+
+    // Validation
+    if (email === '' || fullName === '' || phoneNumber === '' || password === '' || confirmPassword === '') {
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Please fill in all the details';
+        notificationMessage.style.display = 'flex';
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+        return;
+    }
+
+    // Email validation
+    if (!email.includes('@') || !email.includes('.')) {
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Please enter a valid email address';
+        notificationMessage.style.display = 'flex';
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+        return;
+    }
+
+    // Full name validation (at least 2 characters, letters and spaces only)
+    const nameRegex = /^[a-zA-Z\s]{2,}$/;
+    if (!nameRegex.test(fullName)) {
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Please enter a valid full name (at least 2 characters, letters only)';
+        notificationMessage.style.display = 'flex';
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+        return;
+    }
+
+    // Phone number validation (basic: digits, spaces, dashes, parentheses, 10-15 characters)
+    const phoneRegex = /^[\d\s\-\(\)]{10,15}$/;
+    if (!phoneRegex.test(phoneNumber)) {
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Please enter a valid phone number';
+        notificationMessage.style.display = 'flex';
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+        return;
+    }
+
+    // Password strength validation
+    if (password.length < 8) {
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Password must be at least 8 characters long';
+        notificationMessage.style.display = 'flex';
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+        return;
+    }
+
+    // Check for at least one uppercase, one lowercase, one number
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/;
+    if (!passwordRegex.test(password)) {
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Password must contain at least one uppercase letter, one lowercase letter, and one number';
+        notificationMessage.style.display = 'flex';
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+        return;
+    }
+
+    // Confirm password
+    if (password !== confirmPassword) {
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Passwords do not match';
+        notificationMessage.style.display = 'flex';
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+        return;
+    }
+
+    // Show loader
+    theLoaderContainer.style.display = 'flex';
+
+    try {
+        // Send data to backend for registration
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: email,
+                fullName: fullName,
+                phoneNumber: phoneNumber,
+                password: password
+            })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            setTimeout(() => {
+                theLoaderContainer.style.display = 'none';
+                notificationMessage.style.display = 'flex';
+                notificationMessage.style.backgroundColor = '#21B24D';
+                notificationMessage.textContent = 'Registration successful! Please check your email for verification.';
+            }, 1000);
+
+            setTimeout(() => {
+                notificationMessage.style.display = 'none';
+                // Show email verification section
+                showSection(sections.notification);
+            }, 3000);
+        } 
+
+        console.log('Registration Success:', data);
+    } catch (error) {
+        setTimeout(() => {
+            theLoaderContainer.style.display = 'none';
+            notificationMessage.style.display = 'flex';
+            notificationMessage.style.backgroundColor = '#E91919';
+            notificationMessage.textContent = 'Registration failed: ' + error.message;
+        }, 1000);
+
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+
+        console.log('Registration Error:', error);
+    }
+})
+
+// for new users with username
+const signUpUsername = document.getElementById('signup-username-username');
+const signUpUsernameEmail = document.getElementById('signup-username-email');
+const signUpUsernamePhone = document.getElementById('signup-username-phone');
+const signUpUsernamePassword = document.getElementById('signup-username-password');
+const signUpUsernameConfirmPassword = document.getElementById('signup-username-confirm-password');
+
+document.getElementById('signup-username-submit-btn').addEventListener("click", async function (e) {
+    e.preventDefault();
+    const username = signUpUsername.value.trim();
+    const email = signUpUsernameEmail.value.trim();
+    const phoneNumber = signUpUsernamePhone.value.trim();
+    const password = signUpUsernamePassword.value;
+    const confirmPassword = signUpUsernameConfirmPassword.value;
+    console.log(email, password, username, phoneNumber, confirmPassword);
+
+    // Validation
+    if (email === '' || username === '' || phoneNumber === '' || password === '' || confirmPassword === '') {
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Please fill in all the details';
+        notificationMessage.style.display = 'flex';
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+        return;
+    }
+
+    // Email validation
+    if (!email.includes('@') || !email.includes('.')) {
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Please enter a valid email address';
+        notificationMessage.style.display = 'flex';
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+        return;
+    }
+
+    // Full name validation (at least 2 characters, letters and spaces only)
+    const nameRegex = /^[a-zA-Z\s]{2,}$/;
+    if (!nameRegex.test(username)) {
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Please enter a valid full name (at least 2 characters, letters only)';
+        notificationMessage.style.display = 'flex';
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+        return;
+    }
+
+    // Phone number validation (basic: digits, spaces, dashes, parentheses, 10-15 characters)
+    const phoneRegex = /^[\d\s\-\(\)]{10,15}$/;
+    if (!phoneRegex.test(phoneNumber)) {
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Please enter a valid phone number';
+        notificationMessage.style.display = 'flex';
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+        return;
+    }
+
+    // Password strength validation
+    if (password.length < 8) {
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Password must be at least 8 characters long';
+        notificationMessage.style.display = 'flex';
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+        return;
+    }
+
+    // Check for at least one uppercase, one lowercase, one number
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/;
+    if (!passwordRegex.test(password)) {
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Password must contain at least one uppercase letter, one lowercase letter, and one number';
+        notificationMessage.style.display = 'flex';
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+        return;
+    }
+
+    // Confirm password
+    if (password !== confirmPassword) {
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Passwords do not match';
+        notificationMessage.style.display = 'flex';
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+        return;
+    }
+
+    // Show loader
+    theLoaderContainer.style.display = 'flex';
+
+    try {
+        // Send data to backend for registration
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: username,
+                email: email,
+                phoneNumber: phoneNumber,
+                password: password
+            })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            setTimeout(() => {
+                theLoaderContainer.style.display = 'none';
+                notificationMessage.style.display = 'flex';
+                notificationMessage.style.backgroundColor = '#21B24D';
+                notificationMessage.textContent = 'Registration successful! Please check your email for verification.';
+            }, 1000);
+
+            setTimeout(() => {
+                notificationMessage.style.display = 'none';
+                // Show email verification section
+                showSection(sections.notification);
+            }, 3000);
+        } 
+
+        console.log('Registration Success:', data);
+    } catch (error) {
+        setTimeout(() => {
+            theLoaderContainer.style.display = 'none';
+            notificationMessage.style.display = 'flex';
+            notificationMessage.style.backgroundColor = '#E91919';
+            notificationMessage.textContent = 'Registration failed: ' + error.message;
+        }, 1000);
+
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+
+        console.log('Registration Error:', error);
+    }
+})
+
+
+
+
+
