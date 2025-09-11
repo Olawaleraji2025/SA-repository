@@ -1,8 +1,3 @@
-"use strict";
-
-// For calendar
-let theCalender = document.querySelector("#calendar");
-let calendarDays = document.querySelector("#days");
 let theCurrentMonth = document.querySelector("#currentMonth");
 let thedaysWeek = document.querySelector("#daysWeek");
 let eachDayDiv = document.getElementById('eachDayDiv');

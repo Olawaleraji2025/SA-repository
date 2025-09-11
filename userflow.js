@@ -3,7 +3,7 @@
 // Store section elements for better readability and maintainability
 const sections = {
     first: document.getElementById('firstSection'),
-    second: document.getElementById('secondSection'), 
+    second: document.getElementById('secondSection'),
     third: document.getElementById('thirdSection'),
     notification: document.getElementById('notificationSection'),
     email: document.getElementById('EmailSection'),
@@ -15,6 +15,9 @@ const sections = {
     gender: document.getElementById('genderQuestionnaire'),
     body: document.getElementById('ContentBody')
 };
+
+// Variable to store the registered email for resending verification
+let registeredEmail = null;
 
 // Function to show a specific section and hide others
 function showSection(sectionToShow) {
@@ -70,39 +73,92 @@ document.getElementById('notification-start-btn').addEventListener("click", func
 });
 
 document.getElementById('questionnaire-purpose-next-btn').addEventListener("click", function () {
+    const purposeCheckboxes = document.querySelectorAll('#purposeQuestionnaire input[type="checkbox"]');
+    const isChecked = Array.from(purposeCheckboxes).some(cb => cb.checked);
+    if (!isChecked) {
+        notificationMessage.style.display = 'flex';
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Please select at least one option before proceeding.';
+        setTimeout(() => { notificationMessage.style.display = 'none'; }, 2000);
+        return;
+    }
     showSection(sections.time);
 });
 
 document.getElementById('questionnaire-time-next-btn').addEventListener("click", function () {
+    const timeCheckboxes = document.querySelectorAll('#timeQuestionnaire input[type="checkbox"]');
+    const isChecked = Array.from(timeCheckboxes).some(cb => cb.checked);
+    if (!isChecked) {
+        notificationMessage.style.display = 'flex';
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Please select at least one option before proceeding.';
+        setTimeout(() => { notificationMessage.style.display = 'none'; }, 2000);
+        return;
+    }
     showSection(sections.support);
 });
 
 document.getElementById('questionnaire-support-next-btn').addEventListener("click", function () {
+    const supportCheckboxes = document.querySelectorAll('#supportTypeQuestionnaire input[type="checkbox"]');
+    const isChecked = Array.from(supportCheckboxes).some(cb => cb.checked);
+    if (!isChecked) {
+        notificationMessage.style.display = 'flex';
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Please select at least one option before proceeding.';
+        setTimeout(() => { notificationMessage.style.display = 'none'; }, 2000);
+        return;
+    }
     showSection(sections.abuse);
 });
 
 document.getElementById('questionnaire-abuse-next-btn').addEventListener("click", function () {
+    const abuseCheckboxes = document.querySelectorAll('#abuseTypeQuestionnaire input[type="checkbox"]');
+    const isChecked = Array.from(abuseCheckboxes).some(cb => cb.checked);
+    if (!isChecked) {
+        notificationMessage.style.display = 'flex';
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Please select at least one option before proceeding.';
+        setTimeout(() => { notificationMessage.style.display = 'none'; }, 2000);
+        return;
+    }
     showSection(sections.help);
 });
 
 document.getElementById('questionnaire-help-next-btn').addEventListener("click", function () {
+    const helpCheckboxes = document.querySelectorAll('#helpTypeQuestionnaire input[type="checkbox"]');
+    const isChecked = Array.from(helpCheckboxes).some(cb => cb.checked);
+    if (!isChecked) {
+        notificationMessage.style.display = 'flex';
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Please select at least one option before proceeding.';
+        setTimeout(() => { notificationMessage.style.display = 'none'; }, 2000);
+        return;
+    }
     showSection(sections.gender);
 });
 
 document.getElementById('questionnaire-gender-next-btn').addEventListener("click", function (e) {
     e.preventDefault(); // Prevent default link behavior
     // Collect all selected checkboxes
+    // theLoaderContainer.style.display = 'flex';
     collectAndSendQuestionnaireData();
 });
 
 function collectAndSendQuestionnaireData() {
     const checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    if (checkedBoxes.length === 0) {
+        notificationMessage.style.display = 'flex';
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Please select at least one option before submitting.';
+        setTimeout(() => { notificationMessage.style.display = 'none'; }, 2000);
+        return;
+    }
     const questionnaireData = {};
 
     checkedBoxes.forEach(box => {
         const name = box.name;
         const value = box.value;
-        
+
         if (!questionnaireData[name]) {
             questionnaireData[name] = [];
         }
@@ -113,9 +169,11 @@ function collectAndSendQuestionnaireData() {
 
     // Send to backend
     sendQuestionnaireToBackend(questionnaireData);
+
 }
 
 async function sendQuestionnaireToBackend(data) {
+    theLoaderContainer.style.display = 'flex';
     try {
         const response = await fetch('https://jsonplaceholder.typicode.com/posts', { // Replace with your backend URL
             method: 'POST',
@@ -129,12 +187,17 @@ async function sendQuestionnaireToBackend(data) {
         console.log('Questionnaire data sent successfully:', result);
 
         // Show success message
-        notificationMessage.style.display = 'flex';
-        notificationMessage.style.backgroundColor = '#21B24D';
-        notificationMessage.textContent = 'Preferences saved successfully!';
+        setTimeout(() => {
+            theLoaderContainer.style.display = 'none';
+            notificationMessage.style.display = 'flex';
+            notificationMessage.style.backgroundColor = '#21B24D';
+            notificationMessage.textContent = 'Preferences saved successfully!';
+        }, 1000);
 
         setTimeout(() => {
             notificationMessage.style.display = 'none';
+            // Uncheck all checkboxes
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
             // Redirect to userHero.html
             window.location.href = 'userHero.html';
         }, 2000);
@@ -169,6 +232,55 @@ document.querySelectorAll('.back-btn').forEach(btn => {
             showSection(sections.help);
         }
     });
+});
+
+// For resending Email
+document.querySelector('.resend-email').addEventListener('click', async function () {
+    
+    // Show loader
+    theLoaderContainer.style.display = 'flex';
+
+    if (!registeredEmail) {
+        
+        notificationMessage.style.display = 'flex';
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'No email to resend to. Please register first.';
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+        return;
+    }
+    try {
+        
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: registeredEmail,
+                action: 'resend-verification'
+            })
+        });
+            setTimeout(() => {
+            theLoaderContainer.style.display = 'none';
+            notificationMessage.style.display = 'flex';
+            notificationMessage.style.backgroundColor = '#21B24D';
+            notificationMessage.textContent = 'Verification email resent to ' + registeredEmail;
+        }, 2000)
+
+            setTimeout(() => { notificationMessage.style.display = 'none'; }, 4000);
+        
+    } catch (error) {
+         setTimeout(() => {
+                theLoaderContainer.style.display = 'none';
+                notificationMessage.style.display = 'flex';
+                notificationMessage.style.backgroundColor = '#E91919';
+                notificationMessage.textContent = 'Failed to resend email: ' + error.message;
+         }, 2000)
+        
+        setTimeout(() => { notificationMessage.style.display = 'none'; }, 4000);
+    }
 });
 
 // Optional: Add keyboard navigation support
@@ -251,10 +363,14 @@ document.getElementById('signin-submit-btn').addEventListener('click', async fun
 
         setTimeout(() => {
             notificationMessage.style.display = 'none';
+            // Reset fields
+            emailForSignIn.value = '';
+            passwordForSignIn.value = '';
             // Redirect to new HTML file after successful sign in
             window.location.href = 'userHero.html'; // Replace with your target HTML file
         }, 2000);
-
+        
+        
         console.log('Success:', data);
     } catch (error) {
         setTimeout(() => {
@@ -272,6 +388,7 @@ document.getElementById('signin-submit-btn').addEventListener('click', async fun
         console.log('Error:', error);
         // Handle error, e.g., show error message
     }
+
     
 })
 
@@ -392,6 +509,8 @@ document.getElementById('signup-email-submit-btn').addEventListener("click", asy
         const data = await response.json();
 
         if (response.ok) {
+            registeredEmail = email; // Store email for resending
+            localStorage.setItem('userName', fullName);
             setTimeout(() => {
                 theLoaderContainer.style.display = 'none';
                 notificationMessage.style.display = 'flex';
@@ -401,10 +520,16 @@ document.getElementById('signup-email-submit-btn').addEventListener("click", asy
 
             setTimeout(() => {
                 notificationMessage.style.display = 'none';
+                // Reset fields
+                signUpEmail.value = '';
+                signUpFullname.value = '';
+                signUpPhone.value = '';
+                signUpPassword.value = '';
+                signUpConfirmPassword.value = '';
                 // Show email verification section
                 showSection(sections.notification);
             }, 3000);
-        } 
+        }
 
         console.log('Registration Success:', data);
     } catch (error) {
@@ -540,6 +665,7 @@ document.getElementById('signup-username-submit-btn').addEventListener("click", 
         const data = await response.json();
 
         if (response.ok) {
+            registeredEmail = email; // Store email for resending
             setTimeout(() => {
                 theLoaderContainer.style.display = 'none';
                 notificationMessage.style.display = 'flex';
@@ -549,10 +675,16 @@ document.getElementById('signup-username-submit-btn').addEventListener("click", 
 
             setTimeout(() => {
                 notificationMessage.style.display = 'none';
+                // Reset fields
+                signUpUsername.value = '';
+                signUpUsernameEmail.value = '';
+                signUpUsernamePhone.value = '';
+                signUpUsernamePassword.value = '';
+                signUpUsernameConfirmPassword.value = '';
                 // Show email verification section
                 showSection(sections.notification);
             }, 3000);
-        } 
+        }
 
         console.log('Registration Success:', data);
     } catch (error) {
