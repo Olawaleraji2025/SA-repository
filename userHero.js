@@ -289,10 +289,10 @@ navItems.forEach(item => {
 
 // functionality for chat messages
 
- userChatHeader.addEventListener("click", function() {
-    userChatMessages.classList.remove('active');
-    chatAppContainer.classList.add('active');
- })
+//  userChatHeader.addEventListener("click", function() {
+//     userChatMessages.classList.remove('active');
+//     chatAppContainer.classList.add('active');
+//  })
 
 // Chat functionality ends here
 
@@ -567,6 +567,96 @@ safteyRightIcon.addEventListener('click', function() {
         currentTip++;
         showTip(currentTip);
     }
+});
+
+// Message toggle functionality
+const messageInfos = document.querySelectorAll('.each-message-info');
+const messageDiv = document.querySelector('.message-div');
+const chatInterface = document.querySelector('.message-div2');
+const chatInputDiv = document.querySelector('.chat-input-div');
+const chatProfileSpan = document.querySelector('.profile span');
+const messagesContainer = document.querySelector('.messages-container');
+const chatInput = document.querySelector('.chat-input-div input');
+const sendBtn = document.querySelector('.message-actions img[alt="send-button"]');
+
+messageInfos.forEach(info => {
+    info.addEventListener('click', function() {
+        const username = info.querySelector('.user-chat-text p').textContent;
+        chatProfileSpan.textContent = username;
+        messageDiv.style.display = 'none';
+        chatInterface.style.display = 'block';
+        chatInputDiv.style.display = 'flex';
+    });
+});
+
+// Function to send message
+function sendMessage() {
+    const message = chatInput.value.trim();
+    if (!message) return;
+
+    // Add user message
+    const userMsg = document.createElement('div');
+    userMsg.className = 'user-message';
+    userMsg.innerHTML = `
+        <div class="user-textmessages">
+            <div>
+                <div class="user-text">${message}</div>
+                <div class="user-message-time">
+                    <span>${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+                </div>
+            </div>
+            <img src="Landing page Assets/Avatar 7.png" alt="user image">
+        </div>
+    `;
+    messagesContainer.appendChild(userMsg);
+    chatInput.value = '';
+
+    // Scroll to bottom
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+    // Create and show typing indicator
+    const typingIndicator = document.createElement('div');
+    typingIndicator.className = 'expert-typing';
+    typingIndicator.innerHTML = `
+        <img src="Landing page Assets/OP image.png" alt="bot image">
+        <div>
+            <div class="expert-text">Typing...</div>
+            <div class="expert-message-time">
+                <span>now</span>
+            </div>
+        </div>
+    `;
+    messagesContainer.appendChild(typingIndicator);
+
+    // Scroll to bottom
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+    // Hide typing indicator after a short delay and add bot message
+    setTimeout(() => {
+        messagesContainer.removeChild(typingIndicator);
+        // Add bot message
+        const botMsg = document.createElement('div');
+        botMsg.className = 'expert-message';
+        botMsg.innerHTML = `
+            <img src="Landing page Assets/OP image.png" alt="bot image">
+            <div>
+                <div class="expert-text">Thank you for your message. How can I help you today?</div>
+                <div class="expert-message-time">
+                    <span>${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+                </div>
+            </div>
+        `;
+        messagesContainer.appendChild(botMsg);
+
+        // Scroll to bottom
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }, 2000);
+}
+
+// Event listeners for sending message
+sendBtn.addEventListener('click', sendMessage);
+chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') sendMessage();
 });
 
 
