@@ -1,5 +1,7 @@
 "use strict";
 
+// https://jsonplaceholder.typicode.com/posts
+
 // Store section elements for better readability and maintainability
 const sections = {
     first: document.getElementById('firstSection'),
@@ -341,14 +343,14 @@ document.getElementById('signin-submit-btn').addEventListener('click', async fun
     
     try {
         // Send data to backend using POST
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+        const response = await fetch('https://safe-anchor-backend.onrender.com/api/auth/login', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+            'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                email: email,
-                password: password
+            email: email,
+            password: password
             })
         });
         
@@ -493,9 +495,10 @@ document.getElementById('signup-email-submit-btn').addEventListener("click", asy
 
     try {
         // Send data to backend for registration
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+        const response = await fetch('https://safe-anchor-backend.onrender.com/api/auth/register', {
             method: 'POST',
             headers: {
+                 'accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
