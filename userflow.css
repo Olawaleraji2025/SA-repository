@@ -172,6 +172,7 @@ p{
 .forget-password{
     font-size: 13px;
     cursor: pointer;
+    color: #E91919;
 }
 
 .sign-up-link{

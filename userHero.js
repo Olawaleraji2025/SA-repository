@@ -493,6 +493,64 @@ toggleSwitch.addEventListener('change', function() {
     }
 });
 
+// Event listeners for reschedule and cancel buttons
+const rescheduleBtn = document.querySelector('.reschedule-btn');
+const cancelBtn = document.querySelector('.cancel-Btn');
+
+rescheduleBtn.addEventListener('click', async function() {
+    try {
+        const response = await fetch('/api/reschedule-session', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                // Add necessary data like session ID, new date/time, etc.
+                sessionId: 'current-session-id', // Replace with actual session ID
+                newDate: '2023-12-05', // Example, replace with user input
+                newTime: '10:00'
+            })
+        });
+        if (response.ok) {
+            const result = await response.json();
+            alert('Session rescheduled successfully!');
+            // Update UI accordingly
+        } else {
+            alert('Failed to reschedule session.');
+        }
+    } catch (error) {
+        console.error('Error rescheduling session:', error);
+        alert('An error occurred while rescheduling.');
+    }
+});
+
+cancelBtn.addEventListener('click', async function() {
+    if (confirm('Are you sure you want to cancel this session?')) {
+        try {
+            const response = await fetch('/api/cancel-session', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    sessionId: 'current-session-id' // Replace with actual session ID
+                })
+            });
+            if (response.ok) {
+                const result = await response.json();
+                alert('Session cancelled successfully!');
+                // Update UI, e.g., hide appointment information
+                document.querySelector('.appointment-information').style.display = 'none';
+            } else {
+                alert('Failed to cancel session.');
+            }
+        } catch (error) {
+            console.error('Error cancelling session:', error);
+            alert('An error occurred while cancelling.');
+        }
+    }
+});
+
 // Toggle switch functionality ends here
 
 const menuIcon = document.querySelector('.fa-bars');
@@ -523,6 +581,9 @@ cancelIcon.addEventListener('click', function() {
     }
 });
 
+
+// Calendar month-year arrow click functionality
+// document.querySelector('.month-year img').addEventListener('click', nextMonth);
 
 // Saftey tips navigations
 const safteyLeftIcon = document.getElementById('safteyLeftIcon');

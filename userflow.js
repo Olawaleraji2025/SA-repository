@@ -33,7 +33,7 @@ function showSection(sectionToShow) {
 }
 
 // Event listener for signup link - shows second section (Create Account)
-document.getElementById('signin-signup-link').addEventListener("click", function (e) {
+document.getElementById('signin-signup-link').addEventListener("click", function (e) { 
     e.preventDefault(); // Prevent default link behavior
     showSection(sections.second);
 });
@@ -141,12 +141,13 @@ document.getElementById('questionnaire-help-next-btn').addEventListener("click",
 
 document.getElementById('questionnaire-gender-next-btn').addEventListener("click", function (e) {
     e.preventDefault(); // Prevent default link behavior
+
     // Collect all selected checkboxes
     // theLoaderContainer.style.display = 'flex';
     collectAndSendQuestionnaireData();
 });
 
-function collectAndSendQuestionnaireData() {
+async function collectAndSendQuestionnaireData() {
     const checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
     if (checkedBoxes.length === 0) {
         notificationMessage.style.display = 'flex';
@@ -167,6 +168,25 @@ function collectAndSendQuestionnaireData() {
         questionnaireData[name].push(value);
     });
 
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(questionnaireData)
+    });
+
+    if (!response.ok) {
+        notificationMessage.style.display = 'flex';
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Error fetching user details. Please try again.';
+        setTimeout(() => { notificationMessage.style.display = 'none'; }, 2000);
+        return;
+    }
+
+    const userDetails = await response.json();
+    console.log('Fetched user details:', userDetails);
+        
     console.log('Collected questionnaire data:', questionnaireData);
 
     // Send to backend
@@ -302,6 +322,79 @@ const theLoaderContainer = document.querySelector('.loader-container');
 const theLoader = document.querySelector('.loader');
 const notificationMessage = document.getElementById('notificationMessage');
 
+// Event listener for forgot password
+document.querySelector('.forget-password').addEventListener('click', async function () {
+    const email = emailForSignIn.value.trim();
+
+    if (email === '') {
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Please enter your email address first.';
+        notificationMessage.style.display = 'flex';
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+        return;
+    }
+
+    if (!email.includes('@') || !email.includes('.')) {
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Please enter a valid email address.';
+        notificationMessage.style.display = 'flex';
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+        return;
+    }
+
+    // Show loader
+    theLoaderContainer.style.display = 'flex';
+
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: email
+            })
+        });
+
+        const data = await response.json();
+
+        setTimeout(() => {
+            theLoaderContainer.style.display = 'none';
+            notificationMessage.style.display = 'flex';
+            if (response.ok) {
+                notificationMessage.style.backgroundColor = '#21B24D';
+                notificationMessage.textContent = 'Password reset email sent successfully. Please check your inbox.';
+            } else {
+                notificationMessage.style.backgroundColor = '#E91919';
+                notificationMessage.textContent = 'Failed to send reset email. Please try again.';
+            }
+        }, 1000);
+
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 4000);
+
+        console.log('Forgot password response:', data);
+    } catch (error) {
+        setTimeout(() => {
+            theLoaderContainer.style.display = 'none';
+            notificationMessage.style.display = 'flex';
+            notificationMessage.style.backgroundColor = '#E91919';
+            notificationMessage.textContent = 'Error: ' + error.message;
+        }, 1000);
+
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+
+        console.log('Forgot password error:', error);
+    }
+});
+
 // For users with existing login details
 document.getElementById('signin-submit-btn').addEventListener('click', async function (e) {
     e.preventDefault();
@@ -343,7 +436,7 @@ document.getElementById('signin-submit-btn').addEventListener('click', async fun
     
     try {
         // Send data to backend using POST
-        const response = await fetch('https://safe-anchor-backend.onrender.com/api/auth/login', {
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json'
@@ -495,7 +588,7 @@ document.getElementById('signup-email-submit-btn').addEventListener("click", asy
 
     try {
         // Send data to backend for registration
-        const response = await fetch('https://safe-anchor-backend.onrender.com/api/auth/register', {
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
             method: 'POST',
             headers: {
                  'accept': 'application/json',
@@ -706,6 +799,7 @@ document.getElementById('signup-username-submit-btn').addEventListener("click", 
     }
 })
 
+// For Forgot password
 
 
 

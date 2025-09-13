@@ -568,16 +568,19 @@ font-weight: 600;
 }
 
 .header-calender{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 15px;
+    display: block;
 }
 
 .month-year{
     display: flex;
     align-items: center;
     gap: 10px;
+    justify-content: space-between;
+}
+
+.month-year-arrow{
+    margin-left: 0;
+    margin-right: auto;
 }
 
 .arrows{
