@@ -1379,7 +1379,7 @@
 
             </div>
         </div>
-
+</div>
             <!-- Chats Sidebar Start -->
             <div class="right-sidebar " id="messageSideBar">
                 <!-- i removed the chats section here -->
@@ -1393,7 +1393,8 @@
                     
                  </div>
 
-                 <div class="message-div2">                                           
+                 <div class="message-div2">       
+                    <!-- <i class="fas fa-arrow-left" id="arrowLeftMessage"></i>                                     -->
                       <div class="profiles">
                         <div class="profile">
                             <img src="Landing page Assets/Avatar 1.jpg" alt="Avatar 1">
@@ -1484,13 +1485,6 @@
                                      
                 </div>
 
- <!-- from here. Do not delete this code -->
-                <!-- Chat Section End -->
-
-
-        <!-- </div> -->
-<!-- To here. Do not delete this code -->
-
             <!-- Resources Area Contents Start -->
             <div class="right-sidebar " id="resourcesAreaContents">
                 <!-- Story Container Start -->
@@ -1518,8 +1512,62 @@
                 </div>
         </div>
 
-    </div>
+    
     </main>
+
+    <!-- Expert Modal Profile -->
+    <div id="expertModal" class="expert-modal">
+        <span class="expert-modal-close">&times;</span>
+        <div class="expert-modal-content">
+            <div class="expert-modal-header">
+                <div class='Expert-Profile-Info'>
+                    <img src="Landing page Assets/Avatar 1.jpg" alt="">
+                    <div>
+                        <h5 id="expertName"></h5>
+                        <p id="expertAbout"></p>
+
+                    </div>
+                </div>
+                <img src="Landing page Assets/heart image.png" alt="heart image" class="expert-heart">
+
+            </div>
+            <div class="expert-details">
+                <h5>Details</h5>
+            </div>
+            <div>
+                <div class="expert-modal-tabs">
+                    <span class="expert-tab-btn active" data-tab="about">About</span>
+                    <span class="expert-tab-btn" data-tab="schedule">Schedule</span>
+                    <span class="expert-tab-btn" data-tab="sessions">Sessions</span>
+                    <span class="expert-tab-btn" data-tab="review">Review</span>
+                </div>
+
+                <div class="expert-about">
+                    <p>Hello, I’m <span id="expertName"></span>, a <span id="expertAbout"></span> dedicated to helping survivors of abuse reclaim their sense of safety, self-worth, and purpose. Over the past 12 years, I have worked with individuals who have experienced emotional, physical, and sexual abuse, guiding them through the journey from crisis to confidence.<br>
+      My approach blends trauma-informed therapy, cognitive behavioural techniques, and mindfulness-based practices to create a safe and supportive space where healing can begin</p>
+                </div>
+
+                <button class="expert-book-btn">Book Session</button>
+
+            </div>
+             <!--
+            <div class="expert-modal-body">
+                <div id="about" class="expert-tab-content active">
+                    <p id="expertAbout"></p>
+                </div>
+                <div id="schedule" class="expert-tab-content">
+                    <p>Schedule content here.</p>
+                </div>
+                <div id="sessions" class="expert-tab-content">
+                    <p>Sessions content here.</p>
+                </div>
+                <div id="review" class="expert-tab-content">
+                    <p>Review content here.</p>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
 </body>
 <script src="userHero.js"> </script>
 </html>

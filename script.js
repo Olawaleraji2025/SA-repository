@@ -74,3 +74,26 @@ signInOptions.forEach(btn => {
 // window.onclick = function() {
 //     ModalContents.style.display = 'none';
 // }
+
+// Show sign-in modal when any "Book Session" button is clicked
+const expertButtons = document.querySelectorAll('.expert-btn');
+const signInModal = document.getElementById('signInModal');
+const closeBtn = document.querySelector('.close');
+
+expertButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        signInModal.style.display = 'block';
+    });
+});
+
+// Close modal when clicking the close button
+closeBtn.addEventListener('click', () => {
+    signInModal.style.display = 'none';
+});
+
+// Close modal when clicking outside the modal content
+window.addEventListener('click', (event) => {
+    if (event.target === signInModal) {
+        signInModal.style.display = 'none';
+    }
+});

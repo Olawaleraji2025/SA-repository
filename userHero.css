@@ -466,6 +466,12 @@ font-weight: 400;
 /* right-section styling */
 
 /* Right Sidebar Styles Start */
+
+.notification-container{
+    display: flex;
+    align-items: center;
+}
+
 .notification-container h5{
 font-weight: 600;
     font-size: 18px;
@@ -476,7 +482,7 @@ font-weight: 600;
     display: flex;
     justify-content: end;
     font-size: 14px;
-    margin: 15px auto;
+        margin-left: auto;
 }
 
 .notification-contents, .upcoming-session-contents{
@@ -2002,6 +2008,123 @@ margin-bottom: 30px;
     align-items: center;
 }
 /* Settings Page Styles End */
+/* Book message */
+.expert-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.expert-heart{
+        margin-left: auto;
+    margin-right: 50px;
+}
+
+.expert-modal-content {
+    background-color: #F3FAFF;
+    padding: 20px;
+    border: 1px solid #888;
+        width: 30%;
+    max-width: 580px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.Expert-Profile-Info h5{
+    color: #0B1A43;
+        font-size: 16px;
+    font-weight: 500;
+}
+
+.Expert-Profile-Info p{
+        color: #585656;
+    font-size: 15px;
+}
+
+.Expert-Profile-Info img{
+    width: 50px;
+    border: 1px solid #3ACEFF;
+    border-radius: 10px;
+}
+
+.Expert-Profile-Info{
+    display: flex;
+    align-items: center;
+        gap: 10px;
+}
+
+.Expert-Profile-Info div{
+        text-align: left;
+}
+
+.expert-modal-header{
+        display: flex;
+    align-items: center;
+    background-color: #fff;
+}
+
+.expert-details h5{
+    text-align: left;
+    margin: 20px auto 20px 1px;
+    font-size: 17px;
+    color: #0B1A43;
+}
+
+.expert-modal-tabs{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.expert-tab-btn.active{
+    font-size: 14px;
+    text-decoration: underline;
+    color: #2FC2EF;
+}
+
+.expert-tab-btn{
+    font-size: 14px;
+    color: #848484;
+}
+
+.expert-about{
+        margin-top: 20px;
+
+}
+
+.expert-about p{
+        font-size: 13px;
+        color: #000029;
+        line-height: 23px;
+        text-align: left;
+}
+
+.expert-book-btn{
+    background-color: #F3FAFF33;
+    color: #3ACEFF;
+    margin-top: 20px;
+    width: 250px;
+    padding: 8px;
+    border: 1px solid;
+    outline: none;
+    border-radius: 5px;
+}
+
+.expert-book-btn:hover{
+    background-color: #2FC2EF;
+    color: #fff;
+}
+
+
+
 /* This is where the page ends */
 @media (max-width: 900px){
   
@@ -2406,7 +2529,6 @@ tbody td:last-child{
 
 
 }
-
 
 @media (min-width: 390px) and (max-width: 900px){
     .hero-text-content p {

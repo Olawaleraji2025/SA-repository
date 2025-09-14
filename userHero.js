@@ -139,6 +139,8 @@ function handleNavigation(navItem) {
     // Get the nav item text
     const navText = navItem.querySelector('span').textContent.toLowerCase();
 
+    console.log('Navigation clicked:', navText);
+
     // Hide all content areas and sidebars
     contentArea.classList.remove('active');
     rightSidebar.classList.remove('active');
@@ -160,6 +162,7 @@ function handleNavigation(navItem) {
         mainSection.style.gridTemplateColumns = '1fr 3fr 1fr';
         contentArea.classList.add('active');
         rightSidebar.classList.add('active');
+        console.log('Showing contentArea and rightSidebar');
 
     } else if (navText === 'experts') {
         // Experts layout: 0.2fr 1fr
@@ -176,6 +179,7 @@ function handleNavigation(navItem) {
         bookSectionArea.classList.remove('active');
         articleArea.classList.remove('active');
         settingsArea.classList.remove('active');
+        console.log('Showing expertArea');
 
     }  else if (navText === 'resources') {
         // Resources layout: 1fr 3fr 2fr
@@ -192,6 +196,7 @@ function handleNavigation(navItem) {
         bookSectionArea.classList.remove('active');
         articleArea.classList.remove('active');
         settingsArea.classList.remove('active');
+        console.log('Showing resourcesArea and resourcesAreaContents');
 
     } else if (navText === 'notifications') {
         mainSection.style.gridTemplateColumns = '0.6fr 3fr 0fr';
@@ -208,6 +213,7 @@ function handleNavigation(navItem) {
         articleArea.classList.remove('active');
         settingsArea.classList.remove('active');
         helpArea.classList.remove('active');
+        console.log('Showing notificationArea');
 
     } else if (navText === 'articles') {
         mainSection.style.gridTemplateColumns = '0.6fr 3fr 0fr';
@@ -224,6 +230,7 @@ function handleNavigation(navItem) {
         articleArea.classList.add('active');
         settingsArea.classList.remove('active');
         helpArea.classList.remove('active');
+        console.log('Showing articleArea');
 
     } else if (navText === 'settings') {
         mainSection.style.gridTemplateColumns = '1fr 3fr 1fr';
@@ -240,6 +247,7 @@ function handleNavigation(navItem) {
         articleArea.classList.remove('active');
         settingsArea.classList.add('active');
         helpArea.classList.remove('active');
+        console.log('Showing settingsArea');
 
     } else if (navText === 'help' || navText == 'support') {
         // Help layout: 1fr 3fr 1fr
@@ -257,6 +265,7 @@ function handleNavigation(navItem) {
         articleArea.classList.remove('active');
         settingsArea.classList.remove('active');
         helpArea.classList.add('active');
+        console.log('Showing helpArea');
     } else if (navText === 'messages') {
         // message layout: 0.6fr 1.6fr 2fr
         mainSection.style.gridTemplateColumns = '0.6fr 1.2fr 2fr';
@@ -273,6 +282,7 @@ function handleNavigation(navItem) {
         articleArea.classList.remove('active');
         settingsArea.classList.remove('active');
         helpArea.classList.remove('active');
+        console.log('Showing messagesArea and messageSideBar');
     }
 }
 
@@ -721,4 +731,68 @@ chatInput.addEventListener('keypress', (e) => {
 });
 
 
+// const backToMessages = document.getElementById("arrowLeftMessage");
+// backToMessages.addEventListener('click', function () {
+//     messageSideBar.style.display = 'none';
+// })
 
+// Expert Modal Functionality
+const expertModal = document.getElementById('expertModal');
+const expertName = document.getElementById('expertName');
+const expertAbout = document.getElementById('expertAbout');
+const closeBtn = document.querySelector('.expert-modal-close');
+const expertModalContent = document.querySelector('.expert-modal-content');
+const tabBtns = document.querySelectorAll('.expert-tab-btn');
+const expertAboutContent = document.querySelector('.expert-about p');
+const expertCards = document.querySelectorAll('.each-expert');
+
+let currentExpertName = '';
+let currentExpertSpeciality = '';
+
+expertCards.forEach(card => {
+    card.addEventListener('click', () => {
+        const name = card.querySelector('.expert-name').textContent;
+        const speciality = card.querySelector('.expert-speciality').textContent;
+        currentExpertName = name;
+        currentExpertSpeciality = speciality;
+        expertName.textContent = name;
+        expertAbout.textContent = speciality;
+        // Set initial tab content
+        updateTabContent('about');
+        expertModal.style.display = 'flex';
+    });
+});
+
+closeBtn.addEventListener('click', () => {
+    expertModal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target === expertModal) {
+        expertModal.style.display = 'none';
+    }
+});
+
+tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const tabId = btn.getAttribute('data-tab');
+        updateTabContent(tabId);
+    });
+});
+
+function updateTabContent(tabId) {
+    let content = '';
+    if (tabId === 'about') {
+        content = `Hello, I'm <span id="expertName">${currentExpertName}</span>, a <span id="expertAbout">${currentExpertSpeciality}</span> dedicated to helping survivors of abuse reclaim their sense of safety, self-worth, and purpose. Over the past 12 years, I have worked with individuals who have experienced emotional, physical, and sexual abuse, guiding them through the journey from crisis to confidence.<br>
+My approach blends trauma-informed therapy, cognitive behavioural techniques, and mindfulness-based practices to create a safe and supportive space where healing can begin`;
+    } else if (tabId === 'schedule') {
+        content = 'Click Book a Session to schedule a confidential first meeting.';
+    } else if (tabId === 'sessions') {
+        content = '';
+    } else if (tabId === 'review') {
+        content = `${currentExpertName} patience and understanding gave me the courage to open up for the first time in years.`;
+    }
+    expertAboutContent.innerHTML = content;
+}

@@ -25,9 +25,6 @@ a{
     text-decoration: none;
 }
 
-
-
-
 .top-header p{
     color: #EFEEEE;
     font-weight: 600;
@@ -319,7 +316,6 @@ a{
 
 .about-btn{
     background-color: #3ACEFF;
-    color: #0B1A43;
     padding: 8px;
     outline: none;
     border: none;
@@ -327,6 +323,10 @@ a{
     border-radius: 10px;
     font-weight: 500;
     margin-top: 40px;
+}
+
+.about-btn a{
+color: #0B1A43;
 }
 
 .about-btn:hover{
@@ -685,6 +685,10 @@ height: auto;
     border-radius: 10px;
     font-weight: 500;
     cursor: pointer;
+}
+
+.journey-btn a{
+    color: #0B1A43;
 }
 
 .journey-btn:hover{
