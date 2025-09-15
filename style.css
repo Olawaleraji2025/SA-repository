@@ -458,6 +458,8 @@ font-weight: 400;
 .choose-us-container{
     background-color: #F3FAFF;
     padding: 1rem;
+        border-bottom: 1px solid #3ACEFF;
+    padding-bottom: 3rem;
 }
 
 .choose-us-features{
@@ -519,7 +521,6 @@ height: auto;
 
 .guidelines-container{
     position: relative;
-    margin-top: 24px;
     height: auto;
     background-color: #F3FAFF;
 }
@@ -532,7 +533,7 @@ height: auto;
 .first-header{
     color: #0B1A43;
     font-weight: 500;
-    font-size: 35px;
+    font-size: 30px;
 }
 .second-header{
     color: #000029;
@@ -977,6 +978,18 @@ height: auto;
     color: #0B1A43;
 }
 
+.exit-btn{
+    background-color: #E91919;
+    color: #FFFFFF;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
 
 
 
@@ -1389,7 +1402,7 @@ height: auto;
     
         .menu-icon{
             display: block;
-            height: 30px;
+            height: 33px;
 
         }
     

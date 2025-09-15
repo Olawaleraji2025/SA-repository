@@ -168,7 +168,7 @@ async function collectAndSendQuestionnaireData() {
         questionnaireData[name].push(value);
     });
 
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+    const response = await fetch('https://safe-anchor-backend.onrender.com/api/victims/match-expert', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -197,7 +197,7 @@ async function collectAndSendQuestionnaireData() {
 async function sendQuestionnaireToBackend(data) {
     theLoaderContainer.style.display = 'flex';
     try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts', { // Replace with your backend URL
+        const response = await fetch('https://safe-anchor-backend.onrender.com/api/victims/matched-experts', { // Replace with your backend URL
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -274,7 +274,7 @@ document.querySelector('.resend-email').addEventListener('click', async function
     }
     try {
         
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+        const response = await fetch('https://safe-anchor-backend.onrender.com/api/auth/verify-email', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -350,7 +350,7 @@ document.querySelector('.forget-password').addEventListener('click', async funct
     theLoaderContainer.style.display = 'flex';
 
     try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+        const response = await fetch('https://safe-anchor-backend.onrender.com/api/auth/forgot-password', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -436,7 +436,7 @@ document.getElementById('signin-submit-btn').addEventListener('click', async fun
     
     try {
         // Send data to backend using POST
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+        const response = await fetch('https://safe-anchor-backend.onrender.com/api/auth/login', {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json'
@@ -588,7 +588,7 @@ document.getElementById('signup-email-submit-btn').addEventListener("click", asy
 
     try {
         // Send data to backend for registration
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+        const response = await fetch('https://safe-anchor-backend.onrender.com/api/auth/register', {
             method: 'POST',
             headers: {
                  'accept': 'application/json',
@@ -604,9 +604,8 @@ document.getElementById('signup-email-submit-btn').addEventListener("click", asy
 
         const data = await response.json();
 
-        if (response.ok) {
+      
             registeredEmail = email; // Store email for resending
-            localStorage.setItem('userName', fullName);
             setTimeout(() => {
                 theLoaderContainer.style.display = 'none';
                 notificationMessage.style.display = 'flex';
@@ -625,7 +624,7 @@ document.getElementById('signup-email-submit-btn').addEventListener("click", asy
                 // Show email verification section
                 showSection(sections.notification);
             }, 3000);
-        }
+        
 
         console.log('Registration Success:', data);
     } catch (error) {
@@ -745,7 +744,7 @@ document.getElementById('signup-username-submit-btn').addEventListener("click", 
 
     try {
         // Send data to backend for registration
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+        const response = await fetch('https://safe-anchor-backend.onrender.com/api/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -799,7 +798,6 @@ document.getElementById('signup-username-submit-btn').addEventListener("click", 
     }
 })
 
-// For Forgot password
 
 
 

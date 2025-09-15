@@ -517,6 +517,7 @@ padding: 4px;
     
     .notification-section.active {
         padding: 20px;
+        background-color: #fff;
     }
     
     .questionnaire-content {
@@ -554,7 +555,6 @@ padding: 4px;
 @media (max-width: 767px) {
     body {
         height: 100vh;
-        background: #F3FAFF;
         justify-content: center;
         align-items: center;
     }
