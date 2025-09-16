@@ -79,6 +79,20 @@ body{
     border-radius: 50%;
 }
 
+.notification-count2{
+    display: none;
+    top: 5px;
+    background: red;
+    right: 55px;
+    font-size: 8px;
+    padding: 3px;
+    color: white;
+    position: absolute;
+    border-radius: 50%;
+}
+
+
+
 .fa-bell{
         font-size: 24px;
 }
@@ -951,6 +965,7 @@ text-align: right;
 .story-container{
     margin-top: 50px;
     padding: 0.5rem;
+    border: 1px solid #3ACEFF;
 }
 
 .story-container-header h5{
@@ -1000,6 +1015,12 @@ text-align: right;
     margin-bottom: 10px;
 }
 
+.each-notif-content img{
+    border-radius: 50%;
+    padding: 5px;
+    background: #fff;
+}
+
 .notification-messages-header{
     padding: 1rem;
 }
@@ -1008,6 +1029,8 @@ text-align: right;
     color: #0B1A43;
     font-weight: 600;
     font-size: 18px;
+        background: #fff;
+    padding: 10px;
 }
 
 .each-notification-container{
@@ -2252,9 +2275,11 @@ margin-bottom: 30px;
 }
 
 .notification-container{
-    max-width: 500px;
+    max-width: 300px;
+        width: 100%;
+        margin: 0 auto;
+    justify-content: space-between;
     display: flex;
-    margin: 0 auto;
     align-items: center;
 }
 
@@ -2416,7 +2441,6 @@ tbody td:last-child{
         display: none;
     }
 
-
     .header-logo, .searchIcon, .notifications{
         display: none;
     }
@@ -2444,6 +2468,10 @@ tbody td:last-child{
 
     .modal-btn2{
         margin-top: 20px;
+    }
+
+    .notification-count2{
+        display: flex;
     }
 
 }
@@ -2721,9 +2749,11 @@ tbody td:first-child{
     }
 
     .notification-container {
-        max-width: 500px;
-        display: flex;
+        max-width: 300px;
+        width: 100%;
         margin: 0 auto;
+        justify-content: space-between;
+        display: flex;
         align-items: center;
     }
 
