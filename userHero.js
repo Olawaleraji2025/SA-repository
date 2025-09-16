@@ -621,7 +621,7 @@ function showTip(tipNumber) {
     }
 }
 
-// Initialize by showing the first tip
+// Start by showing the first tip
 showTip(currentTip);
 
 // Event listener for left icon (previous tip)
@@ -796,3 +796,37 @@ My approach blends trauma-informed therapy, cognitive behavioural techniques, an
     }
     expertAboutContent.innerHTML = content;
 }
+
+
+// switch between message and calls
+const chatHeader1 = document.getElementById('chatHeader1');
+const chatHeader2 = document.getElementById('chatHeader2');
+const userChatContents = document.getElementById('userChatContents');
+const userCallsContents = document.getElementById('userCallsContents');
+const ChatMessageImg = document.getElementById('ChatMessageImg');
+const VideoCallImg = document.getElementById('VideoCallImg');
+
+function MsgCalls(e) {
+    console.log(e.target);
+    if (e.target !== chatHeader1) {
+        chatHeader2.classList.add('active');
+        userCallsContents.classList.add('active');
+        VideoCallImg.classList.add('active');
+        chatHeader1.classList.remove('active');
+        userChatContents.classList.remove('active');
+        ChatMessageImg.classList.remove('active');
+    } 
+    else if (e.target !== chatHeader2) {
+        chatHeader2.classList.remove('active');
+        userCallsContents.classList.remove('active');
+        VideoCallImg.classList.remove('active');
+        chatHeader1.classList.add('active');
+        userChatContents.classList.add('active');
+         ChatMessageImg.classList.add('active');
+    }
+}
+
+chatHeader1.addEventListener("click", MsgCalls);
+chatHeader2.addEventListener("click", MsgCalls);
+
+// To get the user data based on prefrences

@@ -147,7 +147,7 @@ document.getElementById('questionnaire-gender-next-btn').addEventListener("click
     collectAndSendQuestionnaireData();
 });
 
-async function collectAndSendQuestionnaireData() {
+function collectAndSendQuestionnaireData() {
     const checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
     if (checkedBoxes.length === 0) {
         notificationMessage.style.display = 'flex';
@@ -168,23 +168,23 @@ async function collectAndSendQuestionnaireData() {
         questionnaireData[name].push(value);
     });
 
-    const response = await fetch('https://safe-anchor-backend.onrender.com/api/victims/match-expert', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(questionnaireData)
-    });
+    // const response = await fetch('https://safe-anchor-backend.onrender.com/api/victims/match-expert', {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify(questionnaireData)
+    // });
 
-    if (!response.ok) {
-        notificationMessage.style.display = 'flex';
-        notificationMessage.style.backgroundColor = '#E91919';
-        notificationMessage.textContent = 'Error fetching user details. Please try again.';
-        setTimeout(() => { notificationMessage.style.display = 'none'; }, 2000);
-        return;
-    }
+    // if (!response.ok) {
+    //     notificationMessage.style.display = 'flex';
+    //     notificationMessage.style.backgroundColor = '#E91919';
+    //     notificationMessage.textContent = 'Error fetching user details. Please try again.';
+    //     setTimeout(() => { notificationMessage.style.display = 'none'; }, 2000);
+    //     return;
+    // }
 
-    const userDetails = await response.json();
+    // const userDetails = await response.json();
     console.log('Fetched user details:', userDetails);
         
     console.log('Collected questionnaire data:', questionnaireData);
@@ -197,7 +197,7 @@ async function collectAndSendQuestionnaireData() {
 async function sendQuestionnaireToBackend(data) {
     theLoaderContainer.style.display = 'flex';
     try {
-        const response = await fetch('https://safe-anchor-backend.onrender.com/api/victims/matched-experts', { // Replace with your backend URL
+        const response = await fetch('https://safe-anchor-backend.onrender.com/api/victims/match-expert', { 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

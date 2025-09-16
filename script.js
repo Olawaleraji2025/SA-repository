@@ -46,7 +46,7 @@ const removeIcon = document.getElementById('removeIcon');
 const modalSignup = document.querySelector('.modal-signup');
 
 menuIcon.addEventListener('click', function(event) {
-    console.log(event.target);
+    // console.log(event.target);
     
     if (event.target === menuBars) {
         modalSignup.style.display = 'flex';

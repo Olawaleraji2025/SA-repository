@@ -656,12 +656,16 @@
              <div class="messages-area " id="messagesArea">
 <!-- User Chat Container Start -->
  <h5 class="msg">Messages</h5>
-                <div class="user-chat-container active" id="userChatMessages">
+                <div class="user-chat-container " id="userChatMessages">
                 <div class="user-chats-header" id="userChatHeader">
-                    <h5>Chats</h5>
+                    <div>
+                        <h5 class="chats-header active" id="chatHeader1">Chats</h5>
+                        <p class="chats-header" id="chatHeader2">Calls</p>
+
+                    </div>
                     <img src="Landing page Assets/search-icon.png" alt="">
                 </div>
-                    <div class="user-chat-contents">
+                    <div class="user-chat-contents active" id="userChatContents">
                         <div class="each-message-info">
                             <div class="message-info">
                                 <img src="Landing page Assets/Avatar 1.jpg" alt="avatar image">
@@ -738,6 +742,56 @@
                             <div class="message-number">
                                 <p>13:06</p>
                                 <span>4</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-chat-contents " id="userCallsContents">
+                        <div class="each-call-info">
+                            <div class="call-info">
+                                <img src="Landing page Assets/Avatar 1.jpg" alt="avatar image">
+                                <div class="user-call-text">
+                                    <p>Bukola Jimoh</p>
+                                    <div class="missed-calls">
+                                        <img src="Landing page Assets/missed call.png" alt="missed call">
+                                        <span>Outgoing</span>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="call-number">
+                                <p>Yesterday</p>
+                            </div>
+                        </div>
+                        <div class="each-call-info">
+                            <div class="call-info">
+                                <img src="Landing page Assets/Avatar 1.jpg" alt="avatar image">
+                                <div class="user-call-text">
+                                    <p>Bukola Jimoh</p>
+                                    <div class="missed-calls">
+                                        <img src="Landing page Assets/missed call.png" alt="missed call">
+                                        <span>Outgoing</span>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="call-number">
+                                <p>Yesterday</p>
+                            </div>
+                        </div>
+                        <div class="each-call-info">
+                            <div class="call-info">
+                                <img src="Landing page Assets/Avatar 1.jpg" alt="avatar image">
+                                <div class="user-call-text">
+                                    <p>Bukola Jimoh</p>
+                                    <div class="missed-calls">
+                                        <img src="Landing page Assets/missed call red.png" alt="missed call">
+                                        <span>Missed</span>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="call-number">
+                                <p>Yesterday</p>
                             </div>
                         </div>
                     </div>
@@ -1465,8 +1519,13 @@
                 <!-- i removed the chats section here -->
                  <div class="message-div">
                      <div class="message-container">
-                         <div class="chats-area">
+                         <div class="chats-area active" id="ChatMessageImg">
                             <img src="Landing page Assets/chat-icon.png" alt="chat-icon">
+                            <p>Click on a contact to view their  messages</p>
+                         </div>
+
+                         <div class="chats-area" id="VideoCallImg">
+                            <img src="Landing page Assets/video cam.png" alt="chat-icon">
                             <p>Click on a contact to view their  messages</p>
                          </div>
                     </div>
