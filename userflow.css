@@ -351,6 +351,37 @@ padding: 4px;
         color: #0B1A43;
     }
 
+    /* Verification section styling */
+
+    .verification-content{
+        text-align: center;
+        padding: 2rem 2rem 0px 2rem;
+    }
+
+    .verification-content h5{
+        color: #0B1A43;
+        font-size: 21px;
+    }
+
+    .verification-content p{
+        color: #585656;
+        font-size: 14px;
+    }
+
+    .verification-content input{
+        width: 200px;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .verification-content button{
+        margin-top: 10px;
+    }
+
     /* Questionnaire section styling */
 
 .questionnaire-header{
