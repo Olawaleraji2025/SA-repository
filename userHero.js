@@ -1,3 +1,44 @@
+// document.addEventListener('DOMContentLoaded', async function() {
+//     const token = localStorage.getItem('authToken');
+//     const storedEmail = localStorage.getItem('email');
+
+//     if (!token) {
+//         // No token found, redirect to Sign In page
+//         window.location.href = 'userFlow.html';
+//         return;
+//     }
+
+//     try {
+//         const response = await fetch('https://safe-anchor-backend.onrender.com/api/victims/profile', {
+//             method: 'GET',
+//             headers: {
+//                 'Authorization': 'Bearer ' + token,
+//                 'Content-Type': 'application/json'
+//             }
+//         });
+
+//         if (response.ok) {
+//             const profile = await response.json();
+
+//             // Display user profile information on the page
+//             // Assuming there is an element with id 'profile-info' to show the data
+//             const profileInfo = document.querySelector('.victimName');
+//             if (profileInfo) {
+//                 profileInfo.textContent = ` ${storedEmail}
+//                 `;
+//             }
+//         } else {
+//             // Token invalid or request failed, redirect to Sign In page
+//             localStorage.removeItem('authToken');
+//             window.location.href = 'userFlow.html';
+//         }
+//     } catch (error) {
+//         console.error('Error fetching profile:', error);
+//         localStorage.removeItem('authToken');
+//         window.location.href = 'userFlow.html';
+//     }
+// });
+
 let theCurrentMonth = document.querySelector("#currentMonth");
 let thedaysWeek = document.querySelector("#daysWeek");
 let eachDayDiv = document.getElementById('eachDayDiv');
@@ -292,6 +333,39 @@ navItems.forEach(item => {
         handleNavigation(item);
     });
 });
+
+// Account icon functionality to navigate to settings
+const accountIcon = document.querySelector('.notifications img[alt="account-icon"]');
+accountIcon.addEventListener('click', function() {
+    // Remove active class from all menu items
+    navItems.forEach(item => {
+        item.classList.remove('active');
+    });
+
+    // Add active class to settings menu item
+    const settingsMenu = Array.from(navItems).find(item => item.querySelector('span').textContent.toLowerCase() === 'settings');
+    if (settingsMenu) {
+        settingsMenu.classList.add('active');
+    }
+
+    // Handle grid layout and content for settings
+    mainSection.style.gridTemplateColumns = '1fr 3fr 1fr';
+    contentArea.classList.remove('active');
+    rightSidebar.classList.remove('active');
+    expertArea.classList.remove('active');
+    // chatsSidebar.classList.remove('active');
+    notificationArea.classList.remove('active');
+    messagesArea.classList.remove('active');
+    messageSideBar.classList.remove('active');
+    resourcesArea.classList.remove('active');
+    resourcesAreaContents.classList.remove('active');
+    bookSectionArea.classList.remove('active');
+    articleArea.classList.remove('active');
+    settingsArea.classList.add('active');
+    helpArea.classList.remove('active');
+    console.log('Showing settingsArea via account icon');
+});
+
 // Navigation functionality ends here
 
 // Chat functionality starts here
@@ -312,51 +386,18 @@ navItems.forEach(item => {
 //  functionality for notification icon
 
 const NotifyIcon = document.querySelector('.notify-icon');
+const viewAllNotification = document.querySelector('.notification-container span');
 const NotifyIcon2 = document.querySelector('.notify-icon2');
 const BookSessionIcon = document.querySelector('.books-session');
+const BookSessionBtn2 = document.querySelector('.expert-book-btn');
+const BookSessionBtn3 = document.querySelector('.upcoming-session-texts span');
 
- NotifyIcon.addEventListener('click', function() {
+// Function to show book session area
+function showBookSessionArea() {
     mainSection.style.gridTemplateColumns = '0.6fr 3fr 0fr';
     contentArea.classList.remove('active');
     rightSidebar.classList.remove('active');
     expertArea.classList.remove('active');
-    // chatsSidebar.classList.remove('active');
-    messagesArea.classList.remove('active');
-    messageSideBar.classList.remove('active');
-    resourcesArea.classList.remove('active');
-    resourcesAreaContents.classList.remove('active');
-    bookSectionArea.classList.remove('active');
-    notificationArea.classList.add('active');
-    articleArea.classList.remove('active');
-    settingsArea.classList.remove('active');
-    helpArea.classList.remove('active');
- })
- 
- NotifyIcon2.addEventListener('click', function() {
-    mainSection.style.gridTemplateColumns = '0.6fr 3fr 0fr';
-    contentArea.classList.remove('active');
-    rightSidebar.classList.remove('active');
-    expertArea.classList.remove('active');
-    // chatsSidebar.classList.remove('active');
-    messagesArea.classList.remove('active');
-    messageSideBar.classList.remove('active');
-    resourcesArea.classList.remove('active');
-    resourcesAreaContents.classList.remove('active');
-    bookSectionArea.classList.remove('active');
-    notificationArea.classList.add('active');
-    articleArea.classList.remove('active');
-    settingsArea.classList.remove('active');
-    helpArea.classList.remove('active');
- })
-
- //  functionality for booksession icon
-
- BookSessionIcon.addEventListener('click', function() {
-    mainSection.style.gridTemplateColumns = '0.6fr 3fr 0fr';
-    contentArea.classList.remove('active');
-    rightSidebar.classList.remove('active');
-    expertArea.classList.remove('active');
-    // chatsSidebar.classList.remove('active');
     messagesArea.classList.remove('active');
     messageSideBar.classList.remove('active');
     resourcesArea.classList.remove('active');
@@ -365,8 +406,36 @@ const BookSessionIcon = document.querySelector('.books-session');
     bookSectionArea.classList.add('active');
     settingsArea.classList.remove('active');
     helpArea.classList.remove('active');
+    expertModal.style.display = 'none';
+}
 
- })
+ // Function to show notification area
+ function showNotificationArea() {
+    mainSection.style.gridTemplateColumns = '0.6fr 3fr 0fr';
+    contentArea.classList.remove('active');
+    rightSidebar.classList.remove('active');
+    expertArea.classList.remove('active');
+    // chatsSidebar.classList.remove('active');
+    messagesArea.classList.remove('active');
+    messageSideBar.classList.remove('active');
+    resourcesArea.classList.remove('active');
+    resourcesAreaContents.classList.remove('active');
+    bookSectionArea.classList.remove('active');
+    notificationArea.classList.add('active');
+    articleArea.classList.remove('active');
+    settingsArea.classList.remove('active');
+    helpArea.classList.remove('active');
+ }
+
+ NotifyIcon.addEventListener('click', showNotificationArea);
+ NotifyIcon2.addEventListener('click', showNotificationArea);
+ viewAllNotification.addEventListener('click', showNotificationArea);
+
+ //  functionality for booksession icon
+
+ BookSessionIcon.addEventListener('click', showBookSessionArea);
+ BookSessionBtn2.addEventListener('click', showBookSessionArea);
+ BookSessionBtn3.addEventListener('click', showBookSessionArea);
 
 // Icon click functionalities end here
 
@@ -744,33 +813,66 @@ const closeBtn = document.querySelector('.expert-modal-close');
 const expertModalContent = document.querySelector('.expert-modal-content');
 const tabBtns = document.querySelectorAll('.expert-tab-btn');
 const expertAboutContent = document.querySelector('.expert-about p');
-const expertCards = document.querySelectorAll('.each-expert');
-
 let currentExpertName = '';
 let currentExpertSpeciality = '';
+let currentExpertImage = '';
 
-expertCards.forEach(card => {
-    card.addEventListener('click', () => {
-        const name = card.querySelector('.expert-name').textContent;
-        const speciality = card.querySelector('.expert-speciality').textContent;
-        currentExpertName = name;
-        currentExpertSpeciality = speciality;
-        expertName.textContent = name;
-        expertAbout.textContent = speciality;
-        // Set initial tab content
-        updateTabContent('about');
-        expertModal.style.display = 'flex';
+// Functionality for .each-expert buttons
+const eachExpertBtns = document.querySelectorAll('.each-expert .expert-btn');
+eachExpertBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        let card = btn.parentElement;
+        while (card && !card.classList.contains('each-expert')) {
+            card = card.parentElement;
+        }
+        if (card) {
+            const name = card.querySelector('.expert-name').textContent;
+            const speciality = card.querySelector('.expert-speciality').textContent;
+            const image = card.querySelector('img').src;
+            currentExpertName = name;
+            currentExpertSpeciality = speciality;
+            currentExpertImage = image;
+            expertName.textContent = name;
+            expertAbout.textContent = speciality;
+            // Update modal profile image
+            const modalImg = document.querySelector('.Expert-Profile-Info img');
+            if (modalImg) {
+                modalImg.src = image;
+            }
+            // Set initial tab content
+            updateTabContent('about');
+            expertModal.style.display = 'flex';
+        }
     });
 });
 
-closeBtn.addEventListener('click', () => {
-    expertModal.style.display = 'none';
-});
-
-window.addEventListener('click', (e) => {
-    if (e.target === expertModal) {
-        expertModal.style.display = 'none';
-    }
+// Functionality for .user-experts buttons
+const userExpertsBtns = document.querySelectorAll('.user-experts .expert-btn');
+userExpertsBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        let card = btn.parentElement;
+        while (card && !card.classList.contains('user-experts')) {
+            card = card.parentElement;
+        }
+        if (card) {
+            const name = card.querySelector('.expert-name').textContent;
+            const speciality = card.querySelector('.expert-speciality').textContent;
+            const image = card.querySelector('img').src;
+            currentExpertName = name;
+            currentExpertSpeciality = speciality;
+            currentExpertImage = image;
+            expertName.textContent = name;
+            expertAbout.textContent = speciality;
+            // Update modal profile image
+            const modalImg = document.querySelector('.Expert-Profile-Info img');
+            if (modalImg) {
+                modalImg.src = image;
+            }
+            // Set initial tab content
+            updateTabContent('about');
+            expertModal.style.display = 'flex';
+        }
+    });
 });
 
 tabBtns.forEach(btn => {
@@ -796,6 +898,16 @@ My approach blends trauma-informed therapy, cognitive behavioural techniques, an
     }
     expertAboutContent.innerHTML = content;
 }
+
+closeBtn.addEventListener('click', () => {
+    expertModal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target === expertModal) {
+        expertModal.style.display = 'none';
+    }
+});
 
 
 // switch between message and calls
@@ -825,6 +937,21 @@ function MsgCalls(e) {
          ChatMessageImg.classList.add('active');
     }
 }
+
+// Heart icon toggle functionality
+const heartIcons = document.querySelectorAll('.fa-heart');
+
+heartIcons.forEach(icon => {
+    icon.addEventListener('click', function() {
+        if (icon.classList.contains('fa-regular')) {
+            icon.classList.remove('fa-regular');
+            icon.classList.add('fa-solid');
+        } else {
+            icon.classList.add('fa-regular');
+            icon.classList.remove('fa-solid');
+        }
+    });
+});
 
 chatHeader1.addEventListener("click", MsgCalls);
 chatHeader2.addEventListener("click", MsgCalls);

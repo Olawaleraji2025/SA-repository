@@ -91,6 +91,9 @@ body{
     border-radius: 50%;
 }
 
+.fa-solid{
+    color: red;
+}
 
 
 .fa-bell{
@@ -466,6 +469,20 @@ font-weight: 400;
     width: 135px;
 }
 
+.menu:hover{
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 0.3rem;
+    width: 135px;
+
+}
+
+.menu span:hover{
+     color: #3ACEFF;
+    font-weight: 600;
+    font-size: 16px;
+}
+
 .menu.active span{
     color: #0B1A43;
     font-weight: 600;
@@ -783,9 +800,14 @@ font-weight: 600;
 .message-number span{
     color: #fff;
     background: #0B1A43;
-    padding: 3px 5px 3px 6px;
+    padding: 3px 6px;
     border-radius: 50%;
     font-size: 13px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 14px;
 }
 
 .message-number p{
@@ -2177,6 +2199,8 @@ margin-bottom: 30px;
 .expert-modal-header{
         display: flex;
     align-items: center;
+        padding: 0 10px;
+    justify-content: space-between;
     background-color: #fff;
 }
 

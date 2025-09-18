@@ -563,8 +563,6 @@ padding: 4px;
 
 /* Extra small screens (phones, below 480px) */
 
-
-
 @media (min-width: 1200px) {
     .form-section.active {
         max-width: 1200px;
