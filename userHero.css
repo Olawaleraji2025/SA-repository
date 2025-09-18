@@ -64,6 +64,12 @@ body{
     border-radius: 10px;
 }
 
+.books-session:hover{
+    color: #0B1A43;
+    background-color: transparent;
+    border: 1px solid #0B1A43;
+}
+
 .fa-circle-user{
     font-size: 24px;
 }
@@ -307,13 +313,8 @@ font-weight: 400;
 
 .expert-btn:hover{
     color: #0B1A43;
-     border-radius: 10px;
-     outline: none;
-     border: 1px solid #3ACEFF;
-     padding: 10px;
-     font-size: 14px;
-     background-color:#3ACEFF ;
-     width: 180px;
+    background-color: transparent;
+    border: 1px solid #0B1A43;
      cursor: pointer;
  }
 
@@ -1066,6 +1067,12 @@ text-align: right;
     padding: 0.4rem;
     font-size: 14px;
     color: #3ACEFF;
+}
+
+.resources-btn:hover{
+    color: #0B1A43;
+    background-color: transparent;
+    border: 1px solid #0B1A43;
 }
 
 .story-container{
@@ -2692,6 +2699,25 @@ tbody td:last-child{
         display: flex;
     }
 
+    .expert-modal-content{
+        max-width: 300px;
+        overflow: scroll;
+        width: 100%;
+        height: 400px;
+    }
+
+    .modal-content{
+        overflow: scroll;
+        width: 100%;
+        margin: 64px auto 15%;
+        height: 400px;
+        max-width: 300px;
+    }
+
+    .booksession-details{
+            grid-template-columns: 1fr;
+    }
+
 }
 
 @media (min-width: 320px) and (max-width: 1299px){
@@ -2881,7 +2907,12 @@ tbody td:last-child{
         margin-right: 1rem;
     }
 
-    
+    .expert-modal-content{
+        max-width: 500px;
+        overflow: scroll;
+        width: 100%;
+        height: 400px;
+    }
 
 }
 

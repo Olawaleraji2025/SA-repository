@@ -39,10 +39,10 @@ document.getElementById('signin-signup-link').addEventListener("click", function
 });
 
 // Event listener for register button - shows third section (Register with Username)
-document.getElementById('signup-email-register-btn').addEventListener("click", function (e) {
-    e.preventDefault(); // Prevent default button behavior if it's in a form
-    showSection(sections.third);
-});
+// document.getElementById('signup-email-register-btn').addEventListener("click", function (e) {
+//     e.preventDefault(); // Prevent default button behavior if it's in a form
+//     showSection(sections.third);
+// });
 
 // Event listener for sign in buttons - shows first section (Sign In)
 document.getElementById('signup-email-signin-link').addEventListener("click", function (e) {
@@ -196,22 +196,30 @@ async function sendQuestionnaireToBackend(data) {
         console.log('Questionnaire data sent successfully:', result);
 
         // Show success message
-        setTimeout(() => {
-            theLoaderContainer.style.display = 'none';
-            notificationMessage.style.display = 'flex';
-            notificationMessage.style.backgroundColor = '#21B24D';
-            notificationMessage.textContent = 'Preferences saved successfully!';
-        }, 1000);
+        if (response.ok) {
+            
+            setTimeout(() => {
+                theLoaderContainer.style.display = 'none';
+                notificationMessage.style.display = 'flex';
+                notificationMessage.style.backgroundColor = '#21B24D';
+                notificationMessage.textContent = 'Preferences saved successfully!';
+            }, 1000);
+    
+            setTimeout(() => {
+                notificationMessage.style.display = 'none';
+                // Uncheck all checkboxes
+                document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+                // Redirect to userHero.html
+                window.location.href = 'userHero.html';
+            }, 2000);
 
-        setTimeout(() => {
-            notificationMessage.style.display = 'none';
-            // Uncheck all checkboxes
-            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
-            // Redirect to userHero.html
-            window.location.href = 'userHero.html';
-        }, 2000);
+            return;
+        }
 
     } catch (error) {
+
+theLoaderContainer.style.display = 'none';
+
         console.error('Error sending questionnaire data:', error);
         notificationMessage.style.display = 'flex';
         notificationMessage.style.backgroundColor = '#E91919';
