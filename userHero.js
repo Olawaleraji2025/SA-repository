@@ -458,8 +458,7 @@ const appointmentInformation = document.querySelector('.appointment-information'
      modal1.style.display = 'block';
  });
  
- modalBtn1.addEventListener('click', function(e) {
-     // mainSection.style.gridTemplateColumns = '1fr 3fr 1fr';
+ modalBtn1.addEventListener('click', async function(e) {
      e.preventDefault();
      modal1.style.display = 'none';
      modal2.style.display = 'block';

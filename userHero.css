@@ -108,8 +108,6 @@ body{
     margin: auto;
 }
 
-
-
 .left-sidebar{
     padding-top: 32px;
     background-color: #F3FAFF;
@@ -341,9 +339,9 @@ font-weight: 400;
 }
 /* Experts Page Styles End */
 
-.experts-section::-webkit-scrollbar {
+/* .experts-section::-webkit-scrollbar {
   display: none;
-}
+} */
 
 .experts-header, .user-experts-header{
     color: #0B1A43;
@@ -1111,6 +1109,12 @@ text-align: right;
     margin-top: 10px;
     color: #0B1A43;
 }
+
+.story-container-contents{
+        overflow: auto;
+    height: 900px;
+}
+
 /* Resources Page Styles End */
 
 /* notification messages styling */
@@ -1664,12 +1668,35 @@ width: 20px;
     object-fit: cover;
 }
 
+.article-image2{
+    display: block;
+        margin: 0 auto;
+        width: 100%;
+}
+
+.article-image2-image-link{
+    height: 420px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.article-link{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.article-link span{
+        color: #475467;
+    font-weight: 400;
+    font-size: 13px;
+}
+
 .article-content{
     width: auto;
     margin: 25px auto;
     display: block;
 }
-
 
 .article-content h5{
     color: #101828;
@@ -1681,6 +1708,87 @@ width: 20px;
     color: #000029;
     font-size: 15px;
 }
+
+.article-content2{
+    margin-top: 30px;
+}
+
+.article-content2 p{
+        color: #475467;
+}
+
+.article-content3{
+    width: auto;
+    margin: 25px auto;
+    display: block;
+}
+
+.article-content3 h6{
+        font-weight: 550;
+    font-size: 20px;
+        color: #000029;
+}
+
+.article-content3 p{
+    font-weight: 400;
+        font-size: 15px;
+        line-height: 40px;
+        color: #000029;
+}
+
+.article-content4{
+     width: auto;
+    margin: 25px auto;
+    display: block;
+}
+
+.article-content4 h5{
+        font-size: 20px;
+    font-weight: 550;
+    margin-bottom: 10px;
+    color: #000029;
+}
+
+.article-content4 p{
+        color: #000029;
+}
+
+.article-content4 ul{
+        margin: 20px 0 20px 32px;
+}
+
+.article-content4 li{
+        line-height: 40px;
+    color: #000029;
+}
+
+.article-content5 h5{
+    color: #101828;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.article-content5{
+        width: 590px;
+    display: block;
+    padding: 2rem;
+    margin: 20px auto;
+    background: #fff;
+}
+
+.article-content5 h5{
+        color: #101828;
+    font-size: 27px;
+}
+
+.article-content5 p{
+        line-height: 25px;
+    font-size: 14px;
+    color: #475467;
+    margin: 15px auto;
+}
+
+
 /* Articles Page Styles End */
 /* Add styles for the help area and hotline table */
 
