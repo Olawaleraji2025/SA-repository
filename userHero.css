@@ -2371,7 +2371,10 @@ margin-bottom: 30px;
     color: #fff;
 }
 
-
+.fa-chevron-left, .fa-chevron-right {
+    color: #3ACEFF;
+    font-size: 20px;
+}
 
 /* This is where the page ends */
 @media (max-width: 900px){
@@ -2711,12 +2714,80 @@ tbody td:last-child{
         width: 100%;
         margin: 64px auto 15%;
         height: 400px;
+        padding: 10px;
         max-width: 300px;
     }
 
     .booksession-details{
             grid-template-columns: 1fr;
     }
+
+    .DateTime-details{
+        gap: 10px;
+        width: 280px;
+        padding: unset;
+    }
+
+    .DateTime-detail-1{
+    margin: 5px 0;
+}
+
+.change-details span{
+    font-size: 14px;
+}
+
+.reason-details textarea{
+    width: 280px;
+}
+
+.question-details textarea{
+    width: 280px;
+}
+
+.modal2-btn{
+    width: 280px;
+}
+
+.change-details{
+        margin-left: 10px;
+}
+
+.modal2-content-header p{
+        width: 280px;
+}
+
+.appointment-action-btn{
+        display: flex;
+    flex-wrap: wrap;
+}
+
+.book-section-container{
+        height: 460px;
+}
+
+.article-area.active{
+        margin: unset;
+}
+
+.article-content2 p {
+    font-size: 15px;
+}
+
+.article-content3 p{
+        line-height: 30px;
+}
+
+.article-content4 li{
+    line-height: 30px;
+}
+
+.article-content5{
+    padding: 1rem;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
 
 }
 
@@ -2909,9 +2980,20 @@ tbody td:last-child{
 
     .expert-modal-content{
         max-width: 500px;
-        overflow: scroll;
+        overflow-y: scroll;
         width: 100%;
         height: 400px;
+    }
+
+    .modal-content{
+        overflow-y: scroll;
+    width: 100%;
+    margin: 64px auto 15%;
+    height: 400px;
+    }
+
+    .article-area.active{
+        margin: unset;
     }
 
 }

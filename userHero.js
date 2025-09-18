@@ -336,7 +336,12 @@ navItems.forEach(item => {
 
 // Account icon functionality to navigate to settings
 const accountIcon = document.querySelector('.notifications img[alt="account-icon"]');
-accountIcon.addEventListener('click', function() {
+accountIcon.addEventListener('click', toSettingsPage);
+    
+const accountIcon2 = document.querySelector('.avatarIcon').addEventListener('click', toSettingsPage)
+
+
+    function toSettingsPage() {
     // Remove active class from all menu items
     navItems.forEach(item => {
         item.classList.remove('active');
@@ -364,7 +369,7 @@ accountIcon.addEventListener('click', function() {
     settingsArea.classList.add('active');
     helpArea.classList.remove('active');
     console.log('Showing settingsArea via account icon');
-});
+};
 
 // Navigation functionality ends here
 
