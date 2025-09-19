@@ -1404,6 +1404,10 @@ text-align: right;
     font-weight: 400;
 }
 
+.change-details{
+    display: none;
+}
+
 .change-details span{
     font-size: 14px;
     color: #3ACEFF;
