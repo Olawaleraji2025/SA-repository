@@ -463,19 +463,82 @@ const appointmentInformation = document.querySelector('.appointment-information'
      modal1.style.display = 'block';
  });
  
- modalBtn1.addEventListener('click', async function(e) {
+//  For booking session form
+ modalBtn1.addEventListener('click', function(e) {
      e.preventDefault();
      modal1.style.display = 'none';
      modal2.style.display = 'block';
+
+     // Update modal2 with selected values
+     const selectedExpert = expertSelect.options[expertSelect.selectedIndex].text.split(' - ')[0];
+     const dateInput = document.getElementById('bookingDate').value;
+     const timeInput = document.getElementById('bookingTime').value;
+
+     // Format date to "Mon 05/12" format
+     const dateObj = new Date(dateInput);
+     const dayName = dateObj.toLocaleDateString('en-US', { weekday: 'short' });
+     const month = (dateObj.getMonth() + 1).toString().padStart(2, '0');
+     const day = dateObj.getDate().toString().padStart(2, '0');
+     const formattedDate = `${dayName} ${month}/${day}`;
+
+     // Update modal2 elements
+     // Replace the span inside <p>Chat Session with<span>Dr.Jane Doe</span></p>
+     const modal2ProfileP = document.querySelector('.modal2-profile-image p');
+     if (modal2ProfileP) {
+         modal2ProfileP.innerHTML = `Chat Session with<span>${selectedExpert}</span>`;
+     }
+     document.querySelector('.modal2-DateTime-detail-1 span').textContent = formattedDate;
+     document.querySelector('.modal2-DateTime-detail-2 span').textContent = timeInput;
+      document.getElementById('selectedExpert').textContent = `${selectedExpert}`;
  });
  
- modalBtn2.addEventListener('click', function(e) {
-     // mainSection.style.gridTemplateColumns = '1fr 3fr 1fr';
+//  For sending the booking session details to the backend
+ modalBtn2.addEventListener('click', async function(e) {
      e.preventDefault();
-     modal1.style.display = 'none';
-     modal2.style.display = 'none';
-     btn.style.display = 'none';
-     appointmentInformation.style.display = 'block';
+
+     const selectedExpert = expertSelect.value;
+     const reason = document.getElementById('reason-text').value;
+    //  const questions = document.getElementById('question-text').value;
+     const dateInput = document.getElementById('bookingDate').value;
+     const timeInput = document.getElementById('bookingTime').value;
+     const scheduledAt = new Date(`${dateInput}T${timeInput}`).toISOString();
+     const data = {
+  expertId: selectedExpert,
+  scheduledAt: scheduledAt,
+  notes: reason,
+  duration: "30 minute"
+     }
+     console.log(data);
+
+     try {
+         const token = localStorage.getItem('authToken');
+         const response = await fetch('https://safe-anchor-backend.onrender.com/api/sessions/book', {
+             method: 'POST',
+             headers: {
+                'Authorization': 'Bearer ' + token,
+                 'Content-Type': 'application/json'
+             },
+             body: JSON.stringify(data)
+         });
+         const result = await response.json();
+         console.log(result);
+
+         if (response.ok) {
+             alert('Booking confirmed successfully!');
+             modal1.style.display = 'none';
+             modal2.style.display = 'none';
+             btn.style.display = 'none';
+             appointmentInformation.style.display = 'block';
+         } else {
+             alert('Failed to confirm booking. Please try again.');
+         }
+     } catch (error) {
+         console.error('Error confirming booking:', error);
+         alert('An error occurred while confirming the booking.');
+     }
+
+    
+
  });
  
  span.forEach(closeBtn => {
@@ -959,5 +1022,7 @@ heartIcons.forEach(icon => {
 
 chatHeader1.addEventListener("click", MsgCalls);
 chatHeader2.addEventListener("click", MsgCalls);
+
+
 
 // To get the user data based on prefrences
