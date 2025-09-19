@@ -1,43 +1,43 @@
-// document.addEventListener('DOMContentLoaded', async function() {
-//     const token = localStorage.getItem('authToken');
-//     const storedEmail = localStorage.getItem('email');
+document.addEventListener('DOMContentLoaded', async function() {
+    const token = localStorage.getItem('authToken');
+    const storedEmail = localStorage.getItem('email');
 
-//     if (!token) {
-//         // No token found, redirect to Sign In page
-//         window.location.href = 'userFlow.html';
-//         return;
-//     }
+    if (!token) {
+        // No token found, redirect to Sign In page
+        window.location.href = 'userFlow.html';
+        return;
+    }
 
-//     try {
-//         const response = await fetch('https://safe-anchor-backend.onrender.com/api/victims/profile', {
-//             method: 'GET',
-//             headers: {
-//                 'Authorization': 'Bearer ' + token,
-//                 'Content-Type': 'application/json'
-//             }
-//         });
+    try {
+        const response = await fetch('https://safe-anchor-backend.onrender.com/api/victims/profile', {
+            method: 'GET',
+            headers: {
+                'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json'
+            }
+        });
 
-//         if (response.ok) {
-//             const profile = await response.json();
+        if (response.ok) {
+            const profile = await response.json();
 
-//             // Display user profile information on the page
-//             // Assuming there is an element with id 'profile-info' to show the data
-//             const profileInfo = document.querySelector('.victimName');
-//             if (profileInfo) {
-//                 profileInfo.textContent = ` ${storedEmail}
-//                 `;
-//             }
-//         } else {
-//             // Token invalid or request failed, redirect to Sign In page
-//             localStorage.removeItem('authToken');
-//             window.location.href = 'userFlow.html';
-//         }
-//     } catch (error) {
-//         console.error('Error fetching profile:', error);
-//         localStorage.removeItem('authToken');
-//         window.location.href = 'userFlow.html';
-//     }
-// });
+            // Display user profile information on the page
+            // Assuming there is an element with id 'profile-info' to show the data
+            const profileInfo = document.querySelector('.victimName');
+            if (profileInfo) {
+                profileInfo.textContent = ` ${storedEmail}
+                `;
+            }
+        } else {
+            // Token invalid or request failed, redirect to Sign In page
+            localStorage.removeItem('authToken');
+            window.location.href = 'userFlow.html';
+        }
+    } catch (error) {
+        console.error('Error fetching profile:', error);
+        localStorage.removeItem('authToken');
+        window.location.href = 'userFlow.html';
+    }
+});
 
 let theCurrentMonth = document.querySelector("#currentMonth");
 let thedaysWeek = document.querySelector("#daysWeek");
