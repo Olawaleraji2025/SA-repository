@@ -2741,8 +2741,11 @@ tbody td:last-child{
 
     .DateTime-details{
         gap: 10px;
-        width: 280px;
         padding: unset;
+    }
+
+    .booking-date, .booking-time{
+        width: 100px;
     }
 
     .DateTime-detail-1{
