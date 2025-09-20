@@ -521,104 +521,108 @@ window.location.href = 'userHero.html';
 
 // For login form in third section
 
-document.getElementById('login-submit-btn').addEventListener('click', async function (e) {
+// document.getElementById('login-submit-btn').addEventListener('click', async function (e) {
+//     e.preventDefault();
+//     const email = document.getElementById('login-email').value;
+//     const password = document.getElementById('login-password').value;
+//     console.log(email, password);
+
+//     if (email === '' || password === '') {
+//         notificationMessage.style.backgroundColor = '#E91919';
+//         notificationMessage.textContent = 'Please fill in the details';
+//         notificationMessage.style.display = 'flex';
+//         setTimeout(() => {
+//             notificationMessage.style.display = 'none';
+//         }, 2000);
+//         return;
+//     }
+//     if (!email.includes('@') || !email.includes('.')) {
+//         notificationMessage.style.backgroundColor = '#E91919';
+//         notificationMessage.textContent = 'Please enter a valid email address';
+//         notificationMessage.style.display = 'flex';
+//         setTimeout(() => {
+//             notificationMessage.style.display = 'none';
+//         }, 2000);
+//         return;
+//     }
+//     // Password validation (basic: not empty, at least 6 characters)
+//     if (password.length < 6) {
+//         notificationMessage.style.backgroundColor = '#E91919';
+//         notificationMessage.textContent = 'Password must be at least 6 characters long';
+//         notificationMessage.style.display = 'flex';
+//         setTimeout(() => {
+//             notificationMessage.style.display = 'none';
+//         }, 2000);
+//         return;
+//     }
+
+//     // Show loader
+//     theLoaderContainer.style.display = 'flex';
+
+//     try {
+//         // Send data to backend using POST
+//         const response = await fetch('https://safe-anchor-backend.onrender.com/api/auth/login', {
+//             method: 'POST',
+//             headers: {
+//             'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify({
+//             email: email,
+//             password: password
+//             })
+//         });
+
+
+//         const data = await response.json();
+
+
+//         setTimeout(() => {
+//             theLoaderContainer.style.display = 'none';
+//             notificationMessage.style.display = 'flex';
+//             notificationMessage.style.backgroundColor = '#21B24D';
+//             notificationMessage.textContent = 'Success: Data sent successfully.';
+//         }, 1000);
+
+//         setTimeout(() => {
+//             notificationMessage.style.display = 'none';
+//             // Store data before resetting fields
+//             localStorage.setItem('authToken', data.token);
+//             localStorage.setItem('email', email);
+//             // Reset fields
+//             document.getElementById('login-email').value = '';
+//             document.getElementById('login-password').value = '';
+
+//             showSection(sections.purpose);
+//             // Redirect to new HTML file after successful sign in
+//             //  window.location.href = 'userHero.html'; // Replace with your target HTML file
+//         }, 2000);
+
+
+//         console.log('Success:', data);
+//     } catch (error) {
+//         setTimeout(() => {
+//             theLoaderContainer.style.display = 'none';
+//             theLoaderContainer.style.display = 'none';
+//             notificationMessage.style.display = 'flex';
+//             notificationMessage.style.backgroundColor = '#E91919';
+//             notificationMessage.textContent = 'Error: ' + error.message;
+//         }, 1000);
+
+//         setTimeout(() => {
+//             notificationMessage.style.display = 'none';
+//         }, 2000);
+
+//         console.log('Error:', error);
+//         // Handle error, e.g., show error message
+//     }
+
+
+// })
+
+document.getElementById('login-submit-btn').addEventListener('click', function (e) { 
     e.preventDefault();
-    const email = document.getElementById('login-email').value;
-    const password = document.getElementById('login-password').value;
-    console.log(email, password);
-
-    if (email === '' || password === '') {
-        notificationMessage.style.backgroundColor = '#E91919';
-        notificationMessage.textContent = 'Please fill in the details';
-        notificationMessage.style.display = 'flex';
-        setTimeout(() => {
-            notificationMessage.style.display = 'none';
-        }, 2000);
-        return;
-    }
-    if (!email.includes('@') || !email.includes('.')) {
-        notificationMessage.style.backgroundColor = '#E91919';
-        notificationMessage.textContent = 'Please enter a valid email address';
-        notificationMessage.style.display = 'flex';
-        setTimeout(() => {
-            notificationMessage.style.display = 'none';
-        }, 2000);
-        return;
-    }
-    // Password validation (basic: not empty, at least 6 characters)
-    if (password.length < 6) {
-        notificationMessage.style.backgroundColor = '#E91919';
-        notificationMessage.textContent = 'Password must be at least 6 characters long';
-        notificationMessage.style.display = 'flex';
-        setTimeout(() => {
-            notificationMessage.style.display = 'none';
-        }, 2000);
-        return;
-    }
-
-    // Show loader
-    theLoaderContainer.style.display = 'flex';
-
-    try {
-        // Send data to backend using POST
-        const response = await fetch('https://safe-anchor-backend.onrender.com/api/auth/login', {
-            method: 'POST',
-            headers: {
-            'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-            email: email,
-            password: password
-            })
-        });
-
-
-        const data = await response.json();
-
-
-        setTimeout(() => {
-            theLoaderContainer.style.display = 'none';
-            notificationMessage.style.display = 'flex';
-            notificationMessage.style.backgroundColor = '#21B24D';
-            notificationMessage.textContent = 'Success: Data sent successfully.';
-        }, 1000);
-
-        setTimeout(() => {
-            notificationMessage.style.display = 'none';
-            // Store data before resetting fields
-            localStorage.setItem('authToken', data.token);
-            localStorage.setItem('email', email);
-            // Reset fields
-            document.getElementById('login-email').value = '';
-            document.getElementById('login-password').value = '';
-
-            showSection(sections.purpose);
-            // Redirect to new HTML file after successful sign in
-            //  window.location.href = 'userHero.html'; // Replace with your target HTML file
-        }, 2000);
-
-
-        console.log('Success:', data);
-    } catch (error) {
-        setTimeout(() => {
-            theLoaderContainer.style.display = 'none';
-            theLoaderContainer.style.display = 'none';
-            notificationMessage.style.display = 'flex';
-            notificationMessage.style.backgroundColor = '#E91919';
-            notificationMessage.textContent = 'Error: ' + error.message;
-        }, 1000);
-
-        setTimeout(() => {
-            notificationMessage.style.display = 'none';
-        }, 2000);
-
-        console.log('Error:', error);
-        // Handle error, e.g., show error message
-    }
-
-
+    showSection(sections.purpose);
 })
-
 
 // For new users with email address
 const signUpEmail = document.getElementById('signup-email-email');
@@ -628,223 +632,235 @@ const signUpPhone = document.getElementById('signup-email-phone');
 const signUpPassword = document.getElementById('signup-email-password');
 const signUpConfirmPassword = document.getElementById('signup-email-confirm-password');
 
-document.getElementById('signup-email-submit-btn').addEventListener("click", async function (e) {
-    e.preventDefault();
-    const email = signUpEmail.value.trim();
-    const firstName = signUpFirstname.value.trim();
-    const lastName = signUpLastname.value.trim();
-    const fullName = firstName + ' ' + lastName;
-    const phoneNumber = signUpPhone.value.trim();
-    const password = signUpPassword.value;
-    const confirmPassword = signUpConfirmPassword.value;
-    console.log(email, password, fullName, phoneNumber, confirmPassword);
+// document.getElementById('signup-email-submit-btn').addEventListener("click", async function (e) {
+//     e.preventDefault();
+//     const email = signUpEmail.value.trim();
+//     const firstName = signUpFirstname.value.trim();
+//     const lastName = signUpLastname.value.trim();
+//     const fullName = firstName + ' ' + lastName;
+//     const phoneNumber = signUpPhone.value.trim();
+//     const password = signUpPassword.value;
+//     const confirmPassword = signUpConfirmPassword.value;
+//     console.log(email, password, fullName, phoneNumber, confirmPassword);
 
-    // Validation
-    if (email === '' || firstName === '' || lastName === '' || phoneNumber === '' || password === '' || confirmPassword === '') {
-        notificationMessage.style.backgroundColor = '#E91919';
-        notificationMessage.textContent = 'Please fill in all the details';
-        notificationMessage.style.display = 'flex';
-        setTimeout(() => {
-            notificationMessage.style.display = 'none';
-        }, 2000);
-        return;
-    }
+//     // Validation
+//     if (email === '' || firstName === '' || lastName === '' || phoneNumber === '' || password === '' || confirmPassword === '') {
+//         notificationMessage.style.backgroundColor = '#E91919';
+//         notificationMessage.textContent = 'Please fill in all the details';
+//         notificationMessage.style.display = 'flex';
+//         setTimeout(() => {
+//             notificationMessage.style.display = 'none';
+//         }, 2000);
+//         return;
+//     }
 
-    // Email validation
-    if (!email.includes('@') || !email.includes('.')) {
-        notificationMessage.style.backgroundColor = '#E91919';
-        notificationMessage.textContent = 'Please enter a valid email address';
-        notificationMessage.style.display = 'flex';
-        setTimeout(() => {
-            notificationMessage.style.display = 'none';
-        }, 2000);
-        return;
-    }
+//     // Email validation
+//     if (!email.includes('@') || !email.includes('.')) {
+//         notificationMessage.style.backgroundColor = '#E91919';
+//         notificationMessage.textContent = 'Please enter a valid email address';
+//         notificationMessage.style.display = 'flex';
+//         setTimeout(() => {
+//             notificationMessage.style.display = 'none';
+//         }, 2000);
+//         return;
+//     }
 
-    // First name validation (at least 1 character, letters only)
-    const nameRegex = /^[a-zA-Z]+$/;
-    if (!nameRegex.test(firstName)) {
-        notificationMessage.style.backgroundColor = '#E91919';
-        notificationMessage.textContent = 'Please enter a valid first name (letters only)';
-        notificationMessage.style.display = 'flex';
-        setTimeout(() => {
-            notificationMessage.style.display = 'none';
-        }, 2000);
-        return;
-    }
+//     // First name validation (at least 1 character, letters only)
+//     const nameRegex = /^[a-zA-Z]+$/;
+//     if (!nameRegex.test(firstName)) {
+//         notificationMessage.style.backgroundColor = '#E91919';
+//         notificationMessage.textContent = 'Please enter a valid first name (letters only)';
+//         notificationMessage.style.display = 'flex';
+//         setTimeout(() => {
+//             notificationMessage.style.display = 'none';
+//         }, 2000);
+//         return;
+//     }
 
-    // Last name validation (at least 1 character, letters only)
-    if (!nameRegex.test(lastName)) {
-        notificationMessage.style.backgroundColor = '#E91919';
-        notificationMessage.textContent = 'Please enter a valid last name (letters only)';
-        notificationMessage.style.display = 'flex';
-        setTimeout(() => {
-            notificationMessage.style.display = 'none';
-        }, 2000);
-        return;
-    }
+//     // Last name validation (at least 1 character, letters only)
+//     if (!nameRegex.test(lastName)) {
+//         notificationMessage.style.backgroundColor = '#E91919';
+//         notificationMessage.textContent = 'Please enter a valid last name (letters only)';
+//         notificationMessage.style.display = 'flex';
+//         setTimeout(() => {
+//             notificationMessage.style.display = 'none';
+//         }, 2000);
+//         return;
+//     }
 
-    // Phone number validation (basic: digits, spaces, dashes, parentheses, 10-15 characters)
-    const phoneRegex = /^[\d\s\-\(\)]{10,15}$/;
-    if (!phoneRegex.test(phoneNumber)) {
-        notificationMessage.style.backgroundColor = '#E91919';
-        notificationMessage.textContent = 'Please enter a valid phone number';
-        notificationMessage.style.display = 'flex';
-        setTimeout(() => {
-            notificationMessage.style.display = 'none';
-        }, 2000);
-        return;
-    }
+//     // Phone number validation (basic: digits, spaces, dashes, parentheses, 10-15 characters)
+//     const phoneRegex = /^[\d\s\-\(\)]{10,15}$/;
+//     if (!phoneRegex.test(phoneNumber)) {
+//         notificationMessage.style.backgroundColor = '#E91919';
+//         notificationMessage.textContent = 'Please enter a valid phone number';
+//         notificationMessage.style.display = 'flex';
+//         setTimeout(() => {
+//             notificationMessage.style.display = 'none';
+//         }, 2000);
+//         return;
+//     }
 
-    // Password strength validation
-    if (password.length < 8) {
-        notificationMessage.style.backgroundColor = '#E91919';
-        notificationMessage.textContent = 'Password must be at least 8 characters long';
-        notificationMessage.style.display = 'flex';
-        setTimeout(() => {
-            notificationMessage.style.display = 'none';
-        }, 2000);
-        return;
-    }
+//     // Password strength validation
+//     if (password.length < 8) {
+//         notificationMessage.style.backgroundColor = '#E91919';
+//         notificationMessage.textContent = 'Password must be at least 8 characters long';
+//         notificationMessage.style.display = 'flex';
+//         setTimeout(() => {
+//             notificationMessage.style.display = 'none';
+//         }, 2000);
+//         return;
+//     }
 
-    // Check for at least one uppercase, one lowercase, one number
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/;
-    if (!passwordRegex.test(password)) {
-        notificationMessage.style.backgroundColor = '#E91919';
-        notificationMessage.textContent = 'Password must contain at least one uppercase letter, one lowercase letter, and one number';
-        notificationMessage.style.display = 'flex';
-        setTimeout(() => {
-            notificationMessage.style.display = 'none';
-        }, 2000);
-        return;
-    }
+//     // Check for at least one uppercase, one lowercase, one number
+//     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/;
+//     if (!passwordRegex.test(password)) {
+//         notificationMessage.style.backgroundColor = '#E91919';
+//         notificationMessage.textContent = 'Password must contain at least one uppercase letter, one lowercase letter, and one number';
+//         notificationMessage.style.display = 'flex';
+//         setTimeout(() => {
+//             notificationMessage.style.display = 'none';
+//         }, 2000);
+//         return;
+//     }
 
-    // Confirm password
-    if (password !== confirmPassword) {
-        notificationMessage.style.backgroundColor = '#E91919';
-        notificationMessage.textContent = 'Passwords do not match';
-        notificationMessage.style.display = 'flex';
-        setTimeout(() => {
-            notificationMessage.style.display = 'none';
-        }, 2000);
-        return;
-    }
+//     // Confirm password
+//     if (password !== confirmPassword) {
+//         notificationMessage.style.backgroundColor = '#E91919';
+//         notificationMessage.textContent = 'Passwords do not match';
+//         notificationMessage.style.display = 'flex';
+//         setTimeout(() => {
+//             notificationMessage.style.display = 'none';
+//         }, 2000);
+//         return;
+//     }
 
-    // Show loader
-    theLoaderContainer.style.display = 'flex';
+//     // Show loader
+//     theLoaderContainer.style.display = 'flex';
 
-    try {
-        // Send data to backend for registration
-        const response = await fetch('https://safe-anchor-backend.onrender.com/api/auth/register', {
-            method: 'POST',
-            headers: {
-                 'accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                email: email,
-                firstName: firstName,
-                lastName: lastName,
-                password: password,
-                confirmPassword: confirmPassword,
-                phone: phoneNumber,
-                userType: "victim"
-            })
-        });
-
-
-        const data = await response.json();
+//     try {
+//         // Send data to backend for registration
+//         const response = await fetch('https://safe-anchor-backend.onrender.com/api/auth/register', {
+//             method: 'POST',
+//             headers: {
+//                  'accept': 'application/json',
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify({
+//                 email: email,
+//                 firstName: firstName,
+//                 lastName: lastName,
+//                 password: password,
+//                 confirmPassword: confirmPassword,
+//                 phone: phoneNumber,
+//                 userType: "victim"
+//             })
+//         });
 
 
-            registeredEmail = email; // Store email for resending
-            localStorage.setItem('email', email); // Store email in localStorage
-            setTimeout(() => {
-                theLoaderContainer.style.display = 'none';
-                notificationMessage.style.display = 'flex';
-                notificationMessage.style.backgroundColor = '#21B24D';
-                notificationMessage.textContent = 'Registration successful! Please check your email for verification.';
-            }, 1000);
+//         const data = await response.json();
 
-            setTimeout(() => {
-                notificationMessage.style.display = 'none';
-                // Reset fields
-                signUpEmail.value = '';
-                signUpFirstname.value = '';
-                signUpLastname.value = '';
-                signUpPhone.value = '';
-                signUpPassword.value = '';
-                signUpConfirmPassword.value = '';
-                // Show email verification section
-                showSection(sections.notification);
-            }, 3000);
+
+//             registeredEmail = email; // Store email for resending
+//             localStorage.setItem('email', email); // Store email in localStorage
+//             setTimeout(() => {
+//                 theLoaderContainer.style.display = 'none';
+//                 notificationMessage.style.display = 'flex';
+//                 notificationMessage.style.backgroundColor = '#21B24D';
+//                 notificationMessage.textContent = 'Registration successful! Please check your email for verification.';
+//             }, 1000);
+
+//             setTimeout(() => {
+//                 notificationMessage.style.display = 'none';
+//                 // Reset fields
+//                 signUpEmail.value = '';
+//                 signUpFirstname.value = '';
+//                 signUpLastname.value = '';
+//                 signUpPhone.value = '';
+//                 signUpPassword.value = '';
+//                 signUpConfirmPassword.value = '';
+//                 // Show email verification section
+//                 showSection(sections.notification);
+//             }, 3000);
         
 
-        console.log('Registration Success:', data);
-    } catch (error) {
-        setTimeout(() => {
-            theLoaderContainer.style.display = 'none';
-            notificationMessage.style.display = 'flex';
-            notificationMessage.style.backgroundColor = '#E91919';
-            notificationMessage.textContent = 'Registration failed: ' + error.message;
-        }, 1000);
+//         console.log('Registration Success:', data);
+//     } catch (error) {
+//         setTimeout(() => {
+//             theLoaderContainer.style.display = 'none';
+//             notificationMessage.style.display = 'flex';
+//             notificationMessage.style.backgroundColor = '#E91919';
+//             notificationMessage.textContent = 'Registration failed: ' + error.message;
+//         }, 1000);
 
-        setTimeout(() => {
-            notificationMessage.style.display = 'none';
-        }, 2000);
+//         setTimeout(() => {
+//             notificationMessage.style.display = 'none';
+//         }, 2000);
 
-        console.log('Registration Error:', error);
-    }
-})
+//         console.log('Registration Error:', error);
+//     }
+// })
 
+document.getElementById('signup-email-submit-btn').addEventListener("click", function (e) {
+e.preventDefault();
+    showSection(sections.notification);
+ })
 
 // Verification form submit handler
 
-document.getElementById('verification-form').addEventListener('submit', async function (e) {
-    e.preventDefault();
-    const code = document.getElementById('verification-code').value.trim();
-    if (code.length !== 6) {
-        document.getElementById('verification-error').textContent = 'Please enter a valid 6-digit code.';
-        document.getElementById('verification-error').style.display = 'block';
-        return;
-    }
-    // Hide error
-    document.getElementById('verification-error').style.display = 'none';
-    // Show loader
-    theLoaderContainer.style.display = 'flex';
-    try {
-        const response = await fetch('https://safe-anchor-backend.onrender.com/api/auth/verify-email', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                otp: code
-            })
-        });
-        const data = await response.json();
-        setTimeout(() => {
-            theLoaderContainer.style.display = 'none';
-            if (response.ok) {
-                notificationMessage.style.display = 'flex';
-                notificationMessage.style.backgroundColor = '#21B24D';
-                notificationMessage.textContent = 'Verification successful!';
-                setTimeout(() => {
-                    notificationMessage.style.display = 'none';
-                    showSection(sections.third); // Show the next section
-                }, 2000);
-            } else {
-                document.getElementById('verification-error').textContent = data.message || 'Verification failed.';
-                document.getElementById('verification-error').style.display = 'block';
-            }
-        }, 2000);
-    } catch (error) {
-        setTimeout(() => {
-            theLoaderContainer.style.display = 'none';
-            document.getElementById('verification-error').textContent = 'Error: ' + error.message;
-            document.getElementById('verification-error').style.display = 'block';
-        }, 1000);
-    }
-});
+// document.getElementById('verification-form').addEventListener('submit', async function (e) {
+//     e.preventDefault();
+//     const code = document.getElementById('verification-code').value.trim();
+//     if (code.length !== 6) {
+//         document.getElementById('verification-error').textContent = 'Please enter a valid 6-digit code.';
+//         document.getElementById('verification-error').style.display = 'block';
+//         return;
+//     }
+//     // Hide error
+//     document.getElementById('verification-error').style.display = 'none';
+//     // Show loader
+//     theLoaderContainer.style.display = 'flex';
+//     try {
+//         const response = await fetch('https://safe-anchor-backend.onrender.com/api/auth/verify-email', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify({
+//                 otp: code
+//             })
+//         });
+//         const data = await response.json();
+//         setTimeout(() => {
+//             theLoaderContainer.style.display = 'none';
+//             if (response.ok) {
+//                 notificationMessage.style.display = 'flex';
+//                 notificationMessage.style.backgroundColor = '#21B24D';
+//                 notificationMessage.textContent = 'Verification successful!';
+//                 setTimeout(() => {
+//                     notificationMessage.style.display = 'none';
+//                     showSection(sections.third); // Show the next section
+//                 }, 2000);
+//             } else {
+//                 document.getElementById('verification-error').textContent = data.message || 'Verification failed.';
+//                 document.getElementById('verification-error').style.display = 'block';
+//             }
+//         }, 2000);
+//     } catch (error) {
+//         setTimeout(() => {
+//             theLoaderContainer.style.display = 'none';
+//             document.getElementById('verification-error').textContent = 'Error: ' + error.message;
+//             document.getElementById('verification-error').style.display = 'block';
+//         }, 1000);
+//     }
+// });
+
+// document.getElementById('signup-email-submit-btn').addEventListener("click", async function (e) {
+//     showSection(sections.third); 
+// })
+ 
+document.getElementById('verification-form').addEventListener("click",  function () {
+    showSection(sections.third); 
+ })
 
 // Testing Verification form submit handler
 
