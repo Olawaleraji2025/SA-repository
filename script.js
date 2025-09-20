@@ -97,3 +97,11 @@ window.addEventListener('click', (event) => {
         signInModal.style.display = 'none';
     }
 });
+
+document.querySelector('.exit-btn').addEventListener('click', function () {
+    // Navigate to a blank page first, then close
+    window.location.href = 'about:blank';
+    setTimeout(() => {
+        window.close();
+    }, 100);
+})

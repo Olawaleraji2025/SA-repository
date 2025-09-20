@@ -331,16 +331,16 @@ color: #0B1A43;
 
 .about-btn:hover{
     background-color: transparent;
-    border: 1px solid #3ACEFF;
-    color: #3ACEFF;
-    padding: 8px;
+    border: 1px solid #0B1A43;
+    color: #0B1A43;
+    /* padding: 8px; */
     outline: none;
     /* border: none; */
     font-size: 16px;
     border-radius: 10px;
-    font-weight: 500;
+    /* font-weight: 500;
     margin-top: 40px;
-    transition: ease-in 0.5s;
+    transition: ease-in 0.5s; */
     cursor: pointer;
 }
 

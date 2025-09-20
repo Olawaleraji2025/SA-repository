@@ -496,7 +496,9 @@ const appointmentInformation = document.querySelector('.appointment-information'
          modal2ProfileP.innerHTML = `Chat Session with<span>${selectedExpert}</span>`;
      }
      document.querySelector('.modal2-DateTime-detail-1 span').textContent = formattedDate;
+     document.querySelector('.appointment-DateTime-details span').textContent = formattedDate;
      document.querySelector('.modal2-DateTime-detail-2 span').textContent = timeInput;
+     document.querySelector('.appointment-DateTime-detail-2 span').textContent = timeInput;
       document.getElementById('selectedExpert').textContent = `${selectedExpert}`;
  });
  
@@ -552,6 +554,7 @@ const appointmentInformation = document.querySelector('.appointment-information'
 modalBtn2.addEventListener('click', async function (e) {
      appointmentInformation.style.display = 'block';
      modal2.style.display = 'none';
+     btn.style.display = 'none';
  })
  
  span.forEach(closeBtn => {
@@ -687,6 +690,7 @@ cancelBtn.addEventListener('click', async function () {
     
     //   modalContent.style.display = 'none';
     appointmentInformation.style.display = 'none';
+    btn.style.display = 'block';
     
     // if (('Are you sure you want to cancel this session?')) {
     //     try {
