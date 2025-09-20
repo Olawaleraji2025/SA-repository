@@ -97,6 +97,10 @@ body{
     border-radius: 50%;
 }
 
+.fa-regular{
+    color: #0B1A43;
+}
+
 .fa-solid{
     color: red;
 }
@@ -226,6 +230,11 @@ body{
 
 .hero-expert-service img{
     width: 240px;
+}
+
+.header-logo{
+    width: 150px;
+    cursor: pointer;
 }
 
 /* Experts Page Styles Start */
@@ -533,6 +542,11 @@ font-weight: 600;
         margin-left: auto;
 }
 
+.notification-container span:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .notification-contents, .upcoming-session-contents{
     margin: 10px auto;
     display: grid;
@@ -654,6 +668,11 @@ font-weight: 600;
 .upcoming-session-texts span{
     font-size: 13px;
     color: #3ACEFF;
+}
+
+.upcoming-session-texts span:hover{
+     text-decoration: underline;
+    cursor: pointer;
 }
 
 .each-message-info{

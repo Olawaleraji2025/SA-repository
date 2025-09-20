@@ -69,10 +69,10 @@ a{
 
 .sign-in-btn:hover{
     border-radius: 10px;
-    color:white;
     font-size: 14px;
-    /* border: 1px solid #3ACEFF; */
-    background-color:#3ACEFF ;
+    color: #0B1A43;
+    border: 1px solid #0B1A43;
+    background-color: transparent;
     font-weight: 500;
     padding: 6px;
     margin-right: 10px;
@@ -93,13 +93,9 @@ a{
 }
 
 .Talk-btn:hover{
-    /* background-color: transparent;
-    border: 1px solid #0B1A43; */
-    color: #fff;
-    /* font-size: 14px;
-    padding: 8px;
-    border-radius: 10px;
-    cursor: pointer; */
+    color: #0B1A43;
+    border: 1px solid #0B1A43;
+    background-color: transparent;
 }
 
 .nav-header-img{
@@ -203,9 +199,9 @@ a{
 .user-signup:hover{
     font-weight: 500;
     font-size: 14px;
-    background-color: #3ACEFF;
-    color: white;
-    /* border: 1px solid #0B1A43; */
+    color: #0B1A43;
+    border: 1px solid #0B1A43;
+    background-color: transparent;
     border-radius: 10px;
     padding: 10px;
     cursor: pointer;
@@ -329,21 +325,6 @@ a{
 color: #0B1A43;
 }
 
-.about-btn:hover{
-    background-color: transparent;
-    border: 1px solid #0B1A43;
-    color: #0B1A43;
-    /* padding: 8px; */
-    outline: none;
-    /* border: none; */
-    font-size: 16px;
-    border-radius: 10px;
-    /* font-weight: 500;
-    margin-top: 40px;
-    transition: ease-in 0.5s; */
-    cursor: pointer;
-}
-
 .about-us-text h5{
     font-size: 40px;
     font-weight: 500;
@@ -403,6 +384,14 @@ color: #0B1A43;
         cursor: pointer;
 }
 
+.fa-regular{
+    color: #0B1A43;
+}
+
+.fa-solid{
+    color: red;
+}
+
  .expert-card-container{
     display: flex;
     justify-content: center;
@@ -438,12 +427,12 @@ font-weight: 400;
 
 .expert-btn:hover{
     color: #0B1A43;
+    border: 1px solid #0B1A43;
+    background-color: transparent;
      border-radius: 10px;
      outline: none;
-     border: 1px solid #3ACEFF;
      padding: 10px;
      font-size: 14px;
-     background-color:#3ACEFF ;
      width: 180px;
      cursor: pointer;
  }
@@ -692,7 +681,7 @@ height: auto;
     color: #0B1A43;
 }
 
-.journey-btn:hover{
+/* .journey-btn:hover{
     background-color: transparent;
     border: 1px solid #3ACEFF;
     color: #3ACEFF;
@@ -702,7 +691,7 @@ height: auto;
     border-radius: 10px;
     font-weight: 500;
     cursor: pointer;
-}
+} */
 
 
 .journey-image{

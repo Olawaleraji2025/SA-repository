@@ -54,7 +54,7 @@ let monthNames = [
 let dayHeaders = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 // Displaying the current Month and Year
-theCurrentMonth.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+theCurrentMonth.textContent = `${monthNames[currentMonth]} ${currentYear}`; 
 theCurrentMonth.style.color = "#0B1A43";
 
 function showCalendar() {
@@ -326,6 +326,22 @@ function handleNavigation(navItem) {
         console.log('Showing messagesArea and messageSideBar');
     }
 }
+
+// SafeAnchor logo functionality
+document.querySelector('.header-logo').addEventListener('click', function () {
+     mainSection.style.gridTemplateColumns = '1fr 3fr 1fr';
+        contentArea.classList.add('active');
+    rightSidebar.classList.add('active');
+     notificationArea.classList.remove('active');
+    messagesArea.classList.remove('active');
+    messageSideBar.classList.remove('active');
+    resourcesArea.classList.remove('active');
+    resourcesAreaContents.classList.remove('active');
+    bookSectionArea.classList.remove('active');
+    articleArea.classList.remove('active');
+    settingsArea.classList.remove('active');
+    helpArea.classList.remove('active');
+})
 
 // Add click event listeners to nav items
 navItems.forEach(item => {
@@ -1049,4 +1065,10 @@ chatHeader2.addEventListener("click", MsgCalls);
 
 
 
-// To get the user data based on prefrences
+// Exit functionality
+
+document.querySelector('.exit-container').addEventListener('click', function () {
+    //  window.open('https://www.google.com', '_self').close('userHero.html');
+
+    window.close();
+})

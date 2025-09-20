@@ -102,3 +102,17 @@ document.querySelector('.exit-btn').addEventListener('click', function () {
     window.open('', '_self').close();
 
 })
+
+const heartIcons = document.querySelectorAll('.fa-heart');
+
+heartIcons.forEach(icon => {
+    icon.addEventListener('click', function() {
+        if (icon.classList.contains('fa-regular')) {
+            icon.classList.remove('fa-regular');
+            icon.classList.add('fa-solid');
+        } else {
+            icon.classList.add('fa-regular');
+            icon.classList.remove('fa-solid');
+        }
+    });
+});
