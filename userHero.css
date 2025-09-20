@@ -2744,9 +2744,9 @@ tbody td:last-child{
         padding: unset;
     }
 
-    /* .booking-date, .booking-time{
+     .booking-date, .booking-time{
         width: 100px;
-    } */
+    } 
 
     .DateTime-detail-1{
     margin: 5px 0;

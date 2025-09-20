@@ -466,13 +466,21 @@ const appointmentInformation = document.querySelector('.appointment-information'
 //  For booking session form
  modalBtn1.addEventListener('click', function(e) {
      e.preventDefault();
-     modal1.style.display = 'none';
-     modal2.style.display = 'block';
+     
 
      // Update modal2 with selected values
      const selectedExpert = expertSelect.options[expertSelect.selectedIndex].text.split(' - ')[0];
      const dateInput = document.getElementById('bookingDate').value;
      const timeInput = document.getElementById('bookingTime').value;
+
+     // if Empty 
+     if (dateInput === '' || timeInput === '') {
+         alert('Please select a Date and time');
+         return;
+     } 
+
+     modal1.style.display = 'none';
+     modal2.style.display = 'block';
 
      // Format date to "Mon 05/12" format
      const dateObj = new Date(dateInput);
@@ -493,53 +501,58 @@ const appointmentInformation = document.querySelector('.appointment-information'
  });
  
 //  For sending the booking session details to the backend
- modalBtn2.addEventListener('click', async function(e) {
-     e.preventDefault();
+//  modalBtn2.addEventListener('click', async function(e) {
+//      e.preventDefault();
 
-     const selectedExpert = expertSelect.value;
-     const reason = document.getElementById('reason-text').value;
-    //  const questions = document.getElementById('question-text').value;
-     const dateInput = document.getElementById('bookingDate').value;
-     const timeInput = document.getElementById('bookingTime').value;
-     const scheduledAt = new Date(`${dateInput}T${timeInput}`).toISOString();
-     const data = {
-  expertId: selectedExpert,
-  scheduledAt: scheduledAt,
-  notes: reason,
-  duration: "30 minute"
-     }
-     console.log(data);
+//      const selectedExpert = expertSelect.value;
+//      const reason = document.getElementById('reason-text').value;
+//     //  const questions = document.getElementById('question-text').value;
+//      const dateInput = document.getElementById('bookingDate').value;
+//      const timeInput = document.getElementById('bookingTime').value;
+//      const scheduledAt = new Date(`${dateInput}T${timeInput}`).toISOString();
+//      const data = {
+//   expertId: selectedExpert,
+//   scheduledAt: scheduledAt,
+//   notes: reason,
+//   duration: "30 minute"
+//      }
+//      console.log(data);
 
-     try {
-         const token = localStorage.getItem('authToken');
-         const response = await fetch('https://safe-anchor-backend.onrender.com/api/sessions/book', {
-             method: 'POST',
-             headers: {
-                'Authorization': 'Bearer ' + token,
-                 'Content-Type': 'application/json'
-             },
-             body: JSON.stringify(data)
-         });
-         const result = await response.json();
-         console.log(result);
+//      try {
+//          const token = localStorage.getItem('authToken');
+//          const response = await fetch('https://safe-anchor-backend.onrender.com/api/sessions/book', {
+//              method: 'POST',
+//              headers: {
+//                 'Authorization': 'Bearer ' + token,
+//                  'Content-Type': 'application/json'
+//              },
+//              body: JSON.stringify(data)
+//          });
+//          const result = await response.json();
+//          console.log(result);
 
-         if (response.ok) {
-             alert('Booking confirmed successfully!');
-             modal1.style.display = 'none';
-             modal2.style.display = 'none';
-             btn.style.display = 'none';
-             appointmentInformation.style.display = 'block';
-         } else {
-             alert('Failed to confirm booking. Please try again.');
-         }
-     } catch (error) {
-         console.error('Error confirming booking:', error);
-         alert('An error occurred while confirming the booking.');
-     }
+//          if (response.ok) {
+//              alert('Booking confirmed successfully!');
+//              modal1.style.display = 'none';
+//              modal2.style.display = 'none';
+//              btn.style.display = 'none';
+//              appointmentInformation.style.display = 'block';
+//          } else {
+//              alert('Failed to confirm booking. Please try again.');
+//          }
+//      } catch (error) {
+//          console.error('Error confirming booking:', error);
+//          alert('An error occurred while confirming the booking.');
+//      }
 
     
 
- });
+//  });
+
+modalBtn2.addEventListener('click', async function (e) {
+     appointmentInformation.style.display = 'block';
+     modal2.style.display = 'none';
+ })
  
  span.forEach(closeBtn => {
      closeBtn.addEventListener('click', function() {
@@ -643,58 +656,65 @@ toggleSwitch.addEventListener('change', function() {
 const rescheduleBtn = document.querySelector('.reschedule-btn');
 const cancelBtn = document.querySelector('.cancel-Btn');
 
-rescheduleBtn.addEventListener('click', async function() {
-    try {
-        const response = await fetch('/api/reschedule-session', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                // Add necessary data like session ID, new date/time, etc.
-                sessionId: 'current-session-id', // Replace with actual session ID
-                newDate: '2023-12-05', // Example, replace with user input
-                newTime: '10:00'
-            })
-        });
-        if (response.ok) {
-            const result = await response.json();
-            alert('Session rescheduled successfully!');
-            // Update UI accordingly
-        } else {
-            alert('Failed to reschedule session.');
-        }
-    } catch (error) {
-        console.error('Error rescheduling session:', error);
-        alert('An error occurred while rescheduling.');
-    }
+rescheduleBtn.addEventListener('click', async function () {
+    modal1.style.display = 'block';
+    // try {
+    //     const response = await fetch('https://safe-anchor-backend.onrender.com/api/sessions/{id}', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify({
+    //             // Add necessary data like session ID, new date/time, etc.
+    //             sessionId: 'current-session-id', // Replace with actual session ID
+    //             newDate: '2023-12-05', // Example, replace with user input
+    //             newTime: '10:00'
+    //         })
+    //     });
+    //     if (response.ok) {
+    //         const result = await response.json();
+            
+    //     } else {
+    //         alert('Failed to reschedule session.');
+    //     }
+    // } catch (error) {
+    //     console.error('Error rescheduling session:', error);
+    //     alert('An error occurred while rescheduling.');
+    // }
 });
 
-cancelBtn.addEventListener('click', async function() {
-    if (confirm('Are you sure you want to cancel this session?')) {
-        try {
-            const response = await fetch('/api/cancel-session', {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    sessionId: 'current-session-id' // Replace with actual session ID
-                })
-            });
-            if (response.ok) {
-                const result = await response.json();
-                alert('Session cancelled successfully!');
-                // Update UI, e.g., hide appointment information
-                document.querySelector('.appointment-information').style.display = 'none';
-            } else {
-                alert('Failed to cancel session.');
-            }
-        } catch (error) {
-            console.error('Error cancelling session:', error);
-            alert('An error occurred while cancelling.');
-        }
-    }
+cancelBtn.addEventListener('click', async function () {
+    
+    //   modalContent.style.display = 'none';
+    appointmentInformation.style.display = 'none';
+    
+    // if (('Are you sure you want to cancel this session?')) {
+    //     try {
+    //         const response = await fetch('https://safe-anchor-backend.onrender.com/api/sessions/{id}', {
+    //             method: 'DELETE',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //             },
+    //             body: JSON.stringify({
+    //                 sessionId: 'current-session-id' 
+    //             })
+    //         });
+    //         if (response.ok) {
+    //             const result = await response.json();
+    //             console.log(result);
+    //             alert('Session cancelled successfully!');
+
+    //             // Update UI, e.g., hide appointment information
+    //             modalContent.style.display = 'none';
+    //             appointmentInformation.style.display = 'none';
+    //         } else {
+    //             alert('Failed to cancel session.');
+    //         }
+    //     } catch (error) {
+    //         console.error('Error cancelling session:', error);
+    //         alert('An error occurred while cancelling.');
+    //     }
+    // }
 });
 
 // Toggle switch functionality ends here
