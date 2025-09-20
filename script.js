@@ -99,9 +99,6 @@ window.addEventListener('click', (event) => {
 });
 
 document.querySelector('.exit-btn').addEventListener('click', function () {
-    // Navigate to a blank page first, then close
-    window.location.href = 'about:blank';
-    setTimeout(() => {
-        window.close();
-    }, 100);
+    window.open('', '_self').close();
+
 })
