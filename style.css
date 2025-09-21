@@ -390,6 +390,11 @@ color: #0B1A43;
     cursor: pointer;
 }
 
+/* Heart active state - red color when clicked */
+.heart-active {
+    color: #E91919 !important;
+}
+
 /* Menu icons - bars and X icons */
 .fa-solid.fa-bars, .fa-solid.fa-x{
     color: #0B1A43;

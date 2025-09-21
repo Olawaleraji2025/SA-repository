@@ -110,9 +110,11 @@ heartIcons.forEach(icon => {
         if (icon.classList.contains('fa-regular')) {
             icon.classList.remove('fa-regular');
             icon.classList.add('fa-solid');
+            icon.classList.add('heart-active'); // Add red color class
         } else {
             icon.classList.add('fa-regular');
             icon.classList.remove('fa-solid');
+            icon.classList.remove('heart-active'); // Remove red color class
         }
     });
 });

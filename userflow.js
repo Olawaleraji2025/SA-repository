@@ -861,7 +861,8 @@ e.preventDefault();
 //     showSection(sections.third); 
 // })
  
-document.getElementById('verification-form').addEventListener("click",  function () {
+document.getElementById('verification-form').addEventListener("click", function (e) {
+    e.preventDefault();
     showSection(sections.third); 
  })
 
