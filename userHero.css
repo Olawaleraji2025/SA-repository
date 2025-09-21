@@ -272,6 +272,18 @@ body{
     height: 120px;
 }
 
+.user-experts2{
+        width: 210px;
+    border-radius: 10px;
+    padding: 1rem;
+    background: white;
+}
+
+.user-experts2 img{
+width: 150px;
+height: 120px;
+}
+
 .expert-icon{
     display: flex;
         align-items: center;
@@ -774,6 +786,7 @@ font-weight: 600;
     color: #777777;
     font-weight: 600;
     font-size: 17px;
+    cursor: pointer;
 }
 
 .user-chat-text p{

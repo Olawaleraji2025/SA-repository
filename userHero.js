@@ -1,43 +1,43 @@
-// document.addEventListener('DOMContentLoaded', async function() {
-//     const token = localStorage.getItem('authToken');
-//     const storedEmail = localStorage.getItem('email');
+ document.addEventListener('DOMContentLoaded', async function() {
+    const token = localStorage.getItem('authToken');
+    const storedEmail = localStorage.getItem('email');
 
-//     if (!token) {
-//         // No token found, redirect to Sign In page
-//         window.location.href = 'userFlow.html';
-//         return;
-//     }
+    if (!token) {
+        // No token found, redirect to Sign In page
+        window.location.href = 'userFlow.html';
+        return;
+    }
 
-//     try {
-//         const response = await fetch('https://safe-anchor-backend.onrender.com/api/victims/profile', {
-//             method: 'GET',
-//             headers: {
-//                 'Authorization': 'Bearer ' + token,
-//                 'Content-Type': 'application/json'
-//             }
-//         });
+    try {
+        const response = await fetch('https://safe-anchor-backend.onrender.com/api/victims/profile', {
+            method: 'GET',
+            headers: {
+                'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json'
+            }
+        });
 
-//         if (response.ok) {
-//             const profile = await response.json();
+        if (response.ok) {
+            const profile = await response.json();
 
-//             // Display user profile information on the page
-//             // Assuming there is an element with id 'profile-info' to show the data
-//             const profileInfo = document.querySelector('.victimName');
-//             if (profileInfo) {
-//                 profileInfo.textContent = ` ${storedEmail}
-//                 `;
-//             }
-//         } else {
-//             // Token invalid or request failed, redirect to Sign In page
-//             localStorage.removeItem('authToken');
-//             window.location.href = 'userFlow.html';
-//         }
-//     } catch (error) {
-//         console.error('Error fetching profile:', error);
-//         localStorage.removeItem('authToken');
-//         window.location.href = 'userFlow.html';
-//     }
-// });
+            // Display user profile information on the page
+            // Assuming there is an element with id 'profile-info' to show the data
+            const profileInfo = document.querySelector('.victimName');
+            if (profileInfo) {
+                profileInfo.textContent = ` ${storedEmail}
+                `;
+            }
+        } else {
+            // Token invalid or request failed, redirect to Sign In page
+            localStorage.removeItem('authToken');
+            window.location.href = 'userFlow.html';
+        }
+    } catch (error) {
+        console.error('Error fetching profile:', error);
+        localStorage.removeItem('authToken');
+        window.location.href = 'userFlow.html';
+    }
+});
 
 let theCurrentMonth = document.querySelector("#currentMonth");
 let thedaysWeek = document.querySelector("#daysWeek");
@@ -528,11 +528,12 @@ const appointmentInformation = document.querySelector('.appointment-information'
 //      const dateInput = document.getElementById('bookingDate').value;
 //      const timeInput = document.getElementById('bookingTime').value;
 //      const scheduledAt = new Date(`${dateInput}T${timeInput}`).toISOString();
+//      const durationTime = 0;
 //      const data = {
 //   expertId: selectedExpert,
 //   scheduledAt: scheduledAt,
 //   notes: reason,
-//   duration: "30 minute"
+//   duration: durationTime,
 //      }
 //      console.log(data);
 
@@ -708,33 +709,33 @@ cancelBtn.addEventListener('click', async function () {
     appointmentInformation.style.display = 'none';
     btn.style.display = 'block';
     
-    // if (('Are you sure you want to cancel this session?')) {
-    //     try {
-    //         const response = await fetch('https://safe-anchor-backend.onrender.com/api/sessions/{id}', {
-    //             method: 'DELETE',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify({
-    //                 sessionId: 'current-session-id' 
-    //             })
-    //         });
-    //         if (response.ok) {
-    //             const result = await response.json();
-    //             console.log(result);
-    //             alert('Session cancelled successfully!');
+   
+        // try {
+        //     const response = await fetch('https://safe-anchor-backend.onrender.com/api/sessions/{id}', {
+        //         method: 'DELETE',
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //         },
+        //         body: JSON.stringify({
+        //             sessionId: 'current-session-id' 
+        //         })
+        //     });
+        //     if (response.ok) {
+        //         const result = await response.json();
+        //         console.log(result);
+        //         alert('Session cancelled successfully!');
 
-    //             // Update UI, e.g., hide appointment information
-    //             modalContent.style.display = 'none';
-    //             appointmentInformation.style.display = 'none';
-    //         } else {
-    //             alert('Failed to cancel session.');
-    //         }
-    //     } catch (error) {
-    //         console.error('Error cancelling session:', error);
-    //         alert('An error occurred while cancelling.');
-    //     }
-    // }
+        //         // Update UI, e.g., hide appointment information
+        //         modalContent.style.display = 'none';
+        //         appointmentInformation.style.display = 'none';
+        //     } else {
+        //         alert('Failed to cancel session.');
+        //     }
+        // } catch (error) {
+        //     console.error('Error cancelling session:', error);
+        //     alert('An error occurred while cancelling.');
+        // }
+    
 });
 
 // Toggle switch functionality ends here
@@ -1068,7 +1069,6 @@ chatHeader2.addEventListener("click", MsgCalls);
 // Exit functionality
 
 document.querySelector('.exit-container').addEventListener('click', function () {
-    //  window.open('https://www.google.com', '_self').close('userHero.html');
-
-    window.close();
+     window.close();
+    // window.close('userHero.html');
 })

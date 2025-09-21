@@ -384,12 +384,15 @@ color: #0B1A43;
         cursor: pointer;
 }
 
-.fa-regular{
+/* Heart icons in expert cards */
+.expert-icon .fa-regular.fa-heart{
     color: #0B1A43;
+    cursor: pointer;
 }
 
-.fa-solid{
-    color: red;
+/* Menu icons - bars and X icons */
+.fa-solid.fa-bars, .fa-solid.fa-x{
+    color: #0B1A43;
 }
 
  .expert-card-container{

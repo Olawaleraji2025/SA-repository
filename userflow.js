@@ -403,121 +403,124 @@ document.querySelector('.forget-password').addEventListener('click', async funct
 });
 
 // For users with existing login details
-// document.getElementById('signin-submit-btn').addEventListener('click', async function (e) {
-//     e.preventDefault();
-//     const email = emailForSignIn.value;
-//     const password = passwordForSignIn.value;
-//     console.log(email, password);
+document.getElementById('signin-submit-btn').addEventListener('click', async function (e) {
+    e.preventDefault();
+    const email = emailForSignIn.value;
+    const password = passwordForSignIn.value;
+    console.log(email, password);
 
-//     if (email === '' || password === '') {
-//         notificationMessage.style.backgroundColor = '#E91919';
-//         notificationMessage.textContent = 'Please fill in the details';
-//         notificationMessage.style.display = 'flex';
-//         setTimeout(() => {
-//             notificationMessage.style.display = 'none';
-//         }, 2000);
-//         return;
-//     }
-//     if (!email.includes('@') || !email.includes('.')) {
-//         notificationMessage.style.backgroundColor = '#E91919';
-//         notificationMessage.textContent = 'Please enter a valid email address';
-//         notificationMessage.style.display = 'flex';
-//         setTimeout(() => {
-//             notificationMessage.style.display = 'none';
-//         }, 2000);
-//         return;
-//     }
-//     // Password validation (basic: not empty, at least 6 characters)
-//     if (password.length < 6) {
-//         notificationMessage.style.backgroundColor = '#E91919';
-//         notificationMessage.textContent = 'Password must be at least 6 characters long';
-//         notificationMessage.style.display = 'flex';
-//         setTimeout(() => {
-//             notificationMessage.style.display = 'none';
-//         }, 2000);
-//         return;
-//     }
+    if (email === '' || password === '') {
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Please fill in the details';
+        notificationMessage.style.display = 'flex';
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+        return;
+    }
+    if (!email.includes('@') || !email.includes('.')) {
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Please enter a valid email address';
+        notificationMessage.style.display = 'flex';
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+        return;
+    }
+    // Password validation (basic: not empty, at least 6 characters)
+    if (password.length < 6) {
+        notificationMessage.style.backgroundColor = '#E91919';
+        notificationMessage.textContent = 'Password must be at least 6 characters long';
+        notificationMessage.style.display = 'flex';
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
+        return;
+    }
 
-//     // Show loader
-//     theLoaderContainer.style.display = 'flex';
+    // Show loader
+    theLoaderContainer.style.display = 'flex';
     
-//     try {
-//         // Send data to backend using POST
-//         const response = await fetch('https://safe-anchor-backend.onrender.com/api/auth/login', {
-//             method: 'POST',
-//             headers: {
-//             'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify({
-//             email: email,
-//             password: password
-//             })
-//         });
+    try {
+        // Send data to backend using POST
+        const response = await fetch('https://safe-anchor-backend.onrender.com/api/auth/login', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+            email: email,
+            password: password
+            })
+        });
         
 
-//         const data = await response.json();
-//        if (response.ok) {
-//            setTimeout(() => {
-//                theLoaderContainer.style.display = 'none';
-//                notificationMessage.style.display = 'flex';
-//                notificationMessage.style.backgroundColor = '#21B24D';
-//                notificationMessage.textContent = 'Success: Data sent successfully.';
-//            }, 1000);
+        const data = await response.json();
+       if (response.ok) {
+           setTimeout(() => {
+               theLoaderContainer.style.display = 'none';
+               notificationMessage.style.display = 'flex';
+               notificationMessage.style.backgroundColor = '#21B24D';
+               notificationMessage.textContent = 'Success: Data sent successfully.';
+           }, 1000);
    
-//            setTimeout(() => {
-//                notificationMessage.style.display = 'none';
-//                // Store data before resetting fields
-//                localStorage.setItem('authToken', data.token);
-//                localStorage.setItem('email', email);
-//                // Reset fields
-//                emailForSignIn.value = '';
-//                passwordForSignIn.value = '';
+           setTimeout(() => {
+               notificationMessage.style.display = 'none';
+               // Store data before resetting fields
+               localStorage.setItem('authToken', data.token);
+               localStorage.setItem('email', email);
+               // Reset fields
+               emailForSignIn.value = '';
+               passwordForSignIn.value = '';
    
-//                // showSection(sections.purpose);
-//                // Redirect to new HTML file after successful sign in
-//                 window.location.href = 'userHero.html'; // Replace with your target HTML file
-//            }, 2000);
+               // showSection(sections.purpose);
+               // Redirect to new HTML file after successful sign in
+                window.location.href = 'userHero.html'; // Replace with your target HTML file
+           }, 2000);
         
-//        } else {
-//            setTimeout(() => {
-//             theLoaderContainer.style.display = 'none';
-//             theLoaderContainer.style.display = 'none';
-//             notificationMessage.style.display = 'flex';
-//             notificationMessage.style.backgroundColor = '#E91919';
-//             notificationMessage.textContent = 'Error occured';
-//         }, 2000);
+       } else {
+           setTimeout(() => {
+            theLoaderContainer.style.display = 'none';
+            theLoaderContainer.style.display = 'none';
+            notificationMessage.style.display = 'flex';
+            notificationMessage.style.backgroundColor = '#E91919';
+            notificationMessage.textContent = 'Error occured';
+        }, 2000);
 
-//         setTimeout(() => {
-//             notificationMessage.style.display = 'none';
-//         }, 4000);
-//        }
-//        console.log('Success:', data);
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 4000);
+       }
+       console.log('Success:', data);
 
-//         return;
+        return;
         
-//     } catch (error) {
-//         setTimeout(() => {
-//             theLoaderContainer.style.display = 'none';
-//             theLoaderContainer.style.display = 'none';
-//             notificationMessage.style.display = 'flex';
-//             notificationMessage.style.backgroundColor = '#E91919';
-//             notificationMessage.textContent = 'Error: ' + error.message;
-//         }, 1000);
+    } catch (error) {
+        setTimeout(() => {
+            theLoaderContainer.style.display = 'none';
+            theLoaderContainer.style.display = 'none';
+            notificationMessage.style.display = 'flex';
+            notificationMessage.style.backgroundColor = '#E91919';
+            notificationMessage.textContent = 'Error: ' + error.message;
+        }, 1000);
 
-//         setTimeout(() => {
-//             notificationMessage.style.display = 'none';
-//         }, 2000);
+        setTimeout(() => {
+            notificationMessage.style.display = 'none';
+        }, 2000);
 
-//         console.log('Error:', error);
-//         // Handle error, e.g., show error message
-//     }
+        console.log('Error:', error);
+        // Handle error, e.g., show error message
+    }
 
+
+})
+
+// document.getElementById('signin-submit-btn').addEventListener('click', async function (e) { 
+//     // window.location.href = 'userHero.html'; 
+//     // Open userHero.html in a new window/tab
+// window.open("userHero.html", "_self");
 
 // })
-
-document.getElementById('signin-submit-btn').addEventListener('click', async function (e) { 
-window.location.href = 'userHero.html'; 
-})
 
 // For login form in third section
 
